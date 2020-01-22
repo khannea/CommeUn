@@ -29,7 +29,8 @@ class ForumView extends Component {
 
   getDataFromDb = () => {
     // const req = new Request("http://localhost:4000/topics", {
-    const req = new Request("https://testkhannea.herokuapp.com/topics", {
+    // const req = new Request("https://testkhannea.herokuapp.com/topics", {
+    const req = new Request("/api/topics", {
       method: "GET",
       cache: "default",
       credentials: "include"

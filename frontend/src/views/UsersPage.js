@@ -13,7 +13,8 @@ class UsersPage extends Component {
   componentDidMount() {
     //GET message from server using fetch api
     // fetch("http://localhost:4000/auth")
-    fetch("https://testkhannea.herokuapp.com/auth")
+    // fetch("https://testkhannea.herokuapp.com/auth")
+    fetch("/api/auth")
       .then(res => {
         if (res.status === 401) {
           console.log("UserPage n'a pas recu les users");
