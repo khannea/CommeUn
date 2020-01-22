@@ -73,7 +73,8 @@ class TopicView extends Component {
     let { data } = this.state;
     return (
       <div className="topicview">
-        <div className="posts_box mx-auto">
+        <div className="posts_box">
+          {/* <div className="posts_box mx-auto"> */}
           {data &&
             data.map(({ user, texte, date, id, likes, dislikes }, index) => (
               <div key={index}>
