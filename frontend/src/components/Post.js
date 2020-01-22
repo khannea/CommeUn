@@ -118,13 +118,13 @@ class Post extends Component {
                     </Col>
                   </Row>
                 </Col>
-                <Col>
-                  <Hidden smDown implementation="css">
+                <Hidden smDown implementation="css">
+                  <Col>
                     <div className="defaultuser img mx-auto">
                       <img src={DefaultImg} alt="Rien" />
                     </div>
-                  </Hidden>
-                </Col>
+                  </Col>
+                </Hidden>
               </Row>
             </Col>
             <Col className="p-4 border-dark">
