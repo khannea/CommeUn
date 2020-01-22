@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import "./DeletePost.css";
 
 export default class DeletePost extends Component {
-  constructor() {
+  constructor(id) {
     super();
     this.state = {
       texte: "",
