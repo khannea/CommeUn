@@ -130,7 +130,7 @@ class Post extends Component {
             <Col className="p-4 border-dark">
               {newText}
               {this.props.user === localStorage.getItem("pseudo") && (
-                <Col className="p-4 col-7 border-dark delete">
+                <Col className="p-4 border-dark delete">
                   <DeletePost
                     id={this.props.id}
                     refresh={this.props.refresh}
