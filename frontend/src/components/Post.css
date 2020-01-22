@@ -32,4 +32,5 @@
 
 #post_content_wrapper {
   min-height: 80px;
+  min-width: 200px;
 }
