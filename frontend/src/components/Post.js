@@ -87,7 +87,7 @@ class Post extends Component {
             <Col className="border-right col1st  col-auto">
               <Row>
                 <Col id="like_dislike_wrapper" classname="h-100">
-                  <div classname="like_wrapper">
+                  <div className="like_wrapper">
                     <Row>
                       <Col>
                         <Image
@@ -104,7 +104,7 @@ class Post extends Component {
                       </Col>
                     </Row>
                   </div>
-                  <div classname="like_wrapper">
+                  <div className="like_wrapper">
                     <Row>
                       <Col>
                         <Image
