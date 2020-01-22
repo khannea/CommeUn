@@ -24,3 +24,8 @@
 .col1st {
   /* max-width: 250px !important; */
 }
+
+#delete_wrapper {
+  position: relative;
+  bottom: 0;
+}
