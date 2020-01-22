@@ -1,4 +1,5 @@
 .posts_box {
   height: 60vh;
   overflow-y: scroll;
+  min-width: 400px;
 }
