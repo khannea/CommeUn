@@ -86,8 +86,8 @@ class Post extends Component {
           <Row>
             <Col className="border-right col1st  col-auto">
               <Row>
-                <Col classname="h-100">
-                  <Row classname="h-50">
+                <Col classname="h-100 justify-content-center">
+                  <Row classname="h-100">
                     <Col className="like-img">
                       <Image
                         className="banniere"
@@ -102,7 +102,7 @@ class Post extends Component {
                       <b>&nbsp;{this.props.likes}</b>
                     </Col>
                   </Row>
-                  <Row className="align-items-start like h-50">
+                  <Row className="align-items-start like h-100">
                     <Col className="like-img">
                       <Image
                         className="banniere"
