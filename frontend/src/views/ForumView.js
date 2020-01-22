@@ -51,7 +51,8 @@ class ForumView extends Component {
 
   getCookie = () => {
     // const req = new Request("http://localhost:4000/setuser", {
-    const req = new Request("https://testkhannea.herokuapp.com/setuser", {
+    // const req = new Request("https://testkhannea.herokuapp.com/setuser", {
+    const req = new Request("/api/setuser", {
       method: "GET",
       cache: "default",
       credentials: "include"
