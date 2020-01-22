@@ -13,7 +13,8 @@ export default function withAuth(ComponentToProtect) {
 
     componentDidMount() {
       // const req = new Request("http://localhost:4000/checkToken", {
-      const req = new Request("https://testkhannea.herokuapp.com/checkToken", {
+      // const req = new Request("https://testkhannea.herokuapp.com/checkToken", {
+      const req = new Request("/api/checkToken", {
         method: "GET",
         cache: "default",
         credentials: "include"
