@@ -26,6 +26,6 @@
 }
 
 #delete_wrapper {
-  position: relative;
+  position: absolute;
   bottom: 0;
 }
