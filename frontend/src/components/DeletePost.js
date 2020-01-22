@@ -35,6 +35,7 @@ export default class DeletePost extends Component {
   };
 
   loadedit = () => {
+    console.log("DEletePost edit Id: " + this.id);
     this.props.editfunction(this.id);
   };
 
