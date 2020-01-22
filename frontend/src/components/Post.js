@@ -4,7 +4,7 @@ import DefaultImg from "./default-user-avatar.png";
 import DeletePost from "./DeletePost";
 import "./Post.css";
 import Cookies from "universal-cookie";
-
+import Hidden from "@material-ui/core/Hidden";
 const cookies = new Cookies();
 
 class Post extends Component {
@@ -119,9 +119,11 @@ class Post extends Component {
                   </Row>
                 </Col>
                 <Col>
-                  <div className="defaultuser img mx-auto">
-                    <img src={DefaultImg} alt="Rien" />
-                  </div>
+                  <Hidden smDown implementation="css">
+                    <div className="defaultuser img mx-auto">
+                      <img src={DefaultImg} alt="Rien" />
+                    </div>
+                  </Hidden>
                 </Col>
               </Row>
             </Col>
