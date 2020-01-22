@@ -33,3 +33,9 @@
 #post_content_wrapper {
   min-height: 80px;
 }
+
+#like_dislike_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
