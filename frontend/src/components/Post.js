@@ -69,7 +69,7 @@ class Post extends Component {
       success = true;
     }
     return (
-      <Card className="my-4 mx-2">
+      <Card className="m-4">
         <div
           className={
             "card-header border " + (success ? "bg-success" : "bg-secondary")
@@ -86,9 +86,9 @@ class Post extends Component {
           <Row>
             <Col className="border-right col1st  col-auto">
               <Row>
-                <Col classname="h-100 justify-content-center">
-                  <Row classname="h-100">
-                    <Col className="like-img">
+                <Col classname="h-100">
+                  <Row>
+                    <Col>
                       <Image
                         className="banniere"
                         src={require("./like.png")}
@@ -98,12 +98,12 @@ class Post extends Component {
                         onClick={this.onClickLike}
                       />
                     </Col>
-                    <Col className="number_like">
+                    <Col>
                       <b>&nbsp;{this.props.likes}</b>
                     </Col>
                   </Row>
-                  <Row className="align-items-start like h-100">
-                    <Col className="like-img">
+                  <Row>
+                    <Col>
                       <Image
                         className="banniere"
                         src={require("./dislike.png")}
@@ -113,7 +113,7 @@ class Post extends Component {
                         onClick={this.onClickDislike}
                       />
                     </Col>
-                    <Col className="number_like">
+                    <Col>
                       <b>&nbsp;{this.props.dislikes}</b>
                     </Col>
                   </Row>
