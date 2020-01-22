@@ -87,7 +87,7 @@ class Post extends Component {
             <Col className="border-right col1st  col-auto">
               <Row>
                 <Col id="like_dislike_wrapper" classname="h-100">
-                  <div className="like_wrapper">
+                  <Row>
                     <Col>
                       <Image
                         className="banniere"
@@ -101,8 +101,8 @@ class Post extends Component {
                     <Col>
                       <b>&nbsp;{this.props.likes}</b>
                     </Col>
-                  </div>
-                  <div className="like_wrapper">
+                  </Row>
+                  <Row>
                     <Col>
                       <Image
                         className="banniere"
@@ -116,7 +116,7 @@ class Post extends Component {
                     <Col>
                       <b>&nbsp;{this.props.dislikes}</b>
                     </Col>
-                  </div>
+                  </Row>
                 </Col>
                 <Hidden smDown implementation="css">
                   <Col>
