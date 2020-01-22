@@ -12,7 +12,6 @@ export default class AddPost extends Component {
   }
 
   onSubmit = event => {
-    console.log("ROMAIN REACT J ADDPOST");
     event.preventDefault();
     // fetch("http://localhost:4000/addPost", {
     // fetch("https://testkhannea.herokuapp.com/addPost", {

@@ -100,7 +100,6 @@ function convertDate(d) {
 }
 
 router.route("/addPost").post((req, res) => {
-  console.log("ROMAIN ADDPOST");
   let post = new Post(req.body);
   post.user = jwt.decode(req.cookies["token"]).pseudo;
   post.date = convertDate(new Date());
