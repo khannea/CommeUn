@@ -86,7 +86,7 @@ class Post extends Component {
           <Row>
             <Col className="border-right col1st  col-auto">
               <Row>
-                <Col>
+                <Col classname="h-100">
                   <Row>
                     <Col className="like-img">
                       <Image
