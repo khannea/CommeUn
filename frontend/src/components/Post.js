@@ -82,7 +82,7 @@ class Post extends Component {
             <div className="col">{this.props.date}</div>
           </div>
         </div>
-        <Card.Body>
+        <Card.Body id="post_content_wrapper">
           <Row>
             <Col className="border-right col1st  col-auto">
               <Row>
