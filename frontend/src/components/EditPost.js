@@ -28,7 +28,7 @@ export default class EditPost extends Component {
     })
       .then(response => {
         if (response.status === 401) {
-          console.log("Probleme de DeletePost");
+          console.log("Probleme de editPost");
         } else {
           return response.json();
         }

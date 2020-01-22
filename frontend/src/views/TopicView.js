@@ -54,6 +54,7 @@ class TopicView extends Component {
   };
 
   goOnEdit = id => {
+    console.log("ID edit: " + id);
     this.setState({
       edit: true,
       editId: id
