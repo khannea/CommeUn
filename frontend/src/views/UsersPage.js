@@ -19,7 +19,7 @@ class UsersPage extends Component {
         if (res.status === 401) {
           console.log("UserPage n'a pas recu les users");
         } else {
-          console.log("UserPage a bien pas recu les users!!");
+          console.log("UserPage a bien recu les users!!");
           return res.json();
         }
       })
