@@ -84,7 +84,7 @@ class Post extends Component {
         </div>
         <Card.Body>
           <Row>
-            <Col className="border-right col1st">
+            <Col className="border-right col1st  col-auto">
               <Row>
                 <Col>
                   <Row>
