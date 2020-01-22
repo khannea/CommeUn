@@ -45,7 +45,8 @@ export default class EditPost extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    fetch("http://localhost:4000/editpost", {
+    // fetch("http://localhost:4000/editpost", {
+    fetch("/api/editpost", {
       method: "POST",
       body: JSON.stringify({ id: this.id, texte: this.state.texte }),
       credentials: "include",
