@@ -19,7 +19,8 @@ class Login extends Component {
   }
 
   checkToken = () => {
-    const req = new Request("https://testkhannea.herokuapp.com/checkToken", {
+    // const req = new Request("https://testkhannea.herokuapp.com/checkToken", {
+    const req = new Request("/api/checkToken", {
       method: "GET",
       cache: "default",
       credentials: "include"
@@ -52,7 +53,8 @@ class Login extends Component {
 
   register = event => {
     event.preventDefault();
-    fetch("https://testkhannea.herokuapp.com/register", {
+    // fetch("https://testkhannea.herokuapp.com/register", {
+    fetch("/api/register", {
       method: "POST",
       body: JSON.stringify(this.state),
       credentials: "include",
@@ -70,7 +72,8 @@ class Login extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    fetch("https://testkhannea.herokuapp.com/authenticate", {
+    // fetch("https://testkhannea.herokuapp.com/authenticate", {
+    fetch("/api/authenticate", {
       method: "POST",
       body: JSON.stringify(this.state),
       credentials: "include",

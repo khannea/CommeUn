@@ -14,7 +14,8 @@ export default class DeletePost extends Component {
   delete = event => {
     event.preventDefault();
     // let url = "http://localhost:4000/deletePost/" + this.props.id;
-    let url = "https://testkhannea.herokuapp.com/deletePost/" + this.props.id;
+    // let url = "https://testkhannea.herokuapp.com/deletePost/" + this.props.id;
+    let url = "/api/deletePost/" + this.props.id;
     fetch(url, {
       method: "GET",
       credentials: "include",

@@ -17,7 +17,8 @@ export default class EditPost extends Component {
 
   loadedit = () => {
     // let url = "http://localhost:4000/post/" + this.id;
-    let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
+    // let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
+    let url = "/api/post/" + this.id;
     fetch(url, {
       method: "GET",
       credentials: "include",

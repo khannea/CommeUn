@@ -14,8 +14,8 @@ class Post extends Component {
   }
 
   onClickLike = () => {
-    // fetch("http://localhost:4000/likepost", {
-    fetch("https://testkhannea.herokuapp.com/likepost", {
+    // fetch("https://testkhannea.herokuapp.com/likepost", {
+    fetch("/api/likepost", {
       method: "POST",
       body: JSON.stringify({ msgId: this.props.id, user: this.user }),
       credentials: "include",
@@ -30,15 +30,15 @@ class Post extends Component {
           this.props.refresh();
         }
       })
-      .catch(error => console.error("Error:", error))
-      // .then(() => {
-      //     this.props.refresh();
-      // })
+      .catch(error => console.error("Error:", error));
+    // .then(() => {
+    //     this.props.refresh();
+    // })
   };
 
   onClickDislike = () => {
-    // fetch("http://localhost:4000/dislikepost", {
-    fetch("https://testkhannea.herokuapp.com/dislikepost", {
+    //     fetch("https://testkhannea.herokuapp.com/dislikepost", {
+    fetch("/api/dislikepost", {
       method: "POST",
       body: JSON.stringify({ msgId: this.props.id, user: this.user }),
       credentials: "include",
@@ -53,25 +53,28 @@ class Post extends Component {
           this.props.refresh();
         }
       })
-      .catch(error => console.error("Error:", error))
-      // .then(() => {
-      //   console.log("je refresh")
-      //     this.props.refresh();
-      // })
+      .catch(error => console.error("Error:", error));
+    // .then(() => {
+    //   console.log("je refresh")
+    //     this.props.refresh();
+    // })
   };
 
   render() {
     let newText = this.props.texte
       .split("\n")
       .map((item, i) => <p key={i}>{item}</p>);
-      let success = false;
-      if(this.props.likes>this.props.dislikes)
-      {
-        success = true;
-      }
+    let success = false;
+    if (this.props.likes > this.props.dislikes) {
+      success = true;
+    }
     return (
       <Card className="mx-auto w-75 my-4 ">
-        <div className={"card-header border "+ (success ? 'bg-success' : 'bg-secondary')}>
+        <div
+          className={
+            "card-header border " + (success ? "bg-success" : "bg-secondary")
+          }
+        >
           <div className="row">
             <div className="col">
               <i>{this.props.user}</i>
@@ -109,10 +112,10 @@ class Post extends Component {
                         style={{ cursor: "pointer" }}
                         onClick={this.onClickDislike}
                       />
-                      </Col>
-                      <Col className="number_like">
-                        <b>&nbsp;{this.props.dislikes}</b>
-                      </Col>
+                    </Col>
+                    <Col className="number_like">
+                      <b>&nbsp;{this.props.dislikes}</b>
+                    </Col>
                   </Row>
                 </Col>
                 <Col>
@@ -124,7 +127,7 @@ class Post extends Component {
             </Col>
             <Col className="p-4 border-dark">
               {newText}
-              {this.props.user === localStorage.getItem('pseudo') && (
+              {this.props.user === localStorage.getItem("pseudo") && (
                 <Col className="p-4 col-7 border-dark delete">
                   <DeletePost
                     id={this.props.id}

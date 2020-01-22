@@ -6,8 +6,8 @@ import Button from "@material-ui/core/Button";
 
 class Logout extends Component {
   handleClick = () => {
-    // fetch("http://localhost:4000/unsetToken", {
-    fetch("https://testkhannea.herokuapp.com/unsetToken", {
+    // fetch("https://testkhannea.herokuapp.com/unsetToken", {
+    fetch("/api/unsetToken", {
       method: "GET",
       credentials: "include",
       headers: {
