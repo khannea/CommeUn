@@ -82,7 +82,7 @@ class Post extends Component {
             <div className="col">{this.props.date}</div>
           </div>
         </div>
-        <Card.Body id="post_content_wrapper">
+        <Card.Body>
           <Row>
             <Col className="border-right col1st  col-auto">
               <Row>
@@ -127,7 +127,7 @@ class Post extends Component {
                 </Hidden>
               </Row>
             </Col>
-            <Col className="border-dark">
+            <Col id="post_content_wrapper" className="border-dark">
               {newText}
               {this.props.user === localStorage.getItem("pseudo") && (
                 <Col id="delete_wrapper" className="p-2 border-dark delete">
