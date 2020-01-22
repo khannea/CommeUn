@@ -1,0 +1,21 @@
+#login_logout_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login {
+  border: 2px solid black;
+  background: #e8e9f3;
+  padding: 20px 15px;
+  border-radius: 20px;
+  width: 500px;
+}
+
+.logout_box {
+  /* width: 100%; */
+}
+
+.notification {
+  /* height:40px; */
+}

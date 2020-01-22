@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css?family=Alegreya:400,800|Gelasio&display=swap");
+
+body {
+  font-family: "Alegreya", sans-serif;
+  // background: linear-gradient(#205983, #0a2742);
+  font-size: 16px;
+  font-weight: 400;
+  height: 100vh;
+}
+
+.titre_site {
+  font-family: "Alegreya", sans-serif;
+  text-align: center;
+  position: relative;
+  font-size: 50px;
+  font-weight: 800;
+  border-radius: 15px;
+
+  .titre_part1 {
+    color: #e8e9f3;
+  }
+
+  .titre_part2 {
+    color: #04471c;
+  }
+}
+
+#presentation_button {
+  width: 100%;
+}

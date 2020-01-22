@@ -1,0 +1,145 @@
+import React, { Component } from "react";
+import { Card, Row, Col, Image } from "react-bootstrap";
+import DefaultImg from "./default-user-avatar.png";
+import DeletePost from "./DeletePost";
+import "./Post.css";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
+
+class Post extends Component {
+  constructor(msgId) {
+    super();
+    this.user = cookies.get("user");
+  }
+
+  onClickLike = () => {
+    // fetch("http://localhost:4000/likepost", {
+    fetch("https://testkhannea.herokuapp.com/likepost", {
+      method: "POST",
+      body: JSON.stringify({ msgId: this.props.id, user: this.user }),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (response.status === 401) {
+          console.log("Probleme de like");
+        } else {
+          this.props.refresh();
+        }
+      })
+      .catch(error => console.error("Error:", error))
+      // .then(() => {
+      //     this.props.refresh();
+      // })
+  };
+
+  onClickDislike = () => {
+    // fetch("http://localhost:4000/dislikepost", {
+    fetch("https://testkhannea.herokuapp.com/dislikepost", {
+      method: "POST",
+      body: JSON.stringify({ msgId: this.props.id, user: this.user }),
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (response.status === 401) {
+          console.log("Probleme de dislike");
+        } else {
+          this.props.refresh();
+        }
+      })
+      .catch(error => console.error("Error:", error))
+      // .then(() => {
+      //   console.log("je refresh")
+      //     this.props.refresh();
+      // })
+  };
+
+  render() {
+    let newText = this.props.texte
+      .split("\n")
+      .map((item, i) => <p key={i}>{item}</p>);
+      let success = false;
+      if(this.props.likes>this.props.dislikes)
+      {
+        success = true;
+      }
+    return (
+      <Card className="mx-auto w-75 my-4 ">
+        <div className={"card-header border "+ (success ? 'bg-success' : 'bg-secondary')}>
+          <div className="row">
+            <div className="col">
+              <i>{this.props.user}</i>
+            </div>
+            <div className="col">{this.props.date}</div>
+          </div>
+        </div>
+        <Card.Body>
+          <Row>
+            <Col className="border-right col1st">
+              <Row>
+                <Col>
+                  <Row>
+                    <Col className="like-img">
+                      <Image
+                        className="banniere"
+                        src={require("./like.png")}
+                        width="20px"
+                        height="20px"
+                        style={{ cursor: "pointer" }}
+                        onClick={this.onClickLike}
+                      />
+                    </Col>
+                    <Col className="number_like">
+                      <b>&nbsp;{this.props.likes}</b>
+                    </Col>
+                  </Row>
+                  <Row className="align-items-start like">
+                    <Col className="like-img">
+                      <Image
+                        className="banniere"
+                        src={require("./dislike.png")}
+                        width="20px"
+                        height="20px"
+                        style={{ cursor: "pointer" }}
+                        onClick={this.onClickDislike}
+                      />
+                      </Col>
+                      <Col className="number_like">
+                        <b>&nbsp;{this.props.dislikes}</b>
+                      </Col>
+                  </Row>
+                </Col>
+                <Col>
+                  <div className="defaultuser img mx-auto">
+                    <img src={DefaultImg} alt="Rien" />
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+            <Col className="p-4 border-dark">
+              {newText}
+              {this.props.user === localStorage.getItem('pseudo') && (
+                <Col className="p-4 col-7 border-dark delete">
+                  <DeletePost
+                    id={this.props.id}
+                    refresh={this.props.refresh}
+                    editfunction={this.props.editfunction}
+                    width="50%"
+                  />
+                </Col>
+              )}
+            </Col>
+          </Row>
+        </Card.Body>
+      </Card>
+    );
+  }
+}
+
+export default Post;
