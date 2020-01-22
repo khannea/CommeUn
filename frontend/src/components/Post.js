@@ -69,7 +69,7 @@ class Post extends Component {
       success = true;
     }
     return (
-      <Card className="mx-auto w-75 my-4 ">
+      <Card className="mx-auto my-4 ">
         <div
           className={
             "card-header border " + (success ? "bg-success" : "bg-secondary")
