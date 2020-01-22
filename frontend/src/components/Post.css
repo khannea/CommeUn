@@ -1,27 +1,26 @@
-.defaultuser img{
-  width:150px;
+.defaultuser img {
+  width: 150px;
 }
 
-.delete{
-  position: absolute !important;
-  bottom: 0;
+.delete {
+  /* position: absolute !important;
+  bottom: 0; */
 }
 
-.like-img{
-  width:50% !important;
+.like-img {
+  /* width:50% !important;
   height:50px !important;
   padding:0px !important;
-  margin:0px !important;
+  margin:0px !important; */
 }
 
-.number_like{
-  width:50% !important;
+.number_like {
+  /* width:50% !important;
   height:50px !important;
   padding:0px !important;
-  margin:0px !important;
+  margin:0px !important; */
 }
 
-.col1st{
-  max-width: 250px !important;
-
+.col1st {
+  /* max-width: 250px !important; */
 }
