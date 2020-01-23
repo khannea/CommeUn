@@ -3,10 +3,10 @@ import { createMuiTheme } from "@material-ui/core/styles";
 export default createMuiTheme({
   palette: {
     primary: {
-      main: "#205983"
+      main: "#205983" //bleu
     },
     secondary: {
-      main: "#e8c547"
+      main: "#e8c547" //jaune
     },
     warning: {
       main: "#a89757"
@@ -24,7 +24,7 @@ export default createMuiTheme({
       root: {
         margin: "15px",
         fontFamily: "Alegreya",
-        backgroundColor: "#e8c547",
+        // backgroundColor: "#e8c547",
         border: "1px solid black",
         // fontSize: "20px",
         fontWeight: "800",
