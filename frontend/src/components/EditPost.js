@@ -16,6 +16,12 @@ export default class EditPost extends Component {
     this.loadedit();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.id !== this.props.id) {
+      this.loadedit();
+    }
+  }
+
   // componentWillUpdate() {
   //   this.loadedit();
   // }
