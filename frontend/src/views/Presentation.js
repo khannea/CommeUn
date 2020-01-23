@@ -81,8 +81,8 @@ function Letter(props) {
   const classes = props.classes;
   return (
     <div id="wrapper_content">
-      <Post texte={"yo \n yo \n sdf;lksdf;lk"} user="1234" />
-      <div className="letter"> {text(props, count)}</div>
+      {/* <Post texte={"yo \n yo \n sdf;lksdf;lk"} user="1234" />
+      <div className="letter"> {text(props, count)}</div> */}
 
       <div>
         {count !== 2 && (
