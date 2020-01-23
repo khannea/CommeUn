@@ -7,7 +7,7 @@ import "./TopicView.css";
 
 import Cookies from "universal-cookie";
 
-import ReactResizeDetector from "react-resize-detector";
+// import ReactResizeDetector from "react-resize-detector";
 
 const cookies = new Cookies();
 
