@@ -60,7 +60,7 @@ export default class EditPost extends Component {
         } else {
           console.log("je refresh dans EditPost");
           this.props.refresh();
-          this.annuler;
+          this.annuler();
         }
       })
       .catch(error => console.error("Error:", error));
