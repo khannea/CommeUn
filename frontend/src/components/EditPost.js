@@ -43,11 +43,14 @@ export default class EditPost extends Component {
         }
       })
       .then(data => {
-        console.log(data);
-        this.setState({
-          texte: data[0].texte
-        });
-        console.log(data[0].texte);
+        this.setState(
+          {
+            texte: data[0].texte
+          },
+          () => {
+            console.log(data[0].texte);
+          }
+        );
       })
       .catch(error => console.error("Error:", error));
   };
