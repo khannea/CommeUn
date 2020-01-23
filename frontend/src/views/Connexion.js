@@ -20,7 +20,9 @@ function Connexion(props) {
         className={classes.alignItemsAndJustifyContent}
       >
         <Link to="/Layout/Presentation">
-          <Button>Présentation</Button>
+          <Button variant="contained" color="secondary">
+            Présentation
+          </Button>
         </Link>
       </div>
     </div>

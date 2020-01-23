@@ -33,7 +33,7 @@ class Logout extends Component {
   render() {
     return (
       <div>
-        <Button type="button" onClick={this.onClick}>
+        <Button variant="contained" color="secondary" onClick={this.onClick}>
           Déconnexion
         </Button>
       </div>
