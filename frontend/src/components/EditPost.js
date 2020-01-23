@@ -16,7 +16,7 @@ export default class EditPost extends Component {
     this.loadedit();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate() {
     this.loadedit();
   }
 
