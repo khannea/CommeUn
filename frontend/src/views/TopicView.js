@@ -7,8 +7,6 @@ import "./TopicView.css";
 
 import Cookies from "universal-cookie";
 
-// import ReactResizeDetector from "react-resize-detector";
-
 const cookies = new Cookies();
 
 class TopicView extends Component {
@@ -95,7 +93,6 @@ class TopicView extends Component {
         </div>
         {!this.state.edit && (
           <div className="border-top">
-            {/* <ReactResizeDetector handleHeight /> */}
             <AddPost id={myid} refresh={this.getDataFromDb} />
           </div>
         )}
