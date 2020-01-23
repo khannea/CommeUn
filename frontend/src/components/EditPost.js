@@ -15,14 +15,10 @@ export default class EditPost extends Component {
   }
 
   componentDidUpdate(nextProps) {
-    // if (nextProps.id !== this.props.id) {
-    this.loadedit(this.props.id);
-    // }
+    if (nextProps.id !== this.props.id) {
+      this.loadedit(this.props.id);
+    }
   }
-
-  // componentWillUpdate() {
-  //   this.loadedit();
-  // }
 
   loadedit = loadId => {
     // let url = "http://localhost:4000/post/" + this.id;
