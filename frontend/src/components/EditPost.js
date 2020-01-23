@@ -10,9 +10,9 @@ export default class EditPost extends Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.loadedit();
-  // }
+  componentDidMount() {
+    this.loadedit(this.props.id);
+  }
 
   componentDidUpdate(nextProps) {
     console.log("next: " + nextProps.id);
