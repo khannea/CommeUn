@@ -43,7 +43,7 @@ export default class DeletePost extends Component {
       <div>
         <Button
           variant="contained"
-          color="primary"
+          color="secondary"
           size="medium"
           onClick={this.delete}
         >
