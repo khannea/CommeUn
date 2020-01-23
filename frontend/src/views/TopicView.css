@@ -1,6 +1,6 @@
 .posts_box {
   height: 60vh;
-  /* resize: both; */
+  resize: vertical;
   overflow-y: scroll;
   min-width: 400px;
 }
