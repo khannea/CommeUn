@@ -3,9 +3,9 @@ import { Button, Form } from "react-bootstrap";
 // import './EditPost.css'
 
 export default class EditPost extends Component {
-  constructor(id) {
-    super(id);
-    this.id = id.id;
+  constructor() {
+    // super(id);
+    // this.id = id.id;
     this.state = {
       texte: ""
     };
@@ -22,7 +22,7 @@ export default class EditPost extends Component {
   loadedit = () => {
     // let url = "http://localhost:4000/post/" + this.id;
     // let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
-    let url = "/api/post/" + this.id;
+    let url = "/api/post/" + this.props.id;
     fetch(url, {
       method: "GET",
       credentials: "include",
@@ -52,7 +52,7 @@ export default class EditPost extends Component {
     // fetch("http://localhost:4000/editpost", {
     fetch("/api/editpost", {
       method: "POST",
-      body: JSON.stringify({ id: this.id, texte: this.state.texte }),
+      body: JSON.stringify({ id: this.props.id, texte: this.state.texte }),
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
