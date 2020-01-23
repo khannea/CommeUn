@@ -26,7 +26,7 @@ export default createMuiTheme({
         fontFamily: "Alegreya",
         backgroundColor: "#e8c547",
         border: "1px solid black",
-        fontSize: "20px",
+        // fontSize: "20px",
         fontWeight: "800",
         "&:hover": {
           backgroundColor: "#a89757"

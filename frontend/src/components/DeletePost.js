@@ -44,7 +44,7 @@ export default class DeletePost extends Component {
         <Button
           variant="primary"
           type="button"
-          className="border-0 bg-light mr-2"
+          className="border-0 mr-2"
           onClick={this.delete}
         >
           Supprimer
@@ -53,7 +53,7 @@ export default class DeletePost extends Component {
           <Button
             variant="primary"
             type="button"
-            className="border-0 bg-light"
+            className="border-0"
             onClick={this.loadedit}
           >
             Editer
