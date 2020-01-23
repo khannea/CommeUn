@@ -88,7 +88,7 @@ function Letter(props) {
         {count !== 2 && (
           <Box component="div" className={classes.alignItemsAndJustifyContent}>
             <Button
-              variant="contained outlined"
+              variant="contained"
               color="secondary"
               onClick={() => {
                 setCount((count + 1) % 3);
