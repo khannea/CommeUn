@@ -54,11 +54,15 @@ class TopicView extends Component {
   };
 
   goOnEdit = id => {
-    this.setState({
-      edit: true,
-      editId: id
-    });
-    console.log("EditID: " + this.state.editId);
+    this.setState(
+      {
+        edit: true,
+        editId: id
+      },
+      () => {
+        console.log("EditID: " + this.state.editId);
+      }
+    );
   };
 
   goOncancelEdit = () => {
