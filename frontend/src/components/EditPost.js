@@ -15,6 +15,10 @@ export default class EditPost extends Component {
     this.loadedit();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.loadedit();
+  }
+
   loadedit = () => {
     // let url = "http://localhost:4000/post/" + this.id;
     // let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
