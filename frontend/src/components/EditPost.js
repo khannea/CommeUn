@@ -10,24 +10,24 @@ export default class EditPost extends Component {
     };
   }
 
-  componentDidMount() {
-    this.loadedit();
-  }
-
-  // componentDidUpdate(nextProps) {
-  //   // if (nextProps.id !== this.props.id) {
-  //   this.loadedit(nextProps.id);
-  //   // }
+  // componentDidMount() {
+  //   this.loadedit();
   // }
+
+  componentDidUpdate(nextProps) {
+    if (nextProps.id !== this.props.id) {
+      this.loadedit(nextProps.id);
+    }
+  }
 
   // componentWillUpdate() {
   //   this.loadedit();
   // }
 
-  loadedit = () => {
+  loadedit = loadId => {
     // let url = "http://localhost:4000/post/" + this.id;
     // let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
-    let url = "/api/post/" + this.props.id;
+    let url = "/api/post/" + loadId;
     fetch(url, {
       method: "GET",
       credentials: "include",

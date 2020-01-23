@@ -31,9 +31,6 @@ class Post extends Component {
         }
       })
       .catch(error => console.error("Error:", error));
-    // .then(() => {
-    //     this.props.refresh();
-    // })
   };
 
   onClickDislike = () => {
@@ -54,10 +51,6 @@ class Post extends Component {
         }
       })
       .catch(error => console.error("Error:", error));
-    // .then(() => {
-    //   console.log("je refresh")
-    //     this.props.refresh();
-    // })
   };
 
   render() {
