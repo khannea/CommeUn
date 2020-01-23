@@ -43,7 +43,7 @@ export default class DeletePost extends Component {
       <div>
         <Button
           variant="secondary"
-          type="button"
+          size="small"
           className="border-0 mr-2"
           onClick={this.delete}
         >
@@ -52,7 +52,7 @@ export default class DeletePost extends Component {
         {!this.state.edit && (
           <Button
             variant="secondary"
-            type="button"
+            size="small"
             className="border-0"
             onClick={this.loadedit}
           >
