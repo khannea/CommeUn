@@ -129,16 +129,16 @@ class Post extends Component {
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
               {newText}
-              {this.props.user === localStorage.getItem("pseudo") && (
-                <Col id="delete_wrapper" className="p-2 border-dark delete">
-                  <DeletePost
-                    id={this.props.id}
-                    refresh={this.props.refresh}
-                    editfunction={this.props.editfunction}
-                    width="50%"
-                  />
-                </Col>
-              )}
+              {/* {this.props.user === localStorage.getItem("pseudo") && ( */}
+              <Col id="delete_wrapper" className="p-2 border-dark delete">
+                <DeletePost
+                  id={this.props.id}
+                  refresh={this.props.refresh}
+                  editfunction={this.props.editfunction}
+                  width="50%"
+                />
+              </Col>
+              {/* )} */}
             </Col>
           </Row>
         </Card.Body>
