@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 import "./DeletePost.css";
 
 export default class DeletePost extends Component {
