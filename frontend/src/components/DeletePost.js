@@ -45,12 +45,7 @@ export default class DeletePost extends Component {
           Supprimer
         </Button>
         {!this.state.edit && (
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            onClick={this.loadedit}
-          >
+          <Button color="primary" size="small" onClick={this.loadedit}>
             Editer
           </Button>
         )}
