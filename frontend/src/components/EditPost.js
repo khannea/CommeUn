@@ -11,12 +11,12 @@ export default class EditPost extends Component {
   }
 
   componentDidMount() {
-    this.loadedit();
+    this.loadedit(this.props.id);
   }
 
   componentDidUpdate(nextProps) {
     if (nextProps.id !== this.props.id) {
-      this.loadedit();
+      this.loadedit(nextProps.id);
     }
   }
 
@@ -24,10 +24,10 @@ export default class EditPost extends Component {
   //   this.loadedit();
   // }
 
-  loadedit = () => {
+  loadedit = loadId => {
     // let url = "http://localhost:4000/post/" + this.id;
     // let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
-    let url = "/api/post/" + this.props.id;
+    let url = "/api/post/" + loadId;
     fetch(url, {
       method: "GET",
       credentials: "include",
