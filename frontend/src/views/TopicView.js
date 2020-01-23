@@ -65,7 +65,7 @@ class TopicView extends Component {
     );
   };
 
-  goOncancelEdit = () => {
+  editfunction = () => {
     this.setState({
       edit: false,
       editId: null
@@ -91,7 +91,7 @@ class TopicView extends Component {
                   likes={likes}
                   dislikes={dislikes}
                   refresh={this.getDataFromDb}
-                  editfunction={this.goOnEdit}
+                  // editfunction={this.goOnEdit}
                 />
               </div>
             ))}
