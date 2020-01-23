@@ -41,12 +41,7 @@ export default class DeletePost extends Component {
   render() {
     return (
       <div>
-        <Button
-          variant="contained"
-          color="secondary"
-          size="medium"
-          onClick={this.delete}
-        >
+        <Button color="secondary" size="medium" onClick={this.delete}>
           Supprimer
         </Button>
         {!this.state.edit && (
