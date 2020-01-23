@@ -95,7 +95,7 @@ class TopicView extends Component {
         </div>
         {!this.state.edit && (
           <div className="border-top">
-            <ReactResizeDetector handleHeight />
+            {/* <ReactResizeDetector handleHeight /> */}
             <AddPost id={myid} refresh={this.getDataFromDb} />
           </div>
         )}
