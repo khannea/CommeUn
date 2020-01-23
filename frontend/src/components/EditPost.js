@@ -16,9 +16,9 @@ export default class EditPost extends Component {
     this.loadedit();
   }
 
-  componentWillUpdate() {
-    this.loadedit();
-  }
+  // componentWillUpdate() {
+  //   this.loadedit();
+  // }
 
   loadedit = () => {
     // let url = "http://localhost:4000/post/" + this.id;
