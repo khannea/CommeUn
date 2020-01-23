@@ -14,11 +14,11 @@ export default class EditPost extends Component {
     this.loadedit(this.props.id);
   }
 
-  componentDidUpdate(nextProps) {
-    // if (nextProps.id !== this.props.id) {
-    this.loadedit(nextProps.id);
-    // }
-  }
+  // componentDidUpdate(nextProps) {
+  //   // if (nextProps.id !== this.props.id) {
+  //   this.loadedit(nextProps.id);
+  //   // }
+  // }
 
   // componentWillUpdate() {
   //   this.loadedit();
@@ -47,7 +47,6 @@ export default class EditPost extends Component {
         this.setState({
           texte: data[0].texte
         });
-        this.props.refresh();
         console.log(data[0].texte);
       })
       .catch(error => console.error("Error:", error));
