@@ -5,8 +5,6 @@ import { Button, Form } from "react-bootstrap";
 export default class EditPost extends Component {
   constructor(id) {
     super();
-    // super(id);
-    // this.id = id.id;
     this.state = {
       texte: ""
     };
@@ -16,7 +14,7 @@ export default class EditPost extends Component {
     this.loadedit();
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(nextProps) {
     if (nextProps.id !== this.props.id) {
       this.loadedit();
     }
