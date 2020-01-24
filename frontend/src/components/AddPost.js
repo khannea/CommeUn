@@ -6,7 +6,8 @@ export default class AddPost extends Component {
   constructor(id) {
     super();
     this.state = {
-      texte: ""
+      texte: "",
+      sent: false
     };
   }
 
@@ -28,6 +29,7 @@ export default class AddPost extends Component {
           console.log("Probleme de AddPOst");
         } else {
           this.props.refresh();
+          this.setState({ sent: true });
         }
       })
       .catch(error => console.error("Error:", error));
@@ -53,6 +55,11 @@ export default class AddPost extends Component {
   render() {
     return (
       <div className="addpost m-4">
+        {sent && (
+          <div className="alert alert-danger m-0" role="alert">
+            Mauvais identifiants.
+          </div>
+        )}
         <Form onSubmit={this.returnFalse}>
           <Form.Group>
             <Form.Label>Message:</Form.Label>
