@@ -12,7 +12,6 @@ export default class AddPost extends Component {
   }
 
   onSubmit = event => {
-    console.log("Message ID: " + this.props.id);
     event.preventDefault();
     // fetch("http://localhost:4000/addPost", {
     // fetch("https://testkhannea.herokuapp.com/addPost", {
@@ -29,7 +28,7 @@ export default class AddPost extends Component {
           console.log("Probleme de AddPOst");
         } else {
           this.props.refresh();
-          this.setState({ sent: true });
+          this.setState({ sent: true, texte: "..." });
         }
       })
       .catch(error => console.error("Error:", error));
