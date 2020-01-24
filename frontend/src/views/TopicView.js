@@ -75,21 +75,26 @@ class TopicView extends Component {
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&
-            data.map(({ user, texte, date, id, likes, dislikes }, index) => (
-              <div key={index}>
-                <Post
-                  user={user}
-                  texte={texte}
-                  date={date}
-                  key={index}
-                  id={id}
-                  likes={likes}
-                  dislikes={dislikes}
-                  refresh={this.getDataFromDb}
-                  editfunction={this.goOnEdit}
-                />
-              </div>
-            ))}
+            data
+              .toPairs()
+              .orderBy(1, "desc")
+              .fromPairs()
+              .value()
+              .map(({ user, texte, date, id, likes, dislikes }, index) => (
+                <div key={index}>
+                  <Post
+                    user={user}
+                    texte={texte}
+                    date={date}
+                    key={index}
+                    id={id}
+                    likes={likes}
+                    dislikes={dislikes}
+                    refresh={this.getDataFromDb}
+                    editfunction={this.goOnEdit}
+                  />
+                </div>
+              ))}
         </div>
         {!this.state.edit && (
           <div className="border-top">
