@@ -115,8 +115,9 @@ router.route("/addPost").post((req, res) => {
 });
 
 router.post("/dislikepost", withAuth, (req, res) => {
-  let { msgId, user } = req.body;
-
+  // let { msgId, user } = req.body;
+  let { msgId } = req.body;
+  let user = jwt.decode(req.cookies["token"]).pseudo;
   Dislike.find({ msgId: msgId, user: user }, (err, dislike) => {
     if (err) {
       console.log("err");
@@ -157,8 +158,9 @@ router.post("/dislikepost", withAuth, (req, res) => {
 });
 
 router.post("/likepost", withAuth, (req, res) => {
-  let { msgId, user } = req.body;
-
+  // let { msgId, user } = req.body;
+  let { msgId } = req.body;
+  let user = jwt.decode(req.cookies["token"]).pseudo;
   Like.find({ msgId: msgId, user: user }, (err, like) => {
     console.log("User:" + user);
     console.log("LIKE:" + like);
