@@ -92,9 +92,7 @@ class TopicView extends Component {
     let { data } = this.state;
 
     if (data) {
-      console.log("data: " + data);
-      let dataSorted = data.sort(this.compareValues("likes", "desc"));
-      console.log("dataSorted: " + dataSorted);
+      data.sort(this.compareValues("likes", "desc"));
     }
     return (
       <div className="topicview">
