@@ -160,9 +160,11 @@ router.post("/likepost", withAuth, (req, res) => {
   let { msgId, user } = req.body;
 
   Like.find({ msgId: msgId, user: user }, (err, like) => {
+    console.log("LIKE:" + like);
     if (err) {
       console.log("err");
     } else {
+      //Si pas liké
       if (like.length == 0) {
         Dislike.deleteOne({ msgId: msgId, user: user }, function(err, result) {
           if (err) {
@@ -191,7 +193,7 @@ router.post("/likepost", withAuth, (req, res) => {
           }
         });
       } else {
-        // console.log("Deja liké");
+        //Deja liké
         res.sendStatus(200);
       }
     }
