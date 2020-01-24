@@ -91,27 +91,29 @@ class TopicView extends Component {
     let myid = this.id;
     let { data } = this.state;
 
-    let dataSorted = data.sort(compareValues("likes", "desc"));
+    let dataSorted = data.sort(this.compareValues("likes", "desc"));
     return (
       <div className="topicview">
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&
-            data.map(({ user, texte, date, id, likes, dislikes }, index) => (
-              <div key={index}>
-                <Post
-                  user={user}
-                  texte={texte}
-                  date={date}
-                  key={index}
-                  id={id}
-                  likes={likes}
-                  dislikes={dislikes}
-                  refresh={this.getDataFromDb}
-                  editfunction={this.goOnEdit}
-                />
-              </div>
-            ))}
+            dataSorted.map(
+              ({ user, texte, date, id, likes, dislikes }, index) => (
+                <div key={index}>
+                  <Post
+                    user={user}
+                    texte={texte}
+                    date={date}
+                    key={index}
+                    id={id}
+                    likes={likes}
+                    dislikes={dislikes}
+                    refresh={this.getDataFromDb}
+                    editfunction={this.goOnEdit}
+                  />
+                </div>
+              )
+            )}
         </div>
         {!this.state.edit && (
           <div className="border-top">
