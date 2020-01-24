@@ -56,7 +56,7 @@ export default class AddPost extends Component {
     return (
       <div className="addpost m-4">
         {this.state.sent && (
-          <div className="alert alert-sucess m-0" role="alert">
+          <div className="alert alert-success m-0" role="alert">
             Message envoyé.
           </div>
         )}
