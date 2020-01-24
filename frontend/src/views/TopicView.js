@@ -67,34 +67,51 @@ class TopicView extends Component {
     });
   };
 
+  compareValues = (key, order = "asc") => {
+    return function innerSort(a, b) {
+      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+        // property doesn't exist on either object
+        return 0;
+      }
+
+      const varA = typeof a[key] === "string" ? a[key].toUpperCase() : a[key];
+      const varB = typeof b[key] === "string" ? b[key].toUpperCase() : b[key];
+
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return order === "desc" ? comparison * -1 : comparison;
+    };
+  };
+
   render() {
     let myid = this.id;
     let { data } = this.state;
+
+    let dataSorted = data.sort(compareValues("likes", "desc"));
     return (
       <div className="topicview">
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&
-            data
-              .toPairs()
-              .orderBy(1, "desc")
-              .fromPairs()
-              .value()
-              .map(({ user, texte, date, id, likes, dislikes }, index) => (
-                <div key={index}>
-                  <Post
-                    user={user}
-                    texte={texte}
-                    date={date}
-                    key={index}
-                    id={id}
-                    likes={likes}
-                    dislikes={dislikes}
-                    refresh={this.getDataFromDb}
-                    editfunction={this.goOnEdit}
-                  />
-                </div>
-              ))}
+            data.map(({ user, texte, date, id, likes, dislikes }, index) => (
+              <div key={index}>
+                <Post
+                  user={user}
+                  texte={texte}
+                  date={date}
+                  key={index}
+                  id={id}
+                  likes={likes}
+                  dislikes={dislikes}
+                  refresh={this.getDataFromDb}
+                  editfunction={this.goOnEdit}
+                />
+              </div>
+            ))}
         </div>
         {!this.state.edit && (
           <div className="border-top">
