@@ -56,8 +56,8 @@ export default class AddPost extends Component {
     return (
       <div className="addpost m-4">
         {sent && (
-          <div className="alert alert-danger m-0" role="alert">
-            Mauvais identifiants.
+          <div className="alert alert-sucess m-0" role="alert">
+            Message envoyé.
           </div>
         )}
         <Form onSubmit={this.returnFalse}>
