@@ -160,6 +160,7 @@ router.post("/likepost", withAuth, (req, res) => {
   let { msgId, user } = req.body;
 
   Like.find({ msgId: msgId, user: user }, (err, like) => {
+    console.log("User:" + user);
     console.log("LIKE:" + like);
     if (err) {
       console.log("err");
