@@ -114,6 +114,20 @@ router.route("/addPost").post((req, res) => {
     });
 });
 
+router.route("/addTopic").post((req, res) => {
+  let topic = new Topic(req.body);
+  topic.user = jwt.decode(req.cookies["token"]).pseudo;
+  // post.date = convertDate(new Date());
+  topic
+    .save()
+    .then(post => {
+      res.status(200).json("Topic added successfully");
+    })
+    .catch(err => {
+      res.status(400).send("Failed to create new record");
+    });
+});
+
 router.post("/dislikepost", withAuth, (req, res) => {
   // let { msgId, user } = req.body;
   let { msgId } = req.body;
