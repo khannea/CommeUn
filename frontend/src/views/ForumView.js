@@ -82,7 +82,7 @@ class ForumView extends Component {
               id={id}
               onTopicClick={this.goToTopic}
             />
-          )) && <AddTopic />}
+          ))}
       </div>
     );
   }
