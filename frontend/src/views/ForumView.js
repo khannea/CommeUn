@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Topic from "../components/Topic";
+import AddTopic from "../components/AddTopic";
 
 class ForumView extends Component {
   state = {
@@ -81,7 +82,7 @@ class ForumView extends Component {
               id={id}
               onTopicClick={this.goToTopic}
             />
-          ))}
+          )) && <AddTopic />}
       </div>
     );
   }
