@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Topic from "../components/Topic";
 import AddTopic from "../components/AddTopic";
+import Button from "@material-ui/core/Button";
 
 class ForumView extends Component {
   state = {
