@@ -88,9 +88,11 @@ class ForumView extends Component {
         {!this.state.addpost_enable && (
           <Button
             Onclick={() => {
-              this.state.addpost_enable = true;
+              this.setState({ addpost_enable: true });
             }}
-          ></Button>
+          >
+            Ajouter un nouveau sujet
+          </Button>
         )}
         {this.state.addpost_enable && <AddTopic />}
       </div>
