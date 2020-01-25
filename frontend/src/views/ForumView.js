@@ -5,7 +5,8 @@ import AddTopic from "../components/AddTopic";
 
 class ForumView extends Component {
   state = {
-    data: null
+    data: null,
+    addpost_enable: false
   };
 
   constructor() {
@@ -83,7 +84,14 @@ class ForumView extends Component {
               onTopicClick={this.goToTopic}
             />
           ))}
-        {data && <AddTopic />}
+        {!addpost_enable && (
+          <Button
+            Onclick={() => {
+              this.state.addpost_enable = true;
+            }}
+          ></Button>
+        )}
+        {addpost_enable && <AddTopic />}
       </div>
     );
   }
