@@ -85,14 +85,14 @@ class ForumView extends Component {
               onTopicClick={this.goToTopic}
             />
           ))}
-        {!addpost_enable && (
+        {!this.state.addpost_enable && (
           <Button
             Onclick={() => {
               this.state.addpost_enable = true;
             }}
           ></Button>
         )}
-        {addpost_enable && <AddTopic />}
+        {this.state.addpost_enable && <AddTopic />}
       </div>
     );
   }
