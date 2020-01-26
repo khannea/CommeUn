@@ -67,7 +67,7 @@ class Post extends Component {
       <Card
         className="m-4"
         onClick={() => {
-          this.onMessageClick(this.props.id);
+          this.props.onMessageClick(this.props.id);
         }}
       >
         <div
