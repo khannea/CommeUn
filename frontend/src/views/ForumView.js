@@ -84,6 +84,7 @@ class ForumView extends Component {
               key={index}
               id={id}
               onTopicClick={this.goToTopic}
+              history={this.props.history}
             />
           ))}
         {!this.state.addpost_enable && (

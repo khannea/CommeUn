@@ -15,10 +15,10 @@ class Post extends Component {
     this.user = cookies.get("user");
   }
 
-  // goToAnswer = () => {
-  //   let path = `/Layout/Topic/` + this.props.id;
-  //   this.props.history.push(path);
-  // };
+  goToAnswer = () => {
+    let path = `/Layout/Topic/` + this.props.id;
+    this.props.history.push(path);
+  };
 
   onClickLike = () => {
     // fetch("https://testkhannea.herokuapp.com/likepost", {
