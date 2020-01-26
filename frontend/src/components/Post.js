@@ -11,7 +11,7 @@ class Post extends Component {
   constructor(props) {
     super(props);
     // console.log(props);
-    // this.goToAnswer = this.goToAnswer.bind(this);
+    this.goToAnswer = this.goToAnswer.bind(this);
     this.user = cookies.get("user");
   }
 
