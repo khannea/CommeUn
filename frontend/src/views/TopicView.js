@@ -19,7 +19,13 @@ class TopicView extends Component {
     super(props);
     this.props = props;
     this.id = props.location.pathname.split("/")[3];
+    this.goToAnswer = this.goToAnswer.bind(this);
   }
+
+  goToAnswer = id => {
+    let path = `/Layout/Topic/` + id;
+    this.props.history.push(path);
+  };
 
   componentDidMount() {
     this.getDataFromDb();
@@ -106,6 +112,7 @@ class TopicView extends Component {
                   dislikes={dislikes}
                   refresh={this.getDataFromDb}
                   editfunction={this.goOnEdit}
+                  onMessageClick={this.goToAnswer}
                 />
               </div>
             ))}
