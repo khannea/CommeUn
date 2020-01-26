@@ -18,6 +18,7 @@ class TopicView extends Component {
   };
   constructor(props) {
     super(props);
+    console.log(props);
     this.id = props.location.pathname.split("/")[3];
   }
 
