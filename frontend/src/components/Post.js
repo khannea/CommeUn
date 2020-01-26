@@ -10,7 +10,7 @@ const cookies = new Cookies();
 class Post extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
+    // console.log(props);
     // this.goToAnswer = this.goToAnswer.bind(this);
     this.user = cookies.get("user");
   }
