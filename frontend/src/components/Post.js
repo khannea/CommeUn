@@ -15,8 +15,6 @@ class Post extends Component {
     this.user = cookies.get("user");
   }
 
-
-
   onClickLike = () => {
     // fetch("https://testkhannea.herokuapp.com/likepost", {
     fetch("/api/likepost", {
@@ -66,7 +64,12 @@ class Post extends Component {
       success = true;
     }
     return (
-      <Card className="m-4" onClick={()=>{this.onMessageClick(this.props.id)}>
+      <Card
+        className="m-4"
+        onClick={() => {
+          this.onMessageClick(this.props.id);
+        }}
+      >
         <div
           className={
             "card-header border " + (success ? "bg-success" : "bg-secondary")
