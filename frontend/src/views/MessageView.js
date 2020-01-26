@@ -42,7 +42,7 @@ class MessageView extends Component {
     });
     fetch(req)
       .then(res => {
-        console.log("Jai fetchee");
+        console.log("Jai fetchee2");
         console.log(res);
         if (res.status === 401) {
           console.log("MessageView n'a pas recu les topics.");

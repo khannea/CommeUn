@@ -41,6 +41,8 @@ class TopicView extends Component {
       credentials: "include"
     });
     fetch(req)
+    console.log("Jai fetchee1");
+    console.log(res);
       .then(res => {
         if (res.status === 401) {
           console.log("TopicView n'a pas recu les topics.");
