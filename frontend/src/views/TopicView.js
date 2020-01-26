@@ -16,10 +16,8 @@ class TopicView extends Component {
     edit: false,
     editId: null
   };
-  constructor(id) {
-    super(id);
-    console.log("path: " + id.location.pathname.split("/"));
-    this.id = id.location.pathname.split("/")[3];
+  constructor() {
+    this.id = windows.location.pathname.split("/")[3];
   }
 
   componentDidMount() {
@@ -38,7 +36,6 @@ class TopicView extends Component {
     });
     fetch(req)
       .then(res => {
-        // console.log(res)
         if (res.status === 401) {
           console.log("TopicView n'a pas recu les topics.");
         } else {
@@ -47,7 +44,6 @@ class TopicView extends Component {
         }
       })
       .then(data => {
-        // console.log(data);
         this.setState({
           data: data
         });
