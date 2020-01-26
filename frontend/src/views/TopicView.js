@@ -16,7 +16,7 @@ class TopicView extends Component {
     edit: false,
     editId: null
   };
-  constructor() {
+  constructor(id) {
     super(id);
     console.log("path: " + id.location.pathname.split("/"));
     this.id = id.location.pathname.split("/")[3];
