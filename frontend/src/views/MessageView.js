@@ -25,6 +25,8 @@ class MessageView extends Component {
   goToAnswer = id => {
     let path = `/Layout/Message/` + id;
     this.props.history.push(path);
+    this.id = props.location.pathname.split("/")[3];
+    this.getDataFromDb();
   };
 
   componentDidMount() {
