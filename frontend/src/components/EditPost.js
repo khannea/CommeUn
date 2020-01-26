@@ -4,8 +4,8 @@ import { Button, Form } from "react-bootstrap";
 
 export default class EditPost extends Component {
   constructor() {
-    super();
-    console.log(this.state.editId);
+    super(props);
+    console.log(this.props.state.editId);
   }
 
   state = {
