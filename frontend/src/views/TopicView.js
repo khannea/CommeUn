@@ -17,7 +17,6 @@ class TopicView extends Component {
   };
   constructor(props) {
     super(props);
-    console.log(props);
     this.id = props.location.pathname.split("/")[3];
   }
 
@@ -26,7 +25,6 @@ class TopicView extends Component {
   }
 
   getDataFromDb = () => {
-    // console.log("Je me refresh");
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
     let url = "/api/topics/" + this.id;
