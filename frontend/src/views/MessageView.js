@@ -32,8 +32,11 @@ class MessageView extends Component {
     this.getDataFromDb();
   }
 
-  componentWillUpdate() {
-    this.getDataFromDb();
+  componentDidUpdate(nextProps) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      this.id = this.props.location.pathname.split("/")[3];
+      this.getDataFromDb();
+    }
   }
 
   getDataFromDb = () => {
