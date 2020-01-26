@@ -9,7 +9,7 @@ import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
 
-class TopicView extends Component {
+class MessageView extends Component {
   state = {
     data: null,
     user: cookies.get("user"),
@@ -34,7 +34,7 @@ class TopicView extends Component {
   getDataFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
-    let url = "/api/topics/" + this.id;
+    let url = "/api/origin_posts/" + this.id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",
@@ -43,9 +43,9 @@ class TopicView extends Component {
     fetch(req)
       .then(res => {
         if (res.status === 401) {
-          console.log("TopicView n'a pas recu les topics.");
+          console.log("MessageView n'a pas recu les topics.");
         } else {
-          // console.log("TopicView  a bien recu les topics.");
+          // console.log("MessageView  a bien recu les topics.");
           return res.json();
         }
       })
@@ -136,4 +136,4 @@ class TopicView extends Component {
   }
 }
 
-export default TopicView;
+export default MessageView;

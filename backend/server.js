@@ -71,6 +71,16 @@ router.get("/post/:id", withAuth, (req, res) => {
   });
 });
 
+router.get("/origin_posts/:id", withAuth, (req, res) => {
+  console.log(req.params.id);
+  Post.find({ originId: req.params.id }, (err, post) => {
+    if (err) console.log("route('/posts/:id'): 'Erreur de Post.find'");
+    else {
+      res.json(post);
+    }
+  });
+});
+
 router.post("/editpost", withAuth, (req, res) => {
   let { id, texte } = req.body;
   Post.find({ _id: id }, (err, post) => {
