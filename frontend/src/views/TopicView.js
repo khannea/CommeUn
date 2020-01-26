@@ -16,8 +16,9 @@ class TopicView extends Component {
     edit: false,
     editId: null
   };
-  constructor() {
-    this.id = windows.location.pathname.split("/")[3];
+  constructor(id) {
+    console.log(id);
+    this.id = id;
   }
 
   componentDidMount() {
