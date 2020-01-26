@@ -27,7 +27,7 @@ export default class AddPost extends Component {
           console.log("Probleme de AddTopic");
         } else {
           this.props.refresh();
-          this.setState({ sent: true, texte: "..." });
+          this.setState({ sent: true, titre: "..." });
         }
       })
       .catch(error => console.error("Error:", error));
@@ -55,17 +55,17 @@ export default class AddPost extends Component {
       <div className="addpost m-4">
         {this.state.sent && (
           <div className="alert alert-success m-0" role="alert">
-            Message envoyé.
+            Topic créé.
           </div>
         )}
         <Form onSubmit={this.returnFalse}>
           <Form.Group>
-            <Form.Label>Message:</Form.Label>
+            <Form.Label>Titre:</Form.Label>
             <Form.Control
               as="textarea"
               type="text"
-              name="texte"
-              value={this.state.texte}
+              name="titre"
+              value={this.state.titre}
               placeholder="..."
               onChange={this.handleInputChange}
               onSubmit={this.returnFalse}

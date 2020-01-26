@@ -66,7 +66,7 @@ export default class AddPost extends Component {
               as="textarea"
               type="text"
               name="texte"
-              value={this.state.titre}
+              value={this.state.texte}
               placeholder="..."
               onChange={this.handleInputChange}
               onSubmit={this.returnFalse}
