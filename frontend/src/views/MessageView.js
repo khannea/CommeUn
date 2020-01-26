@@ -44,6 +44,9 @@ class MessageView extends Component {
       .then(res => {
         if (res.status === 401) {
           console.log("MessageView n'a pas recu les topics.");
+          this.setState({
+            data: null
+          });
         } else {
           // console.log("MessageView  a bien recu les topics.");
           return res.json();
