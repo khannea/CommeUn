@@ -42,8 +42,6 @@ class TopicView extends Component {
     });
     fetch(req)
       .then(res => {
-        console.log("Jai fetchee1");
-        console.log(res);
         if (res.status === 401) {
           console.log("TopicView n'a pas recu les topics.");
         } else {
@@ -52,6 +50,8 @@ class TopicView extends Component {
         }
       })
       .then(data => {
+        console.log("Jai fetchee1");
+        console.log(data);
         this.setState({
           data: data
         });
