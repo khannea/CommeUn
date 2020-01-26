@@ -108,7 +108,7 @@ class TopicView extends Component {
                   dislikes={dislikes}
                   refresh={this.getDataFromDb}
                   editfunction={this.goOnEdit}
-                  history={this.history}
+                  history={this.props.history}
                 />
               </div>
             ))}
