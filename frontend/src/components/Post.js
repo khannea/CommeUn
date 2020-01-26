@@ -8,8 +8,8 @@ import Hidden from "@material-ui/core/Hidden";
 const cookies = new Cookies();
 
 class Post extends Component {
-  constructor(msgId) {
-    super();
+  constructor(props) {
+    super(props);
     this.goToAnswer = this.goToAnswer.bind(this);
     this.user = cookies.get("user");
   }
