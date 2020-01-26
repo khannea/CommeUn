@@ -11,16 +11,14 @@ class Post extends Component {
   constructor(props) {
     super(props);
     // console.log(props);
-    this.goToAnswer = this.goToAnswer.bind(this);
+    // this.goToAnswer = this.goToAnswer.bind(this);
     this.user = cookies.get("user");
   }
 
-  goToAnswer = () => {
-    let path = `/Layout/Topic/` + this.props.id;
-    console.log("this.props");
-    console.log(this.props);
-    this.props.history.push(path);
-  };
+  // goToAnswer = () => {
+  //   let path = `/Layout/Topic/` + this.props.id;
+  //   this.props.history.push(path);
+  // };
 
   onClickLike = () => {
     // fetch("https://testkhannea.herokuapp.com/likepost", {
@@ -71,7 +69,7 @@ class Post extends Component {
       success = true;
     }
     return (
-      <Card className="m-4" onClick={this.goToAnswer()}>
+      <Card className="m-4">
         <div
           className={
             "card-header border " + (success ? "bg-success" : "bg-secondary")
