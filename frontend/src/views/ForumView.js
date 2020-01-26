@@ -13,7 +13,6 @@ class ForumView extends Component {
   constructor(props) {
     super(props);
     this.goToTopic = this.goToTopic.bind(this);
-    console.log(this.props);
   }
 
   goToTopic(id) {
@@ -84,7 +83,6 @@ class ForumView extends Component {
               key={index}
               id={id}
               onTopicClick={this.goToTopic}
-              history={this.props.history}
             />
           ))}
         {!this.state.addpost_enable && (

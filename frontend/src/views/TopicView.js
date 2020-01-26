@@ -18,6 +18,8 @@ class TopicView extends Component {
   constructor(props) {
     super(props);
     this.props = props;
+    console.log("Forum View this.props");
+    console.log(this.props);
     this.id = props.location.pathname.split("/")[3];
   }
 

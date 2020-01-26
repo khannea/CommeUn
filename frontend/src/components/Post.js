@@ -17,8 +17,8 @@ class Post extends Component {
 
   goToAnswer = () => {
     let path = `/Layout/Topic/` + this.props.id;
-    console.log("this.props");
-    console.log(this.props);
+    // console.log("this.props");
+    // console.log(this.props);
     this.props.history.push(path);
   };
 
