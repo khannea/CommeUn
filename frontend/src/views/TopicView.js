@@ -13,7 +13,6 @@ class TopicView extends Component {
   state = {
     data: null,
     user: cookies.get("user"),
-    edit: false,
     editId: null
   };
   constructor(props) {
@@ -54,14 +53,12 @@ class TopicView extends Component {
 
   goOnEdit = id => {
     this.setState({
-      edit: true,
       editId: id
     });
   };
 
   goOncancelEdit = () => {
     this.setState({
-      edit: false,
       editId: null
     });
   };
@@ -114,12 +111,12 @@ class TopicView extends Component {
               </div>
             ))}
         </div>
-        {!this.state.edit && (
+        {!this.state.editId && (
           <div className="border-top">
             <AddPost id={myid} refresh={this.getDataFromDb} />
           </div>
         )}
-        {this.state.edit && (
+        {this.state.editId && (
           <div className="border-top border-light">
             <EditPost
               id={this.state.editId}
