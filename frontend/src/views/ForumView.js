@@ -13,6 +13,7 @@ class ForumView extends Component {
   constructor() {
     super();
     this.goToTopic = this.goToTopic.bind(this);
+    console.log(this.props);
   }
 
   goToTopic(id) {
