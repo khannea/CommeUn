@@ -69,7 +69,7 @@ class Post extends Component {
       success = true;
     }
     return (
-      <Card className="m-4">
+      <Card className="m-4" onClick={this.goToAnswer()}>
         <div
           className={
             "card-header border " + (success ? "bg-success" : "bg-secondary")
