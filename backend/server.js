@@ -53,7 +53,7 @@ router.get("/topics", withAuth, (req, res) => {
 });
 
 router.get("/topics/:id", withAuth, (req, res) => {
-  Post.find({ topicId: req.params.id }, (err, posts) => {
+  Post.find({ originId: req.params.id }, (err, posts) => {
     if (err) console.log("route('/topics/:id'): 'Erreur de Topic.find'");
     else {
       res.json(posts);

@@ -1,33 +1,35 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 // Duplicate the ID field.
 
 let Post = new Schema({
-  topicId:{
+  // topicId:{
+  //   type: String
+  // },
+  originId: {
     type: String
   },
-  user:{
+  user: {
     type: String
   },
-  texte:{
+  texte: {
     type: String
   },
-  date:{
+  date: {
     type: String
   },
-  likes:{
+  likes: {
     type: Number,
     default: 0
   },
-  dislikes:{
+  dislikes: {
     type: Number,
     default: 0
   }
 });
 
-Post.set('toObject', { virtuals: true })
-Post.set('toJSON', { virtuals: true })
+Post.set("toObject", { virtuals: true });
+Post.set("toJSON", { virtuals: true });
 
-
-module.exports = mongoose.model('Post', Post)
+module.exports = mongoose.model("Post", Post);
