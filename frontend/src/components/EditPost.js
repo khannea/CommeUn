@@ -3,22 +3,22 @@ import { Button, Form } from "react-bootstrap";
 // import './EditPost.css'
 
 export default class EditPost extends Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props.state.editId);
-  }
+  // constructor(props) {
+  //   super(props);
+  //   console.log(this.props.state.editId);
+  // }
 
   state = {
     texte: ""
   };
 
   componentDidMount() {
-    this.loadedit(this.props.id);
+    this.loadedit(this.props.editId);
   }
 
   componentDidUpdate(nextProps) {
-    if (nextProps.id !== this.props.id) {
-      this.loadedit(this.props.id);
+    if (nextProps.editId !== this.props.editId) {
+      this.loadedit(this.props.editId);
     }
   }
 

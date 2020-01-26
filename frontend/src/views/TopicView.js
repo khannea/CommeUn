@@ -117,7 +117,7 @@ class TopicView extends Component {
         {this.state.editId && (
           <div className="border-top border-light">
             <EditPost
-              id={this.state.editId}
+              editId={this.state.editId}
               cancelEdit={this.goOncancelEdit}
               refresh={this.getDataFromDb}
             />
