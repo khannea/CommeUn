@@ -10,8 +10,8 @@ class ForumView extends Component {
     addpost_enable: false
   };
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.goToTopic = this.goToTopic.bind(this);
     console.log(this.props);
   }
