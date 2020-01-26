@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 // import './EditPost.css'
 
 export default class EditPost extends Component {
-  constructor() {
+  constructor(props) {
     super(props);
     console.log(this.props.state.editId);
   }
