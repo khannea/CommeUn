@@ -17,7 +17,10 @@ export default class AddPost extends Component {
     // fetch("https://testkhannea.herokuapp.com/addPost", {
     fetch("/api/addPost", {
       method: "POST",
-      body: JSON.stringify({ texte: this.state.texte, topicId: this.props.id }),
+      body: JSON.stringify({
+        texte: this.state.texte,
+        originId: this.props.id
+      }),
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
