@@ -15,9 +15,9 @@ class TopicView extends Component {
     user: cookies.get("user"),
     editId: null
   };
-  constructor(props) {
-    super(props);
-    this.id = props.location.pathname.split("/")[3];
+  constructor() {
+    super();
+    this.id = this.props.location.pathname.split("/")[3];
   }
 
   componentDidMount() {
