@@ -10,6 +10,7 @@ const cookies = new Cookies();
 class Post extends Component {
   constructor(msgId) {
     super();
+    this.goToAnswer = this.goToAnswer.bind(this);
     this.user = cookies.get("user");
   }
 
