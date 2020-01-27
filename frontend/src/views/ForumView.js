@@ -15,10 +15,10 @@ class ForumView extends Component {
     // this.goToTopic = this.goToTopic.bind(this);
   }
 
-  goToTopic(id) {
+  goToTopic = id => {
     let path = `/Layout/Topic/` + id;
     this.props.history.push(path);
-  }
+  };
 
   componentDidMount() {
     this.getDataFromDb();
