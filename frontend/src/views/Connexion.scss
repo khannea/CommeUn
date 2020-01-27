@@ -11,10 +11,10 @@ body {
 }
 
 .titre_site {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-
+  // position: absolute;
+  // left: 50%;
+  // transform: translateX(-50%);
+  margin: auto auto;
   z-index: -1;
   font-family: "Alegreya", sans-serif;
   text-align: center;
