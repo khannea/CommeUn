@@ -143,16 +143,9 @@ class Post extends Component {
     }
 
     return (
-      <Card
-        className="m-4"
-        // onClick={() => {
-        //   this.props.onMessageClick(this.props.id);
-        // }}
-      >
+      <Card className="m-4">
         <CardHeader
-          className={
-            "card-header border " + (success ? "bg-success" : "bg-secondary")
-          }
+          className={"border " + (success ? "bg-success" : "bg-secondary")}
           title={this.postTitle()}
         />
         <CardContent>
