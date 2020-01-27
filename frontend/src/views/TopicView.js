@@ -13,7 +13,8 @@ class TopicView extends Component {
   state = {
     data: null,
     user: cookies.get("user"),
-    editId: null
+    editId: null,
+    dataOrigin: null
   };
   constructor(props) {
     super(props);
@@ -34,7 +35,7 @@ class TopicView extends Component {
   getTopicFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
-    let url = "/api/origin_posts/" + this.id;
+    let url = "/api/topic/" + this.id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",
@@ -49,9 +50,9 @@ class TopicView extends Component {
           return res.json();
         }
       })
-      .then(data => {
+      .then(dataOrigin => {
         this.setState({
-          data: data
+          dataOrigin: data
         });
       });
   };
