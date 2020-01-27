@@ -5,7 +5,7 @@ import DeletePost from "./DeletePost";
 import "./Post.css";
 import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
-import { Button } from "react-bootstrap";
+import Button from "@material-ui/core/Button";
 const cookies = new Cookies();
 
 class Post extends Component {
