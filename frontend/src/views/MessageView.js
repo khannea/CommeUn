@@ -13,7 +13,8 @@ class MessageView extends Component {
   state = {
     data: null,
     user: cookies.get("user"),
-    editId: null
+    editId: null,
+    dataOrigin
   };
   constructor(props) {
     super(props);
@@ -30,6 +31,7 @@ class MessageView extends Component {
 
   componentDidMount() {
     this.getDataFromDb();
+    this.getOriginFromDb();
   }
 
   componentDidUpdate(nextProps) {
@@ -38,6 +40,33 @@ class MessageView extends Component {
       this.getDataFromDb();
     }
   }
+
+  getOriginFromDb = () => {
+    // let url = "http://localhost:4000/topics/" + this.id;
+    // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
+    let url = "/api/post/" + this.id;
+    let req = new Request(url, {
+      method: "GET",
+      cache: "default",
+      credentials: "include"
+    });
+    fetch(req)
+      .then(res => {
+        if (res.status === 401) {
+          console.log("TopicView n'a pas recu les topics.");
+        } else {
+          // console.log("TopicView  a bien recu les topics.");
+          return res.json();
+        }
+      })
+      .then(dataOrigin => {
+        if (dataOrigin.length > 0) {
+          this.setState({
+            dataOrigin: dataOrigin[0]
+          });
+        }
+      });
+  };
 
   getDataFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
@@ -98,13 +127,32 @@ class MessageView extends Component {
 
   render() {
     let myid = this.id;
-    let { data } = this.state;
+    let { data, dataOrigin } = this.state;
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
     }
     return (
       <div className="topicview">
+        {dataOrigin && (
+          <Post
+            user={dataOrigin.user}
+            texte={dataOrigin.texte}
+            date={dataOrigin.date}
+            id={dataOrigin.id}
+            likes={dataOrigin.likes}
+            dislikes={dataOrigindislikes}
+            refresh={() => {
+              return null;
+            }}
+            editfunction={() => {
+              return null;
+            }}
+            onMessageClick={() => {
+              return null;
+            }}
+          />
+        )}
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&

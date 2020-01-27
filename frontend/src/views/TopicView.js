@@ -20,7 +20,6 @@ class TopicView extends Component {
     super(props);
     this.props = props;
     this.id = props.location.pathname.split("/")[3];
-    // this.goToAnswer = this.goToAnswer.bind(this);
   }
 
   goToAnswer = id => {
@@ -52,9 +51,11 @@ class TopicView extends Component {
         }
       })
       .then(dataOrigin => {
-        this.setState({
-          dataOrigin: dataOrigin[0]
-        });
+        if (dataOrigin.length > 0) {
+          this.setState({
+            dataOrigin: dataOrigin[0]
+          });
+        }
       });
   };
 
@@ -136,12 +137,7 @@ class TopicView extends Component {
             }}
           />
         )}
-        {/* {this.state.dataOrigin && (
-          <div>{console.log(this.state.dataOrigin)}</div>
-        )}
-        {dataOrigin && <div>BONJOUR2?????????????????????????</div>} */}
         <div className="posts_box">
-          {/* <div className="posts_box mx-auto"> */}
           {data &&
             data.map(({ user, texte, date, id, likes, dislikes }, index) => (
               <div key={index}>
