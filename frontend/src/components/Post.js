@@ -66,9 +66,9 @@ class Post extends Component {
     return (
       <Card
         className="m-4"
-        onClick={() => {
-          this.props.onMessageClick(this.props.id);
-        }}
+        // onClick={() => {
+        //   this.props.onMessageClick(this.props.id);
+        // }}
       >
         <div
           className={
@@ -142,6 +142,13 @@ class Post extends Component {
                 </Col>
               )}
             </Col>
+          </Row>
+          <Row
+            onClick={() => {
+              this.props.onMessageClick(this.props.id);
+            }}
+          >
+            Reponse
           </Row>
         </Card.Body>
       </Card>
