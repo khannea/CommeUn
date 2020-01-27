@@ -4,7 +4,7 @@ import Post from "../components/Post";
 import AddPost from "../components/AddPost";
 import EditPost from "../components/EditPost";
 import "./TopicView.css";
-
+import Topic from "../components/Topic";
 import Cookies from "universal-cookie";
 
 const cookies = new Cookies();
