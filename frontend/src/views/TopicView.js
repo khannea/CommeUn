@@ -31,6 +31,31 @@ class TopicView extends Component {
     this.getDataFromDb();
   }
 
+  getTopicFromDb = () => {
+    // let url = "http://localhost:4000/topics/" + this.id;
+    // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
+    let url = "/api/origin_posts/" + this.id;
+    let req = new Request(url, {
+      method: "GET",
+      cache: "default",
+      credentials: "include"
+    });
+    fetch(req)
+      .then(res => {
+        if (res.status === 401) {
+          console.log("TopicView n'a pas recu les topics.");
+        } else {
+          // console.log("TopicView  a bien recu les topics.");
+          return res.json();
+        }
+      })
+      .then(data => {
+        this.setState({
+          data: data
+        });
+      });
+  };
+
   getDataFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;

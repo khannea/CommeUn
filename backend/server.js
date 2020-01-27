@@ -52,7 +52,16 @@ router.get("/topics", withAuth, (req, res) => {
   });
 });
 
-router.get("/topics/:id", withAuth, (req, res) => {
+router.get("/topic/:id", withAuth, (req, res) => {
+  Topic.find({ _id: req.params.id }, (err, topics) => {
+    if (err) console.log("route('/topics'): 'Erreur de Topic.find'");
+    else {
+      res.json(topics);
+    }
+  });
+});
+
+router.get("/messages/:id", withAuth, (req, res) => {
   Post.find({ originId: req.params.id }, (err, posts) => {
     if (err) console.log("route('/topics/:id'): 'Erreur de Topic.find'");
     else {
