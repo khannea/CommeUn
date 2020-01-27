@@ -127,15 +127,17 @@ class TopicView extends Component {
     return (
       <div className="topicview">
         {dataOrigin && (
-          <Topic
-            titre={dataOrigin.titre}
-            user={dataOrigin.user}
-            key={dataOrigin.index}
-            id={dataOrigin.id}
-            onTopicClick={() => {
-              return null;
-            }}
-          />
+          <div className="origin_box">
+            <Topic
+              titre={dataOrigin.titre}
+              user={dataOrigin.user}
+              key={dataOrigin.index}
+              id={dataOrigin.id}
+              onTopicClick={() => {
+                return null;
+              }}
+            />
+          </div>
         )}
         <div className="posts_box">
           {data &&
