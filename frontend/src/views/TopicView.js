@@ -30,6 +30,7 @@ class TopicView extends Component {
 
   componentDidMount() {
     this.getDataFromDb();
+    this.getTopicFromDb();
   }
 
   getTopicFromDb = () => {
