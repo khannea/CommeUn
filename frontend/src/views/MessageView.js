@@ -141,7 +141,7 @@ class MessageView extends Component {
             date={dataOrigin.date}
             id={dataOrigin.id}
             likes={dataOrigin.likes}
-            dislikes={dataOrigindislikes}
+            dislikes={dataOrigin.dislikes}
             refresh={() => {
               return null;
             }}
