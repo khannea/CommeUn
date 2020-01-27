@@ -22,7 +22,7 @@ export default function withAuth(ComponentToProtect) {
       fetch(req)
         .then(res => {
           if (res.status === 200) {
-            console.log("React withAuth :Reponse 200");
+            // console.log("React withAuth :Reponse 200");
             this.setState({ loading: false });
           } else {
             console.log("React withAuth : Faux");
@@ -39,7 +39,6 @@ export default function withAuth(ComponentToProtect) {
 
     render() {
       const { loading, redirect } = this.state;
-      console.log("withAuth");
       if (loading) {
         return null;
       }
