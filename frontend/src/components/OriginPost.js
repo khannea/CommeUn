@@ -6,7 +6,7 @@ import "./OriginPost.css";
 
 function OriginPost({ user, texte, date, likes, dislikes }) {
   return (
-    <div className="origin_post">
+    <div className="origin_post m-4">
       <Card>
         <CardHeader
           avatar={<Avatar aria-label="recipe">Origine</Avatar>}
@@ -16,7 +16,7 @@ function OriginPost({ user, texte, date, likes, dislikes }) {
           //   </IconButton>
           // }
           title="MESSAGE D'ORIGINE"
-          subheader={"Par " + { user } + " " + { date }}
+          subheader={"Par " + { user }}
         />
         {texte}
       </Card>
