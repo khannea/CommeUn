@@ -9,11 +9,7 @@ function OriginPost({ user, texte, likes, dislikes }) {
     <div>
       <Card>
         <CardHeader
-          avatar={
-            <Avatar aria-label="recipe" className={classes.avatar}>
-              R
-            </Avatar>
-          }
+          avatar={<Avatar aria-label="recipe">Origin</Avatar>}
           // action={
           //   <IconButton aria-label="settings">
           //     <MoreVertIcon />
