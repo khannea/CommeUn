@@ -126,10 +126,10 @@ class TopicView extends Component {
       <div className="topicview">
         {dataOrigin && (
           <Topic
-            titre={this.state.dataOrigin.titre}
-            user={this.state.dataOrigin.user}
-            key={this.state.dataOrigin.index}
-            id={this.state.dataOrigin.id}
+            titre={dataOrigin.titre}
+            user={dataOrigin.user}
+            key={dataOrigin.index}
+            id={dataOrigin.id}
             onTopicClick={() => {
               return null;
             }}
