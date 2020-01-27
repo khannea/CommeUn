@@ -53,7 +53,7 @@ class TopicView extends Component {
       })
       .then(dataOrigin => {
         this.setState({
-          dataOrigin: dataOrigin
+          dataOrigin: dataOrigin[0]
         });
       });
   };
@@ -125,7 +125,7 @@ class TopicView extends Component {
 
     return (
       <div className="topicview">
-        {/* {dataOrigin && (
+        {dataOrigin && (
           <Topic
             titre={dataOrigin.titre}
             user={dataOrigin.user}
@@ -135,11 +135,11 @@ class TopicView extends Component {
               return null;
             }}
           />
-        )} */}
-        {this.state.dataOrigin && (
+        )}
+        {/* {this.state.dataOrigin && (
           <div>{console.log(this.state.dataOrigin)}</div>
         )}
-        {dataOrigin && <div>BONJOUR2?????????????????????????</div>}
+        {dataOrigin && <div>BONJOUR2?????????????????????????</div>} */}
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&
