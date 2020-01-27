@@ -79,36 +79,11 @@ router.get("/origin_posts/:id", withAuth, (req, res) => {
   });
 });
 
-compareValues = (key, order = "asc") => {
-  return function innerSort(a, b) {
-    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-      // property doesn't exist on either object
-      return 0;
-    }
-
-    const varA = typeof a[key] === "string" ? a[key].toUpperCase() : a[key];
-    const varB = typeof b[key] === "string" ? b[key].toUpperCase() : b[key];
-
-    let comparison = 0;
-    if (varA > varB) {
-      comparison = 1;
-    } else if (varA < varB) {
-      comparison = -1;
-    }
-    return order === "desc" ? comparison * -1 : comparison;
-  };
-};
-
 router.get("/best_answer/:id", withAuth, (req, res) => {
   Post.find({ originId: req.params.id }, (err, post) => {
-    console.log("Post before sort");
-    console.log(post);
-    post.sort(this.compareValues("likes", "desc"));
-    console.log("Post after sort");
-    console.log(post);
-    if (err) console.log("route('/posts/:id'): 'Erreur de Post.find'");
+    if (err) console.log("route('/posts/:id'): 'Erreur de best_answer'");
     else {
-      res.json(post[0]);
+      res.json(post);
     }
   });
 });

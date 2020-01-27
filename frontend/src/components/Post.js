@@ -25,6 +25,26 @@ class Post extends Component {
     this.getAnswerFromDb();
   }
 
+  compareValues = (key, order = "asc") => {
+    return function innerSort(a, b) {
+      if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+        // property doesn't exist on either object
+        return 0;
+      }
+
+      const varA = typeof a[key] === "string" ? a[key].toUpperCase() : a[key];
+      const varB = typeof b[key] === "string" ? b[key].toUpperCase() : b[key];
+
+      let comparison = 0;
+      if (varA > varB) {
+        comparison = 1;
+      } else if (varA < varB) {
+        comparison = -1;
+      }
+      return order === "desc" ? comparison * -1 : comparison;
+    };
+  };
+
   getAnswerFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
@@ -44,8 +64,9 @@ class Post extends Component {
         }
       })
       .then(answer => {
+        answer.sort(this.compareValues("likes", "desc"));
         this.setState({
-          answer: answer
+          answer: answer[0]
         });
       });
   };
