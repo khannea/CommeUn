@@ -142,15 +142,6 @@ class MessageView extends Component {
             id={dataOrigin.id}
             likes={dataOrigin.likes}
             dislikes={dataOrigin.dislikes}
-            refresh={() => {
-              return null;
-            }}
-            editfunction={() => {
-              return null;
-            }}
-            onMessageClick={() => {
-              return null;
-            }}
           />
         )}
         <div className="posts_box">
