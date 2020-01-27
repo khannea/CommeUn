@@ -117,20 +117,18 @@ class TopicView extends Component {
 
   render() {
     let myid = this.id;
-    let { dataOrigin, data } = this.state;
+    let { data } = this.state;
+    let { dataOrigin } = this.state;
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
     }
-    if (dataOrigin) {
-      console.log("dataOrigin");
-      console.log(dataOrigin);
-    }
+
     return (
       <div className="topicview">
         {dataOrigin && (
           <Topic
-            titre={this.state.dataOrigin.titre}
+            titre={dataOrigin.titre}
             user={dataOrigin.user}
             key={dataOrigin.index}
             id={dataOrigin.id}
