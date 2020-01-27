@@ -130,7 +130,7 @@ class TopicView extends Component {
       <div className="topicview">
         {dataOrigin && (
           <Topic
-            titre="yo"
+            titre={this.state.dataOrigin.titre}
             user={dataOrigin.user}
             key={dataOrigin.index}
             id={dataOrigin.id}
