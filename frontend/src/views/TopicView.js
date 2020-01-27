@@ -59,7 +59,7 @@ class TopicView extends Component {
   getDataFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
-    let url = "/api/topics/" + this.id;
+    let url = "/api/origin_posts/" + this.id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",
