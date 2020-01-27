@@ -14,7 +14,7 @@ class MessageView extends Component {
     data: null,
     user: cookies.get("user"),
     editId: null,
-    dataOrigin
+    dataOrigin: null
   };
   constructor(props) {
     super(props);
