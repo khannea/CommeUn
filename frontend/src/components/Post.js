@@ -25,6 +25,12 @@ class Post extends Component {
     this.getAnswerFromDb();
   }
 
+  componentDidUpdate(nextProps) {
+    if (nextProps.id !== this.props.id) {
+      this.getAnswerFromDb();
+    }
+  }
+
   compareValues = (key, order = "asc") => {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
