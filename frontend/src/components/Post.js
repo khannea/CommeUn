@@ -221,7 +221,7 @@ class Post extends Component {
                 Répondre
               </Button>
               {answer && (
-                <OriginPost
+                <BestAnswer
                   user={answer.user}
                   texte={answer.texte}
                   date={answer.date}
