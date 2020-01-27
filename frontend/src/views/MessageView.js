@@ -58,8 +58,6 @@ class MessageView extends Component {
         }
       })
       .then(data => {
-        console.log("Jai fetchee2");
-        console.log(data);
         this.setState({
           data: data
         });

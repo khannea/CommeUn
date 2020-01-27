@@ -19,7 +19,7 @@ class TopicView extends Component {
     super(props);
     this.props = props;
     this.id = props.location.pathname.split("/")[3];
-    this.goToAnswer = this.goToAnswer.bind(this);
+    // this.goToAnswer = this.goToAnswer.bind(this);
   }
 
   goToAnswer = id => {
@@ -50,8 +50,6 @@ class TopicView extends Component {
         }
       })
       .then(data => {
-        console.log("Jai fetchee1");
-        console.log(data);
         this.setState({
           data: data
         });
@@ -99,6 +97,13 @@ class TopicView extends Component {
     }
     return (
       <div className="topicview">
+        <Topic
+          titre={titre}
+          user={user}
+          key={index}
+          id={id}
+          onTopicClick={this.goToTopic}
+        />
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&

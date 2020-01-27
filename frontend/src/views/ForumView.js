@@ -12,7 +12,7 @@ class ForumView extends Component {
 
   constructor(props) {
     super(props);
-    this.goToTopic = this.goToTopic.bind(this);
+    // this.goToTopic = this.goToTopic.bind(this);
   }
 
   goToTopic(id) {
@@ -24,11 +24,6 @@ class ForumView extends Component {
     this.getDataFromDb();
     this.getCookie();
   }
-
-  // goToTopic = (id) => {
-  //   console.log('id du topic: '+id);
-  //   return null;
-  // }
 
   getDataFromDb = () => {
     // const req = new Request("http://localhost:4000/topics", {
