@@ -21,8 +21,8 @@ function BestAnswer({ user, texte, date, likes, dislikes }) {
         <CardContent>
           <Typography variant="h6">{texte}</Typography>
         </CardContent>
+        <Button color="secondary">...</Button>
       </Card>
-      <Button color="secondary">...</Button>
     </div>
   );
 }
