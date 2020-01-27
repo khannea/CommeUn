@@ -28,7 +28,7 @@ class Post extends Component {
   getAnswerFromDb = () => {
     // let url = "http://localhost:4000/topics/" + this.id;
     // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
-    let url = "/api/post/" + this.props.id;
+    let url = "/api/best_answer/" + this.props.id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",
@@ -44,11 +44,9 @@ class Post extends Component {
         }
       })
       .then(answer => {
-        if (answer.length > 0) {
-          this.setState({
-            answer: answer[0]
-          });
-        }
+        this.setState({
+          answer: answer
+        });
       });
   };
 

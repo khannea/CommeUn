@@ -61,17 +61,7 @@ router.get("/topic/:id", withAuth, (req, res) => {
   });
 });
 
-// router.get("/messages/:id", withAuth, (req, res) => {
-//   Post.find({ originId: req.params.id }, (err, posts) => {
-//     if (err) console.log("route('/topics/:id'): 'Erreur de Topic.find'");
-//     else {
-//       res.json(posts);
-//     }
-//   });
-// });
-
 router.get("/post/:id", withAuth, (req, res) => {
-  console.log(req.params.id);
   Post.find({ _id: req.params.id }, (err, post) => {
     if (err) console.log("route('/posts/:id'): 'Erreur de Post.find'");
     else {
@@ -85,6 +75,36 @@ router.get("/origin_posts/:id", withAuth, (req, res) => {
     if (err) console.log("route('/posts/:id'): 'Erreur de Post.find'");
     else {
       res.json(post);
+    }
+  });
+});
+
+compareValues = (key, order = "asc") => {
+  return function innerSort(a, b) {
+    if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
+      // property doesn't exist on either object
+      return 0;
+    }
+
+    const varA = typeof a[key] === "string" ? a[key].toUpperCase() : a[key];
+    const varB = typeof b[key] === "string" ? b[key].toUpperCase() : b[key];
+
+    let comparison = 0;
+    if (varA > varB) {
+      comparison = 1;
+    } else if (varA < varB) {
+      comparison = -1;
+    }
+    return order === "desc" ? comparison * -1 : comparison;
+  };
+};
+
+router.get("/best_answer/:id", withAuth, (req, res) => {
+  Post.find({ originId: req.params.id }, (err, post) => {
+    post.sort(this.compareValues("likes", "desc"));
+    if (err) console.log("route('/posts/:id'): 'Erreur de Post.find'");
+    else {
+      res.json(post[0]);
     }
   });
 });
