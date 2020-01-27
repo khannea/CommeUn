@@ -6,7 +6,7 @@ import "./OriginPost.css";
 
 function OriginPost({ user, texte, date, likes, dislikes }) {
   return (
-    <div>
+    <div className="origin_post">
       <Card>
         <CardHeader
           avatar={<Avatar aria-label="recipe">Origine</Avatar>}
@@ -15,7 +15,7 @@ function OriginPost({ user, texte, date, likes, dislikes }) {
           //     <MoreVertIcon />
           //   </IconButton>
           // }
-          title="Carte Material UI"
+          title={user}
           subheader={date}
         />
         {texte}
