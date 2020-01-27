@@ -139,7 +139,7 @@ class TopicView extends Component {
         {dataOrigin &&
           (() => {
             console.log("dataOrigin");
-            console.log(dataOrigin);
+            console.log(this.dataOrigin);
           })}
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
