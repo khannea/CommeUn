@@ -117,8 +117,7 @@ class TopicView extends Component {
 
   render() {
     let myid = this.id;
-    let { data } = this.state;
-    let { dataOrigin } = this.state;
+    let { dataOrigin, data } = this.state;
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
@@ -137,6 +136,11 @@ class TopicView extends Component {
             }}
           />
         )}
+        {dataOrigin &&
+          (() => {
+            console.log("dataOrigin");
+            console.log(dataOrigin);
+          })}
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&
