@@ -97,13 +97,13 @@ class TopicView extends Component {
     }
     return (
       <div className="topicview">
-        <Topic
+        {/* <Topic
           titre={titre}
           user={user}
           key={index}
           id={id}
           onTopicClick={this.goToTopic}
-        />
+        /> */}
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
           {data &&
