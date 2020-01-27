@@ -15,8 +15,8 @@ function OriginPost({ user, texte, date, likes, dislikes }) {
           //     <MoreVertIcon />
           //   </IconButton>
           // }
-          title={user}
-          subheader={date}
+          title="MESSAGE D'ORIGINE"
+          subheader={"Par " + { user } + " " + { date }}
         />
         {texte}
       </Card>
