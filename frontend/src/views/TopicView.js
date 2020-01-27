@@ -126,18 +126,18 @@ class TopicView extends Component {
 
     return (
       <div className="topicview">
-        {dataOrigin && (
-          <Topic
-            titre={dataOrigin.titre}
-            user={dataOrigin.user}
-            key={dataOrigin.index}
-            id={dataOrigin.id}
-            onTopicClick={() => {
-              return null;
-            }}
-          />
-        )}
         <div className="posts_box">
+          {dataOrigin && (
+            <Topic
+              titre={dataOrigin.titre}
+              user={dataOrigin.user}
+              key={dataOrigin.index}
+              id={dataOrigin.id}
+              onTopicClick={() => {
+                return null;
+              }}
+            />
+          )}
           {data &&
             data.map(({ user, texte, date, id, likes, dislikes }, index) => (
               <div key={index}>
