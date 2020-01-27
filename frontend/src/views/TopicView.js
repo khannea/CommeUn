@@ -52,8 +52,6 @@ class TopicView extends Component {
         }
       })
       .then(dataOrigin => {
-        console.log("DataOrigin");
-        console.log(dataOrigin);
         this.setState({
           dataOrigin: dataOrigin
         });
@@ -123,6 +121,10 @@ class TopicView extends Component {
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
+    }
+    if (dataOrigin) {
+      console.log("dataOrigin");
+      console.log(dataOrigin);
     }
     return (
       <div className="topicview">
