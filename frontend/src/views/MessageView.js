@@ -138,13 +138,13 @@ class MessageView extends Component {
       <div className="topicview">
         <div className="posts_box">
           {dataOrigin && (
-            <OriginPost
-              // user={dataOrigin.user}
+            <Post
+              user={dataOrigin.user}
               texte={dataOrigin.texte}
-              // date={dataOrigin.date}
-              // id={dataOrigin.id}
-              // likes={dataOrigin.likes}
-              // dislikes={dataOrigin.dislikes}
+              date={dataOrigin.date}
+              id={dataOrigin.id}
+              likes={dataOrigin.likes}
+              dislikes={dataOrigin.dislikes}
             />
           )}
           {data &&
