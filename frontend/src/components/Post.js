@@ -213,11 +213,12 @@ class Post extends Component {
             <Row>
               <Button
                 color="primary"
+                variant="contained"
                 onClick={() => {
                   this.props.onMessageClick(this.props.id);
                 }}
               >
-                Reponse
+                Répondre
               </Button>
               {answer && (
                 <OriginPost
