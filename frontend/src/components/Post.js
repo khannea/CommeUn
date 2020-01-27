@@ -6,15 +6,51 @@ import "./Post.css";
 import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
+
+import OriginPost from "../components/OriginPost";
+
 const cookies = new Cookies();
 
 class Post extends Component {
+  state = {
+    answer: null
+  };
+
   constructor(props) {
     super(props);
-    // console.log(props);
-
     this.user = cookies.get("user");
   }
+
+  componentDidMount() {
+    this.getAnswerFromDb();
+  }
+
+  getAnswerFromDb = () => {
+    // let url = "http://localhost:4000/topics/" + this.id;
+    // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
+    let url = "/api/post/" + this.props.id;
+    let req = new Request(url, {
+      method: "GET",
+      cache: "default",
+      credentials: "include"
+    });
+    fetch(req)
+      .then(res => {
+        if (res.status === 401) {
+          console.log("answer n'a pas recu la meilleur réponse].");
+        } else {
+          // console.log("TopicView  a bien recu les topics.");
+          return res.json();
+        }
+      })
+      .then(answer => {
+        if (answer.length > 0) {
+          this.setState({
+            answer: answer[0]
+          });
+        }
+      });
+  };
 
   onClickLike = () => {
     // fetch("https://testkhannea.herokuapp.com/likepost", {
@@ -61,9 +97,12 @@ class Post extends Component {
       .split("\n")
       .map((item, i) => <p key={i}>{item}</p>);
     let success = false;
+    let answer = this.state.answer;
+
     if (this.props.likes > this.props.dislikes) {
       success = true;
     }
+
     return (
       <Card
         className="m-4"
@@ -148,12 +187,20 @@ class Post extends Component {
           {this.props.onMessageClick && (
             <Row>
               <Button
+                color="primary"
                 onClick={() => {
                   this.props.onMessageClick(this.props.id);
                 }}
               >
                 Reponse
               </Button>
+              {answer && (
+                <OriginPost
+                  user={answer.user}
+                  texte={answer.texte}
+                  date={answer.date}
+                />
+              )}
             </Row>
           )}
         </Card.Body>
