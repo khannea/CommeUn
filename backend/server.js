@@ -101,7 +101,11 @@ compareValues = (key, order = "asc") => {
 
 router.get("/best_answer/:id", withAuth, (req, res) => {
   Post.find({ originId: req.params.id }, (err, post) => {
+    console.log("Post before sort");
+    console.log(post);
     post.sort(this.compareValues("likes", "desc"));
+    console.log("Post after sort");
+    console.log(post);
     if (err) console.log("route('/posts/:id'): 'Erreur de Post.find'");
     else {
       res.json(post[0]);
