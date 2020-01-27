@@ -4,3 +4,7 @@
   overflow-y: scroll;
   min-width: 400px;
 }
+
+.origin_box {
+  width: 70%;
+}
