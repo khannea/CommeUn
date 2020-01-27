@@ -52,7 +52,7 @@ class TopicView extends Component {
       })
       .then(dataOrigin => {
         this.setState({
-          dataOrigin: data
+          dataOrigin: dataOrigin
         });
       });
   };
