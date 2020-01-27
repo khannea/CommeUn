@@ -1,7 +1,5 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import Avatar from "@material-ui/core/Avatar";
+import { Card, CardHeader, CardContent, Avatar } from "@material-ui/core";
 import "./OriginPost.css";
 import Typography from "@material-ui/core/Typography";
 
