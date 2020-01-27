@@ -52,6 +52,8 @@ class TopicView extends Component {
         }
       })
       .then(dataOrigin => {
+        console.log("DataOrigin");
+        console.log(dataOrigin);
         this.setState({
           dataOrigin: dataOrigin
         });
