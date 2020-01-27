@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
 import Post from "../components/Post";
+import OriginPost from "../components/OriginPost";
+
 import AddPost from "../components/AddPost";
 import EditPost from "../components/EditPost";
 import "./TopicView.css";
@@ -134,20 +136,17 @@ class MessageView extends Component {
     }
     return (
       <div className="topicview">
-        {dataOrigin && (
-          <div className="origin_box">
-            <Post
-              user={dataOrigin.user}
-              texte={dataOrigin.texte}
-              date={dataOrigin.date}
-              id={dataOrigin.id}
-              likes={dataOrigin.likes}
-              dislikes={dataOrigin.dislikes}
-            />
-          </div>
-        )}
         <div className="posts_box">
-          {/* <div className="posts_box mx-auto"> */}
+          {dataOrigin && (
+            <OriginPost
+              // user={dataOrigin.user}
+              texte={dataOrigin.texte}
+              // date={dataOrigin.date}
+              // id={dataOrigin.id}
+              // likes={dataOrigin.likes}
+              // dislikes={dataOrigin.dislikes}
+            />
+          )}
           {data &&
             data.map(({ user, texte, date, id, likes, dislikes }, index) => (
               <div key={index}>
