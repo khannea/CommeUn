@@ -125,7 +125,7 @@ class TopicView extends Component {
 
     return (
       <div className="topicview">
-        {dataOrigin && (
+        {/* {dataOrigin && (
           <Topic
             titre={dataOrigin.titre}
             user={dataOrigin.user}
@@ -135,7 +135,7 @@ class TopicView extends Component {
               return null;
             }}
           />
-        )}
+        )} */}
         {dataOrigin &&
           (() => {
             console.log("dataOrigin");
