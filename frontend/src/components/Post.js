@@ -143,13 +143,16 @@ class Post extends Component {
               )}
             </Col>
           </Row>
-          <Row
-            onClick={() => {
-              this.props.onMessageClick(this.props.id);
-            }}
-          >
-            Reponse
-          </Row>
+
+          {this.props.onMessageClick && (
+            <Row
+              onClick={() => {
+                this.props.onMessageClick(this.props.id);
+              }}
+            >
+              Reponse
+            </Row>
+          )}
         </Card.Body>
       </Card>
     );
