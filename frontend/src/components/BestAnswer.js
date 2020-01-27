@@ -19,7 +19,7 @@ function BestAnswer({ user, texte, date, likes, dislikes }) {
           subheader={"Par " + user + " à " + date}
         />
         <CardContent>
-          <Typography variant="h5">{texte}</Typography>
+          <Typography variant="h6">{texte}</Typography>
         </CardContent>
       </Card>
       <Button color="secondary">...</Button>
