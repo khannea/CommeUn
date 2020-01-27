@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Card, Row, Col, Image } from "react-bootstrap";
+import { Row, Col, Image } from "react-bootstrap";
 import DefaultImg from "./default-user-avatar.png";
 import DeletePost from "./DeletePost";
 import "./Post.css";
 import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
+import { Card, CardHeader, CardContent, Avatar } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
 
@@ -117,6 +118,19 @@ class Post extends Component {
       .catch(error => console.error("Error:", error));
   };
 
+  postTitle = () => {
+    return (
+      <div>
+        <div className="row">
+          <div className="col">
+            <i>{this.props.user}</i>
+          </div>
+          <div className="col">{this.props.date}</div>
+        </div>
+      </div>
+    );
+  };
+
   render() {
     let newText = this.props.texte
       .split("\n")
@@ -135,19 +149,13 @@ class Post extends Component {
         //   this.props.onMessageClick(this.props.id);
         // }}
       >
-        <div
+        <CardHeader
           className={
             "card-header border " + (success ? "bg-success" : "bg-secondary")
           }
-        >
-          <div className="row">
-            <div className="col">
-              <i>{this.props.user}</i>
-            </div>
-            <div className="col">{this.props.date}</div>
-          </div>
-        </div>
-        <Card.Body>
+          title={this.postTitle()}
+        />
+        <CardContent>
           <Row>
             <Col className="border-right col1st  col-auto">
               <Row className="h-100">
@@ -229,7 +237,7 @@ class Post extends Component {
               )}
             </Row>
           )}
-        </Card.Body>
+        </CardContent>
       </Card>
     );
   }
