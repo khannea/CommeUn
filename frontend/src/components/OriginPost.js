@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 function OriginPost({ user, texte, date, likes, dislikes }) {
   return (
-    <div className="origin_post m-4">
+    <div className="origin_post m-4 w-100">
       <Card>
         <CardHeader
           avatar={<Avatar aria-label="recipe">Origine</Avatar>}
