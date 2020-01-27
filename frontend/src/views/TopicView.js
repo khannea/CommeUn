@@ -136,7 +136,9 @@ class TopicView extends Component {
             }}
           />
         )} */}
-        {this.state.dataOrigin && <div>{this.state.dataOrigin.titre}</div>}
+        {this.state.dataOrigin && (
+          <div>{console.log(this.state.dataOrigin)}</div>
+        )}
         {dataOrigin && <div>BONJOUR2?????????????????????????</div>}
         <div className="posts_box">
           {/* <div className="posts_box mx-auto"> */}
