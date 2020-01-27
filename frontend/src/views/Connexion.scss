@@ -12,6 +12,9 @@ body {
 
 .titre_site {
   position: absolute;
+  right: 50%;
+  transform: translateX(-50%);
+
   z-index: -1;
   font-family: "Alegreya", sans-serif;
   text-align: center;
