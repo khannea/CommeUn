@@ -7,7 +7,7 @@ import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
 
-import OriginPost from "../components/OriginPost";
+import BestAnswer from "../components/BestAnswer";
 
 const cookies = new Cookies();
 
