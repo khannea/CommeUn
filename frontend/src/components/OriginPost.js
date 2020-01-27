@@ -17,7 +17,9 @@ function OriginPost({ user, texte, date, likes, dislikes }) {
           title="MESSAGE D'ORIGINE"
           subheader={"Par " + user + " à " + date}
         />
-        <Typography variant="h5">{texte}</Typography>
+        <CardContent>
+          <Typography variant="h5">{texte}</Typography>
+        </CardContent>
       </Card>
     </div>
   );
