@@ -212,16 +212,17 @@ class Post extends Component {
 
           {this.props.onMessageClick && (
             <Row>
-              <Button
-                classname="mx-7"
-                color="primary"
-                variant="contained"
-                onClick={() => {
-                  this.props.onMessageClick(this.props.id);
-                }}
-              >
-                Répondre
-              </Button>
+              <div classname="mx-5">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  onClick={() => {
+                    this.props.onMessageClick(this.props.id);
+                  }}
+                >
+                  Répondre
+                </Button>
+              </div>
               {answer && (
                 <BestAnswer
                   user={answer.user}
