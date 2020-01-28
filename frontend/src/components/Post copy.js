@@ -145,9 +145,8 @@ class Post extends Component {
     return (
       <Card className="m-4">
         <CardHeader
-          avatar={<Avatar src="/broken-image.jpg" />}
           className={"border " + (success ? "bg-success" : "bg-secondary")}
-          title={this.props.user + " " + this.props.date}
+          title={this.postTitle()}
         />
         <CardContent>
           <Row>

@@ -1,0 +1,49 @@
+.defaultuser img {
+  width: 150px;
+}
+
+#repondre_wrapper {
+  margin: 50px 0px;
+}
+
+.delete {
+  /* position: absolute !important;
+  bottom: 0; */
+}
+
+.like-img {
+  /* width:50% !important;
+  height:50px !important;
+  padding:0px !important;
+  margin:0px !important; */
+}
+
+.number_like {
+  /* width:50% !important;
+  height:50px !important;
+  padding:0px !important;
+  margin:0px !important; */
+}
+
+.col1st {
+  /* max-width: 250px !important; */
+}
+
+#delete_wrapper {
+  position: relative;
+  bottom: 0;
+}
+
+#post_content_wrapper {
+  min-height: 80px;
+}
+
+#like_dislike_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.like_wrapper {
+  width: 100%;
+}
