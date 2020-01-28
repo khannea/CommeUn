@@ -212,7 +212,7 @@ class Post extends Component {
 
           {this.props.onMessageClick && (
             <Row>
-              <div classname="mx-5">
+              <div classname="repondre_wrapper">
                 <Button
                   color="primary"
                   variant="contained"
