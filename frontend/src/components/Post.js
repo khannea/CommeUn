@@ -213,6 +213,7 @@ class Post extends Component {
           {this.props.onMessageClick && (
             <Row>
               <Button
+                classname="mx-5"
                 color="primary"
                 variant="contained"
                 onClick={() => {
