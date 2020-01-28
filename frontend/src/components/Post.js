@@ -6,7 +6,7 @@ import "./Post.css";
 import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
-import { Card, CardHeader, CardContent, Avatar } from "@material-ui/core";
+import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
 
@@ -147,7 +147,8 @@ class Post extends Component {
         <CardHeader
           avatar={<Avatar src="/broken-image.jpg" />}
           className={"border " + (success ? "bg-success" : "bg-secondary")}
-          title={this.props.user + " " + this.props.date}
+          title={this.props.user}
+          subheader={this.props.date}
         />
         <CardContent>
           <Row>
@@ -187,13 +188,6 @@ class Post extends Component {
                     </div>
                   </div>
                 </Col>
-                <Hidden smDown implementation="css">
-                  <Col>
-                    <div className="defaultuser img mx-auto">
-                      <img src={DefaultImg} alt="Rien" />
-                    </div>
-                  </Col>
-                </Hidden>
               </Row>
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
