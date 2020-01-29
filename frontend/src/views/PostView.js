@@ -86,7 +86,7 @@ class PostView extends Component {
                 dislikes={dislikes}
                 refresh={this.getDataFromDb}
               />
-              <PostView origin_id={id} />
+              {/* <PostView origin_id={id} /> */}
             </div>
           ))}
 
@@ -102,7 +102,7 @@ class PostView extends Component {
               dislikes={data[0].dislikes}
               refresh={this.getDataFromDb}
             />
-            <PostView origin_id={data[0].id} />
+            {/* <PostView origin_id={data[0].id} /> */}
           </div>
         )}
       </div>
