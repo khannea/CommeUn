@@ -10,7 +10,7 @@ class PostView extends Component {
 
   constructor(props) {
     super(props);
-    props = this.props;
+    this.props = props;
     if (!this.origin_id) {
       this.origin_id = props.location.pathname.split("/")[3];
       this.setState({ type: "all" });
