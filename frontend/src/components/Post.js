@@ -206,11 +206,7 @@ class Post extends Component {
                 </Button>
               </div>
               {
-                <Post
-                  user={answer.user}
-                  texte="JE SUIS LE POST RECURSIF"
-                  date={answer.date}
-                />
+                <Post {...this.props} />
                 // && (
                 //   <BestAnswer
                 //     user={answer.user}
