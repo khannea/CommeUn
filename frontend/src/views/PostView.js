@@ -3,13 +3,12 @@ import "./PostView.css";
 import Post from "../components/Post";
 
 class PostView extends Component {
-  state = {
-    type: "best",
-    data: null
-  };
-
   constructor(props) {
     super(props);
+    this.state = {
+      type: "best",
+      data: null
+    };
     this.props = props;
     if (!this.origin_id) {
       this.origin_id = props.location.pathname.split("/")[3];
