@@ -205,15 +205,21 @@ class Post extends Component {
                   Répondre
                 </Button>
               </div>
-              {
-                <Post {...this.props} onMessageClick={null} />
-                // && (
-                //   <BestAnswer
-                //     user={answer.user}
-                //     texte={answer.texte}
-                //     date={answer.date}
-                //   />
-                // )
+              {answer && (
+                <Post
+                  {...this.props}
+                  user={answer.user}
+                  texte={answer.texte}
+                  date={answer.date}
+                />
+              )
+              // && (
+              //   <BestAnswer
+              //     user={answer.user}
+              //     texte={answer.texte}
+              //     date={answer.date}
+              //   />
+              // )
               }
             </Row>
           )}
