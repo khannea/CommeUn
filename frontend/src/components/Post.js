@@ -205,20 +205,19 @@ class Post extends Component {
                   Répondre
                 </Button>
               </div>
-              {answer && (
+              {
                 <Post
                   user={answer.user}
                   texte="JE SUIS LE POST RECURSIF"
                   date={answer.date}
                 />
-              )
-              // && (
-              //   <BestAnswer
-              //     user={answer.user}
-              //     texte={answer.texte}
-              //     date={answer.date}
-              //   />
-              // )
+                // && (
+                //   <BestAnswer
+                //     user={answer.user}
+                //     texte={answer.texte}
+                //     date={answer.date}
+                //   />
+                // )
               }
             </Row>
           )}
