@@ -64,7 +64,7 @@ class PostView extends Component {
   };
 
   render() {
-    let { data } = this.state;
+    let { data, type } = this.state;
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
