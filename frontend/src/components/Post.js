@@ -53,8 +53,6 @@ class Post extends Component {
   };
 
   getAnswerFromDb = () => {
-    // let url = "http://localhost:4000/topics/" + this.id;
-    // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
     let url = "/api/best_answer/" + this.props.id;
     let req = new Request(url, {
       method: "GET",
@@ -66,7 +64,6 @@ class Post extends Component {
         if (res.status === 401) {
           console.log("answer n'a pas recu la meilleur réponse].");
         } else {
-          // console.log("TopicView  a bien recu les topics.");
           return res.json();
         }
       })
@@ -79,7 +76,6 @@ class Post extends Component {
   };
 
   onClickLike = () => {
-    // fetch("https://testkhannea.herokuapp.com/likepost", {
     fetch("/api/likepost", {
       method: "POST",
       body: JSON.stringify({ msgId: this.props.id, user: this.user }),
@@ -99,7 +95,6 @@ class Post extends Component {
   };
 
   onClickDislike = () => {
-    //     fetch("https://testkhannea.herokuapp.com/dislikepost", {
     fetch("/api/dislikepost", {
       method: "POST",
       body: JSON.stringify({ msgId: this.props.id, user: this.user }),
@@ -144,14 +139,17 @@ class Post extends Component {
 
     return (
       <Card className="m-4">
-        <CardHeader
-          avatar={<Avatar src="/broken-image.jpg" />}
+        {/* <CardHeader
+          avatar={}
           className={"border " + (success ? "bg-success" : "bg-secondary")}
           title={this.props.user}
           subheader={this.props.date}
-        />
+        /> */}
         <CardContent>
           <Row>
+            <Col>
+              <Avatar src="/broken-image.jpg" />
+            </Col>
             <Col className="border-right col1st  col-auto">
               <Row className="h-100">
                 <Col id="like_dislike_wrapper">
@@ -191,6 +189,7 @@ class Post extends Component {
               </Row>
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
+              <CardHeader title={this.props.user + " " + this.props.date} />
               {newText}
               {this.props.user === localStorage.getItem("pseudo") && (
                 <Col id="delete_wrapper" className="p-2 border-dark delete">
