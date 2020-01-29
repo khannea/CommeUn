@@ -113,19 +113,6 @@ class Post extends Component {
       .catch(error => console.error("Error:", error));
   };
 
-  postTitle = () => {
-    return (
-      <div>
-        <div className="row">
-          <div className="col">
-            <i>{this.props.user}</i>
-          </div>
-          <div className="col">{this.props.date}</div>
-        </div>
-      </div>
-    );
-  };
-
   render() {
     let newText = this.props.texte
       .split("\n")
@@ -137,14 +124,45 @@ class Post extends Component {
       success = true;
     }
 
+    renderLikeDislike = () => {
+      return (
+        <div>
+          <div>
+            <Col>
+              <Image
+                className="banniere"
+                src={require("./like.png")}
+                width="20px"
+                height="20px"
+                style={{ cursor: "pointer" }}
+                onClick={this.onClickLike}
+              />
+            </Col>
+            <Col>
+              <b>&nbsp;{this.props.likes}</b>
+            </Col>
+          </div>
+          <div>
+            <Col>
+              <Image
+                className="banniere"
+                src={require("./dislike.png")}
+                width="20px"
+                height="20px"
+                style={{ cursor: "pointer" }}
+                onClick={this.onClickDislike}
+              />
+            </Col>
+            <Col>
+              <b>&nbsp;{this.props.dislikes}</b>
+            </Col>
+          </div>
+        </div>
+      );
+    };
+
     return (
       <Card className="m-4">
-        {/* <CardHeader
-          avatar={}
-          className={"border " + (success ? "bg-success" : "bg-secondary")}
-          title={this.props.user}
-          subheader={this.props.date}
-        /> */}
         <CardContent>
           <Row>
             <Col id="avatar_wrapper" className="col-auto">
@@ -152,40 +170,7 @@ class Post extends Component {
             </Col>
             <Col className="border-right col1st  col-auto">
               <Row className="h-100">
-                <Col id="like_dislike_wrapper">
-                  <div>
-                    <div>
-                      <Col>
-                        <Image
-                          className="banniere"
-                          src={require("./like.png")}
-                          width="20px"
-                          height="20px"
-                          style={{ cursor: "pointer" }}
-                          onClick={this.onClickLike}
-                        />
-                      </Col>
-                      <Col>
-                        <b>&nbsp;{this.props.likes}</b>
-                      </Col>
-                    </div>
-                    <div>
-                      <Col>
-                        <Image
-                          className="banniere"
-                          src={require("./dislike.png")}
-                          width="20px"
-                          height="20px"
-                          style={{ cursor: "pointer" }}
-                          onClick={this.onClickDislike}
-                        />
-                      </Col>
-                      <Col>
-                        <b>&nbsp;{this.props.dislikes}</b>
-                      </Col>
-                    </div>
-                  </div>
-                </Col>
+                <Col id="like_dislike_wrapper">{this.renderLikeDislike()}</Col>
               </Row>
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
