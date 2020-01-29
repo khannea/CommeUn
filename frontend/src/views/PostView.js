@@ -6,7 +6,7 @@ class PostView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: "best",
+      type: "all",
       data: null
     };
     this.props = props;
