@@ -113,6 +113,43 @@ class Post extends Component {
       .catch(error => console.error("Error:", error));
   };
 
+  renderLikeDislike = () => {
+    return (
+      <div>
+        <div>
+          <Col>
+            <Image
+              className="banniere"
+              src={require("./like.png")}
+              width="20px"
+              height="20px"
+              style={{ cursor: "pointer" }}
+              onClick={this.onClickLike}
+            />
+          </Col>
+          <Col>
+            <b>&nbsp;{this.props.likes}</b>
+          </Col>
+        </div>
+        <div>
+          <Col>
+            <Image
+              className="banniere"
+              src={require("./dislike.png")}
+              width="20px"
+              height="20px"
+              style={{ cursor: "pointer" }}
+              onClick={this.onClickDislike}
+            />
+          </Col>
+          <Col>
+            <b>&nbsp;{this.props.dislikes}</b>
+          </Col>
+        </div>
+      </div>
+    );
+  };
+
   render() {
     let newText = this.props.texte
       .split("\n")
@@ -123,43 +160,6 @@ class Post extends Component {
     if (this.props.likes > this.props.dislikes) {
       success = true;
     }
-
-    renderLikeDislike = () => {
-      return (
-        <div>
-          <div>
-            <Col>
-              <Image
-                className="banniere"
-                src={require("./like.png")}
-                width="20px"
-                height="20px"
-                style={{ cursor: "pointer" }}
-                onClick={this.onClickLike}
-              />
-            </Col>
-            <Col>
-              <b>&nbsp;{this.props.likes}</b>
-            </Col>
-          </div>
-          <div>
-            <Col>
-              <Image
-                className="banniere"
-                src={require("./dislike.png")}
-                width="20px"
-                height="20px"
-                style={{ cursor: "pointer" }}
-                onClick={this.onClickDislike}
-              />
-            </Col>
-            <Col>
-              <b>&nbsp;{this.props.dislikes}</b>
-            </Col>
-          </div>
-        </div>
-      );
-    };
 
     return (
       <Card className="m-4">
@@ -195,6 +195,7 @@ class Post extends Component {
                 <Button
                   color="primary"
                   variant="contained"
+                  size="small"
                   onClick={() => {
                     this.props.onMessageClick(this.props.id);
                   }}
