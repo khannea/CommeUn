@@ -116,6 +116,25 @@ class TopicView extends Component {
     };
   };
 
+  PostView = () => {
+    return data.map(({ user, texte, date, id, likes, dislikes }, index) => (
+      <div key={index}>
+        <Post
+          user={user}
+          texte={texte}
+          date={date}
+          key={index}
+          id={id}
+          likes={likes}
+          dislikes={dislikes}
+          refresh={this.getDataFromDb}
+          editfunction={this.goOnEdit}
+          onMessageClick={this.goToAnswer}
+        />
+      </div>
+    ));
+  };
+
   render() {
     let myid = this.id;
     let { dataOrigin, data } = this.state;
@@ -138,23 +157,7 @@ class TopicView extends Component {
               }}
             />
           )}
-          {data &&
-            data.map(({ user, texte, date, id, likes, dislikes }, index) => (
-              <div key={index}>
-                <Post
-                  user={user}
-                  texte={texte}
-                  date={date}
-                  key={index}
-                  id={id}
-                  likes={likes}
-                  dislikes={dislikes}
-                  refresh={this.getDataFromDb}
-                  editfunction={this.goOnEdit}
-                  onMessageClick={this.goToAnswer}
-                />
-              </div>
-            ))}
+          {data && this.PostView()}
         </div>
         {!this.state.editId && (
           <div className="border-top">

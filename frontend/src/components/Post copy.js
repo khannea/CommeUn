@@ -6,9 +6,10 @@ import "./Post.css";
 import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
-import { Card, CardHeader, CardContent, Avatar } from "@material-ui/core";
+import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
+import NextPost from "../components/Post";
 
 const cookies = new Cookies();
 
@@ -53,8 +54,6 @@ class Post extends Component {
   };
 
   getAnswerFromDb = () => {
-    // let url = "http://localhost:4000/topics/" + this.id;
-    // let url = "https://testkhannea.herokuapp.com/topics/" + this.id;
     let url = "/api/best_answer/" + this.props.id;
     let req = new Request(url, {
       method: "GET",
@@ -66,20 +65,20 @@ class Post extends Component {
         if (res.status === 401) {
           console.log("answer n'a pas recu la meilleur réponse].");
         } else {
-          // console.log("TopicView  a bien recu les topics.");
           return res.json();
         }
       })
       .then(answer => {
-        answer.sort(this.compareValues("likes", "desc"));
-        this.setState({
-          answer: answer[0]
-        });
+        if (answer.length > 0) {
+          answer.sort(this.compareValues("likes", "desc"));
+          this.setState({
+            answer: answer[0]
+          });
+        }
       });
   };
 
   onClickLike = () => {
-    // fetch("https://testkhannea.herokuapp.com/likepost", {
     fetch("/api/likepost", {
       method: "POST",
       body: JSON.stringify({ msgId: this.props.id, user: this.user }),
@@ -99,7 +98,6 @@ class Post extends Component {
   };
 
   onClickDislike = () => {
-    //     fetch("https://testkhannea.herokuapp.com/dislikepost", {
     fetch("/api/dislikepost", {
       method: "POST",
       body: JSON.stringify({ msgId: this.props.id, user: this.user }),
@@ -118,14 +116,38 @@ class Post extends Component {
       .catch(error => console.error("Error:", error));
   };
 
-  postTitle = () => {
+  renderLikeDislike = () => {
     return (
       <div>
-        <div className="row">
-          <div className="col">
-            <i>{this.props.user}</i>
-          </div>
-          <div className="col">{this.props.date}</div>
+        <div>
+          <Col>
+            <Image
+              className="banniere"
+              src={require("./like.png")}
+              width="20px"
+              height="20px"
+              style={{ cursor: "pointer" }}
+              onClick={this.onClickLike}
+            />
+          </Col>
+          <Col>
+            <b>&nbsp;{this.props.likes}</b>
+          </Col>
+        </div>
+        <div>
+          <Col>
+            <Image
+              className="banniere"
+              src={require("./dislike.png")}
+              width="20px"
+              height="20px"
+              style={{ cursor: "pointer" }}
+              onClick={this.onClickDislike}
+            />
+          </Col>
+          <Col>
+            <b>&nbsp;{this.props.dislikes}</b>
+          </Col>
         </div>
       </div>
     );
@@ -144,58 +166,18 @@ class Post extends Component {
 
     return (
       <Card className="m-4">
-        <CardHeader
-          className={"border " + (success ? "bg-success" : "bg-secondary")}
-          title={this.postTitle()}
-        />
         <CardContent>
           <Row>
+            <Col id="avatar_wrapper" className="col-auto">
+              <Avatar src="/broken-image.jpg" />
+            </Col>
             <Col className="border-right col1st  col-auto">
               <Row className="h-100">
-                <Col id="like_dislike_wrapper">
-                  <div>
-                    <div>
-                      <Col>
-                        <Image
-                          className="banniere"
-                          src={require("./like.png")}
-                          width="20px"
-                          height="20px"
-                          style={{ cursor: "pointer" }}
-                          onClick={this.onClickLike}
-                        />
-                      </Col>
-                      <Col>
-                        <b>&nbsp;{this.props.likes}</b>
-                      </Col>
-                    </div>
-                    <div>
-                      <Col>
-                        <Image
-                          className="banniere"
-                          src={require("./dislike.png")}
-                          width="20px"
-                          height="20px"
-                          style={{ cursor: "pointer" }}
-                          onClick={this.onClickDislike}
-                        />
-                      </Col>
-                      <Col>
-                        <b>&nbsp;{this.props.dislikes}</b>
-                      </Col>
-                    </div>
-                  </div>
-                </Col>
-                <Hidden smDown implementation="css">
-                  <Col>
-                    <div className="defaultuser img mx-auto">
-                      <img src={DefaultImg} alt="Rien" />
-                    </div>
-                  </Col>
-                </Hidden>
+                <Col id="like_dislike_wrapper">{this.renderLikeDislike()}</Col>
               </Row>
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
+              <CardHeader title={this.props.user + " " + this.props.date} />
               {newText}
               {this.props.user === localStorage.getItem("pseudo") && (
                 <Col id="delete_wrapper" className="p-2 border-dark delete">
@@ -216,6 +198,7 @@ class Post extends Component {
                 <Button
                   color="primary"
                   variant="contained"
+                  size="small"
                   onClick={() => {
                     this.props.onMessageClick(this.props.id);
                   }}
@@ -224,12 +207,19 @@ class Post extends Component {
                 </Button>
               </div>
               {answer && (
-                <BestAnswer
-                  user={answer.user}
-                  texte={answer.texte}
-                  date={answer.date}
-                />
-              )}
+                  <NextPost
+                    {...this.props}
+                    user={answer.user}
+                    texte={answer.texte}
+                    date={answer.date}
+                  />
+                ) && (
+                  <BestAnswer
+                    user={answer.user}
+                    texte={answer.texte}
+                    date={answer.date}
+                  />
+                )}
             </Row>
           )}
         </CardContent>
