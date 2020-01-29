@@ -9,7 +9,7 @@ import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
-import Post from "../components/Post";
+import NextPost from "../components/Post";
 
 const cookies = new Cookies();
 
@@ -208,7 +208,7 @@ class Post extends Component {
                 </Button>
               </div>
               {answer && (
-                <Post {...this.props}      user={answer.user}
+                <NextPost {...this.props}      user={answer.user}
                 texte={answer.texte}
                 date={answer.date}>
                 <BestAnswer
