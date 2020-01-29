@@ -6,10 +6,12 @@ class PostView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type: "all",
+      type: "best",
       data: null
     };
     this.props = props;
+    console.log("this.origin_id");
+    console.log(this.origin_id);
     if (!this.origin_id) {
       this.origin_id = props.location.pathname.split("/")[3];
       this.setState({ type: "all" });
