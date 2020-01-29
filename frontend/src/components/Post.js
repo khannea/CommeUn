@@ -153,7 +153,7 @@ class Post extends Component {
   };
 
   render() {
-    let newText = this.props.texte
+    let texte = this.props.texte
       .split("\n")
       .map((item, i) => <p key={i}>{item}</p>);
     let success = false;
@@ -177,7 +177,7 @@ class Post extends Component {
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
               <CardHeader title={this.props.user + " " + this.props.date} />
-              {newText}
+              {texte}
               {this.props.user === localStorage.getItem("pseudo") && (
                 <Col id="delete_wrapper" className="p-2 border-dark delete">
                   <DeletePost
