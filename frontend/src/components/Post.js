@@ -206,19 +206,20 @@ class Post extends Component {
                 </Button>
               </div>
               {answer && (
-                  <Post
-                    {...this.props}
-                    user={answer.user}
-                    texte={answer.texte}
-                    date={answer.date}
-                  />
-                ) && (
-                  <BestAnswer
-                    user={answer.user}
-                    texte={answer.texte}
-                    date={answer.date}
-                  />
-                )}
+                <Post
+                  user={answer.user}
+                  texte="JE SUIS LE POST RECURSIF"
+                  date={answer.date}
+                />
+              )
+              // && (
+              //   <BestAnswer
+              //     user={answer.user}
+              //     texte={answer.texte}
+              //     date={answer.date}
+              //   />
+              // )
+              }
             </Row>
           )}
         </CardContent>
