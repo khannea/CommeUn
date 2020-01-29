@@ -69,13 +69,12 @@ class Post extends Component {
         }
       })
       .then(answer => {
-        if(answer.length > 0)
-        {
-        answer.sort(this.compareValues("likes", "desc"));
-        this.setState({
-          answer: answer[0]
-        });
-      }
+        if (answer.length > 0) {
+          answer.sort(this.compareValues("likes", "desc"));
+          this.setState({
+            answer: answer[0]
+          });
+        }
       });
   };
 
@@ -208,15 +207,19 @@ class Post extends Component {
                 </Button>
               </div>
               {answer && (
-                <NextPost {...this.props}      user={answer.user}
-                texte={answer.texte}
-                date={answer.date}>
-                <BestAnswer
-                  user={answer.user}
-                  texte={answer.texte}
-                  date={answer.date}
-                />
-              )}
+                  <NextPost
+                    {...this.props}
+                    user={answer.user}
+                    texte={answer.texte}
+                    date={answer.date}
+                  />
+                ) && (
+                  <BestAnswer
+                    user={answer.user}
+                    texte={answer.texte}
+                    date={answer.date}
+                  />
+                )}
             </Row>
           )}
         </CardContent>
