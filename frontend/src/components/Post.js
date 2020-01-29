@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
+import Post from "../components/Post";
 
 const cookies = new Cookies();
 
@@ -68,10 +69,13 @@ class Post extends Component {
         }
       })
       .then(answer => {
+        if(answer.length > 0)
+        {
         answer.sort(this.compareValues("likes", "desc"));
         this.setState({
           answer: answer[0]
         });
+      }
       });
   };
 
@@ -204,6 +208,9 @@ class Post extends Component {
                 </Button>
               </div>
               {answer && (
+                <Post {...this.props}      user={answer.user}
+                texte={answer.texte}
+                date={answer.date}>
                 <BestAnswer
                   user={answer.user}
                   texte={answer.texte}
