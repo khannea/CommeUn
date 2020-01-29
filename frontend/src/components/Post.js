@@ -18,7 +18,7 @@ class Post extends Component {
   };
 
   constructor(props) {
-    // super(props);
+    super(props);
     this.user = cookies.get("user");
   }
 
@@ -210,7 +210,7 @@ class Post extends Component {
                   user={answer.user}
                   texte={answer.texte}
                   date={answer.date}
-                  {...this.props}
+                  // {...this.props}
                 />
               )
               // && (
