@@ -116,7 +116,7 @@ class TopicView extends Component {
     };
   };
 
-  PostView = () => {
+  PostView = data => {
     return data.map(({ user, texte, date, id, likes, dislikes }, index) => (
       <div key={index}>
         <Post
@@ -157,7 +157,7 @@ class TopicView extends Component {
               }}
             />
           )}
-          {data && this.PostView()}
+          {data && this.PostView(data)}
         </div>
         {!this.state.editId && (
           <div className="border-top">
