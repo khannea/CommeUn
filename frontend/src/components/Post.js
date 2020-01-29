@@ -9,7 +9,6 @@ import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
-import NextPost from "../components/Post";
 
 const cookies = new Cookies();
 
@@ -207,7 +206,7 @@ class Post extends Component {
                 </Button>
               </div>
               {answer && (
-                  <NextPost
+                  <Post
                     {...this.props}
                     user={answer.user}
                     texte={answer.texte}
