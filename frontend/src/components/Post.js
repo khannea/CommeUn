@@ -207,10 +207,10 @@ class Post extends Component {
               </div>
               {answer && (
                 <Post
+                  {...this.props}
                   user={answer.user}
                   texte={answer.texte}
                   date={answer.date}
-                  // {...this.props}
                 />
               )
               // && (
