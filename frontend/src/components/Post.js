@@ -206,7 +206,7 @@ class Post extends Component {
                 </Button>
               </div>
               {
-                <Post {...this.props} />
+                <Post {...this.props} onMessageClick={null} />
                 // && (
                 //   <BestAnswer
                 //     user={answer.user}
