@@ -147,7 +147,7 @@ class Post extends Component {
         /> */}
         <CardContent>
           <Row>
-            <Col>
+            <Col id="avatar_wrapper" className="col-auto">
               <Avatar src="/broken-image.jpg" />
             </Col>
             <Col className="border-right col1st  col-auto">

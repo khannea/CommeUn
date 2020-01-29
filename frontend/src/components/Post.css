@@ -44,6 +44,12 @@
   justify-content: center;
 }
 
+#avatar_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .like_wrapper {
   width: 100%;
 }
