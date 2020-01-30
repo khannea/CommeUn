@@ -106,7 +106,7 @@ class PostView extends Component {
                   this.switchType();
                 }}
               >
-                ...
+                Rétracter
               </Button>
             </div>
           ))}
