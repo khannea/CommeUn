@@ -37,6 +37,9 @@ export default createMuiTheme({
       },
       contained: {
         margin: "15px"
+      },
+      reponse: {
+        fontSize: "10px"
       }
     },
     MuiCssBaseline: {

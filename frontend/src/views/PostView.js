@@ -133,6 +133,7 @@ class PostView extends Component {
         {data && data.length > 1 && this.state.type === "best" && (
           <div>
             <Button
+              variant="reponse"
               onClick={() => {
                 this.switchType();
               }}
