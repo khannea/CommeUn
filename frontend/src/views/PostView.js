@@ -10,17 +10,20 @@ class PostView extends Component {
       data: null
     };
     this.props = props;
+  }
 
+  componentDidMount() {
     if (!this.origin_id) {
       this.origin_id = props.location.pathname.split("/")[3];
       this.setState({ type: "all" });
     }
+    this.getDataFromDb();
   }
 
-  componentDidMount() {
-    console.log("this.state.type");
-    console.log(this.state.type);
-    this.getDataFromDb();
+  componentDidUpdate(nextProps) {
+    if (nextProps.id !== this.props.id) {
+      this.getAnswerFromDb();
+    }
   }
 
   getDataFromDb = () => {
