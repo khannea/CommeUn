@@ -75,7 +75,7 @@ class PostView extends Component {
     return (
       <div className="post_wrapper">
         {data &&
-          type === "all" &&
+          this.state.type === "all" &&
           data.map(({ user, texte, date, id, likes, dislikes }, index) => (
             <div key={index}>
               <Post
@@ -92,7 +92,7 @@ class PostView extends Component {
             </div>
           ))}
 
-        {data && type === "best" && (
+        {data && this.state.type === "best" && (
           <div>
             <Post
               user={data[0].user}
