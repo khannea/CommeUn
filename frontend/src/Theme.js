@@ -48,8 +48,11 @@ export default createMuiTheme({
     },
     MuiCardContent: {
       root: {
-        marginBottom: "0px",
-        paddingBottom: "0px"
+        marginBottom: 0,
+        paddingBottom: 0,
+        "&:last-child": {
+          paddingBottom: 0
+        }
       }
     }
   }
