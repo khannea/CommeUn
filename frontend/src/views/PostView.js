@@ -86,7 +86,7 @@ class PostView extends Component {
 
     return (
       <div className="post_wrapper">
-        {data && (
+        {data && data.length > 0 && (
           <Post
             user={data[0].user}
             texte={data[0].texte}
