@@ -101,15 +101,16 @@ class PostView extends Component {
                 refresh={this.getDataFromDb}
                 origin_id={id}
               />
-              <Button
-                onClick={() => {
-                  this.switchType();
-                }}
-              >
-                Rétracter
-              </Button>
             </div>
-          ))}
+          )) && (
+            <Button
+              onClick={() => {
+                this.switchType();
+              }}
+            >
+              Rétracter
+            </Button>
+          )}
 
         {data && data.length > 0 && this.state.type === "best" && (
           <div>
