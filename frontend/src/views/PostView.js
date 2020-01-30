@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./PostView.css";
 import Post from "../components/Post";
+import Button from "@material-ui/core/Button";
 
 class PostView extends Component {
   constructor(props) {
@@ -68,6 +69,15 @@ class PostView extends Component {
     };
   };
 
+  switchType = () =>{
+    if(this.state.type == "best"){
+      this.setState({type : "all"})
+    }
+    else {
+      this.setState({type : "best"})
+    }
+  }
+
   render() {
     let { data, type } = this.state;
 
@@ -93,6 +103,7 @@ class PostView extends Component {
                 origin_id={id}
               />
             </div>
+            <Button onClick = {this.switchType()}>...</Button>
           ))}
 
         {data && data.length > 0 && this.state.type === "best" && (
