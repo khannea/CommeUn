@@ -10,8 +10,7 @@ class PostView extends Component {
       data: null
     };
     this.props = props;
-    console.log("this.origin_id");
-    console.log(this.origin_id);
+
     if (!this.origin_id) {
       this.origin_id = props.location.pathname.split("/")[3];
       this.setState({ type: "all" });
@@ -19,6 +18,8 @@ class PostView extends Component {
   }
 
   componentDidMount() {
+    console.log("this.origin_id");
+    console.log(this.origin_id);
     this.getDataFromDb();
   }
 
