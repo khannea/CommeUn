@@ -177,9 +177,7 @@ class Post extends Component {
               </Row>
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
-              <CardHeader
-                title={"<b>" + this.props.user + "</b>" + " " + this.props.date}
-              />
+              <CardHeader title={this.props.user + " " + this.props.date} />
               {texte}
               {this.props.user === localStorage.getItem("pseudo") && (
                 <Col id="delete_wrapper" className="p-2 border-dark delete">
