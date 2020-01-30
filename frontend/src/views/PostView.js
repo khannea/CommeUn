@@ -13,8 +13,8 @@ class PostView extends Component {
   }
 
   componentDidMount() {
-    if (!this.origin_id) {
-      this.origin_id = this.props.location.pathname.split("/")[3];
+    if (!this.props.origin_id) {
+      this.props.origin_id = this.props.location.pathname.split("/")[3];
       this.setState({ type: "all" });
     }
     this.getDataFromDb();
@@ -27,7 +27,7 @@ class PostView extends Component {
   }
 
   getDataFromDb = () => {
-    let url = "/api/origin_posts/" + this.origin_id;
+    let url = "/api/origin_posts/" + this.props.origin_id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",
