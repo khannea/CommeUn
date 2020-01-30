@@ -69,14 +69,13 @@ class PostView extends Component {
     };
   };
 
-  switchType = () =>{
-    if(this.state.type == "best"){
-      this.setState({type : "all"})
+  switchType = () => {
+    if (this.state.type == "best") {
+      this.setState({ type: "all" });
+    } else {
+      this.setState({ type: "best" });
     }
-    else {
-      this.setState({type : "best"})
-    }
-  }
+  };
 
   render() {
     let { data, type } = this.state;
@@ -102,8 +101,8 @@ class PostView extends Component {
                 refresh={this.getDataFromDb}
                 origin_id={id}
               />
+              <Button onClick={this.switchType()}>...</Button>
             </div>
-            <Button onClick = {this.switchType()}>...</Button>
           ))}
 
         {data && data.length > 0 && this.state.type === "best" && (
