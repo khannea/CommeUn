@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import DefaultImg from "./default-user-avatar.png";
 import DeletePost from "./DeletePost";
-import PostView from "./PostView";
+import PostView from "../views/PostView";
 import "./Post.css";
 import Cookies from "universal-cookie";
 import Hidden from "@material-ui/core/Hidden";
