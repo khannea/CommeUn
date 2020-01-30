@@ -101,7 +101,13 @@ class PostView extends Component {
                 refresh={this.getDataFromDb}
                 origin_id={id}
               />
-              <Button onClick={this.switchType()}>...</Button>
+              <Button
+                onClick={() => {
+                  this.switchType();
+                }}
+              >
+                ...
+              </Button>
             </div>
           ))}
 
@@ -118,7 +124,13 @@ class PostView extends Component {
               refresh={this.getDataFromDb}
               origin_id={data[0].id}
             />
-            <Button onClick={this.switchType()}>...</Button>
+            <Button
+              onClick={() => {
+                this.switchType();
+              }}
+            >
+              ...
+            </Button>
           </div>
         )}
       </div>
