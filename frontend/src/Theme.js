@@ -22,6 +22,7 @@ export default createMuiTheme({
   overrides: {
     MuiButton: {
       root: {
+        texttransform: "none",
         fontFamily: "Alegreya",
         // backgroundColor: "#e8c547",
         // border: "1px solid black",
