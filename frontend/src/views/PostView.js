@@ -18,8 +18,8 @@ class PostView extends Component {
   }
 
   componentDidMount() {
-    console.log("this.origin_id");
-    console.log(this.origin_id);
+    console.log("this.state.type");
+    console.log(this.state.type);
     this.getDataFromDb();
   }
 
