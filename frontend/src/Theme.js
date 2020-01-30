@@ -57,6 +57,11 @@ export default createMuiTheme({
           paddingBottom: 0
         }
       }
+    },
+    MuiCardHeader: {
+      root: {
+        paddingLeft: 0
+      }
     }
   }
 });
