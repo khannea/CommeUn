@@ -88,21 +88,24 @@ class PostView extends Component {
       <div className="post_wrapper">
         {data &&
           this.state.type === "all" &&
-          data.map(({ user, texte, date, id, likes, dislikes }, index) => (
-            <div key={index}>
-              <Post
-                user={user}
-                texte={texte}
-                date={date}
-                key={index}
-                id={id}
-                likes={likes}
-                dislikes={dislikes}
-                refresh={this.getDataFromDb}
-                origin_id={id}
-              />
-            </div>
-          ))}
+          data.map(
+            ({ user, texte, date, id, likes, dislikes }, index) =>
+              index !== 0 && (
+                <div key={index}>
+                  <Post
+                    user={user}
+                    texte={texte}
+                    date={date}
+                    key={index}
+                    id={id}
+                    likes={likes}
+                    dislikes={dislikes}
+                    refresh={this.getDataFromDb}
+                    origin_id={id}
+                  />
+                </div>
+              )
+          )}
         {this.state.type === "all" && (
           <Button
             onClick={() => {
