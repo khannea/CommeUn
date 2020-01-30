@@ -45,6 +45,12 @@ export default createMuiTheme({
           background: "linear-gradient(#205983, #0a2742)"
         }
       }
+    },
+    MuiCardContent: {
+      root: {
+        marginBottom: "0px",
+        paddingBottom: "0px"
+      }
     }
   }
 });
