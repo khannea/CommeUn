@@ -102,15 +102,7 @@ class PostView extends Component {
                 origin_id={id}
               />
             </div>
-          )) && (
-            <Button
-              onClick={() => {
-                this.switchType();
-              }}
-            >
-              Rétracter
-            </Button>
-          )}
+          ))}
 
         {data && data.length > 0 && this.state.type === "best" && (
           <div>
