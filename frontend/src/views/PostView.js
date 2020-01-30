@@ -130,14 +130,14 @@ class PostView extends Component {
           </Button>
         )}
 
-        {data && data.length > 0 && this.state.type === "best" && (
+        {data && data.length > 1 && this.state.type === "best" && (
           <div>
             <Button
               onClick={() => {
                 this.switchType();
               }}
             >
-              ...
+              ...{data.length - 1} réponses
             </Button>
           </div>
         )}
