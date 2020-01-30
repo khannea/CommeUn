@@ -86,9 +86,9 @@ class PostView extends Component {
 
     return (
       <div className="post_wrapper">
-        {data && this.state.type === "all" && (
-          <div>
-            data.map(({(user, texte, date, id, likes, dislikes)}, index) => (
+        {data &&
+          this.state.type === "all" &&
+          data.map(({ user, texte, date, id, likes, dislikes }, index) => (
             <div key={index}>
               <Post
                 user={user}
@@ -102,16 +102,7 @@ class PostView extends Component {
                 origin_id={id}
               />
             </div>
-            ))
-            <Button
-              onClick={() => {
-                this.switchType();
-              }}
-            >
-              Rétracter
-            </Button>
-          </div>
-        )}
+          )) && <Button>Rétracter</Button>}
 
         {data && data.length > 0 && this.state.type === "best" && (
           <div>
