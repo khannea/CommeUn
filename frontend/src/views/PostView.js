@@ -95,7 +95,7 @@ class PostView extends Component {
             </div>
           ))}
 
-        {data && this.state.type === "best" && (
+        {data && data.length > 0 && this.state.type === "best" && (
           <div>
             <Post
               user={data[0].user}
