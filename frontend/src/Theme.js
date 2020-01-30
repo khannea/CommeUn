@@ -22,7 +22,6 @@ export default createMuiTheme({
   overrides: {
     MuiButton: {
       root: {
-        margin: "15px",
         fontFamily: "Alegreya",
         // backgroundColor: "#e8c547",
         // border: "1px solid black",
@@ -34,6 +33,9 @@ export default createMuiTheme({
       },
       text: {
         padding: "5px 40px"
+      },
+      contained: {
+        margin: "15px"
       }
     },
     MuiCssBaseline: {
