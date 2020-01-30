@@ -191,7 +191,7 @@ class Post extends Component {
               )}
             </Col>
           </Row>
-
+          <PostView origin_id={this.props.origin_id} />
           {this.props.onMessageClick && (
             <Row>
               <div classname="repondre_wrapper">
@@ -206,7 +206,6 @@ class Post extends Component {
                   Répondre
                 </Button>
               </div>
-              <PostView origin_id={this.props.origin_id} />
             </Row>
           )}
         </CardContent>
