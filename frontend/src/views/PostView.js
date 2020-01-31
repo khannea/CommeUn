@@ -4,7 +4,7 @@ import Post from "../components/Post";
 import Button from "@material-ui/core/Button";
 
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
-import AddPost from "./AddPost";
+import AddPost from "../components/AddPost";
 
 class PostView extends Component {
   constructor(props) {
