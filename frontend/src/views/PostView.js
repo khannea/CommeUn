@@ -136,7 +136,7 @@ class PostView extends Component {
           </Button>
         )}
 
-        {answer && (
+        {!answer && (
           <Button
             color="primary"
             size="small"
