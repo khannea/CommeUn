@@ -5,11 +5,9 @@ import DeletePost from "./DeletePost";
 import PostView from "../views/PostView";
 import "./Post.css";
 import Cookies from "universal-cookie";
-import Hidden from "@material-ui/core/Hidden";
 import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
-import BestAnswer from "../components/BestAnswer";
 import AddPost from "./AddPost";
 
 const cookies = new Cookies();
@@ -213,7 +211,7 @@ class Post extends Component {
           {answer && (
             <Card className="m-4 w-100">
               <CardContent>
-                <AddPost id={this.props.id} refresh={this.getDataFromDb} />
+                <AddPost id={this.props.id} refresh={this.props.refresh} />
               </CardContent>
             </Card>
           )}
