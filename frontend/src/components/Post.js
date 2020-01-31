@@ -10,12 +10,13 @@ import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import BestAnswer from "../components/BestAnswer";
+import AddPost from "./AddPost";
 
 const cookies = new Cookies();
 
 class Post extends Component {
   state = {
-    answer: null
+    answer: false
   };
 
   constructor(props) {
@@ -195,16 +196,26 @@ class Post extends Component {
 
           <Row>
             <div classname="repondre_wrapper">
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                onClick={() => {
-                  return null;
-                }}
-              >
-                Répondre
-              </Button>
+              {!answer && (
+                <Button
+                  color="primary"
+                  size="small"
+                  onClick={() => {
+                    if (this.state.answer === false) {
+                      this.setState({ answer: true });
+                    } else {
+                      this.setState({ answer: false });
+                    }
+                  }}
+                >
+                  Répondre
+                </Button>
+              )}
+              {answer && (
+                <div className="border-top">
+                  <AddPost id={myid} refresh={this.getDataFromDb} />
+                </div>
+              )}
             </div>
           </Row>
         </CardContent>
