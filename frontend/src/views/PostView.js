@@ -136,12 +136,12 @@ class PostView extends Component {
           </Button>
         )}
 
-        {!this.state.answer && (
+        {answer && (
           <Button
             color="primary"
             size="small"
             onClick={() => {
-              if (this.state.answer === false) {
+              if (answer === false) {
                 this.setState({ answer: true });
               } else {
                 this.setState({ answer: false });
@@ -151,7 +151,7 @@ class PostView extends Component {
             Répondre
           </Button>
         )}
-        {this.state.answer && (
+        {answer && (
           <Card className="m-4 w-100">
             <CardContent>
               <AddPost
