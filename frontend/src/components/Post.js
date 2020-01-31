@@ -192,7 +192,7 @@ class Post extends Component {
           </Row>
           <PostView origin_id={this.props.origin_id} />
 
-          {!answer && (
+          {/* {!answer && (
             <Button
               color="primary"
               size="small"
@@ -213,7 +213,7 @@ class Post extends Component {
                 <AddPost id={this.props.id} refresh={this.props.refresh} />
               </CardContent>
             </Card>
-          )}
+          )} */}
         </CardContent>
       </Card>
     );

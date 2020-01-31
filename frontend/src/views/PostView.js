@@ -3,12 +3,16 @@ import "./PostView.css";
 import Post from "../components/Post";
 import Button from "@material-ui/core/Button";
 
+import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
+import AddPost from "./AddPost";
+
 class PostView extends Component {
   constructor(props) {
     super(props);
     this.state = {
       type: "best",
-      data: null
+      data: null,
+      answer: false
     };
     this.props = props;
   }
@@ -43,6 +47,7 @@ class PostView extends Component {
         }
       })
       .then(data => {
+        console.log(data);
         this.setState({
           data: data
         });
@@ -99,6 +104,28 @@ class PostView extends Component {
             origin_id={data[0].id}
           />
         )}
+        {!this.state.answer && (
+          <Button
+            color="primary"
+            size="small"
+            onClick={() => {
+              if (this.state.answer === false) {
+                this.setState({ answer: true });
+              } else {
+                this.setState({ answer: false });
+              }
+            }}
+          >
+            Répondre
+          </Button>
+        )}
+        {this.state.answer && (
+          <Card className="m-4 w-100">
+            <CardContent>
+              <AddPost id={this.props.id} refresh={this.props.refresh} />
+            </CardContent>
+          </Card>
+        )}
 
         {data &&
           this.state.type === "all" &&
@@ -120,6 +147,7 @@ class PostView extends Component {
                 </div>
               )
           )}
+
         {this.state.type === "all" && (
           <Button
             onClick={() => {
