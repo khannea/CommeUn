@@ -192,22 +192,21 @@ class Post extends Component {
             </Col>
           </Row>
           <PostView origin_id={this.props.origin_id} />
-          {this.props.onMessageClick && (
-            <Row>
-              <div classname="repondre_wrapper">
-                <Button
-                  color="primary"
-                  variant="contained"
-                  size="small"
-                  onClick={() => {
-                    this.props.onMessageClick(this.props.id);
-                  }}
-                >
-                  Répondre
-                </Button>
-              </div>
-            </Row>
-          )}
+
+          <Row>
+            <div classname="repondre_wrapper">
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                onClick={() => {
+                  return null;
+                }}
+              >
+                Répondre
+              </Button>
+            </div>
+          </Row>
         </CardContent>
       </Card>
     );
