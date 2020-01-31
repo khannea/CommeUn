@@ -211,7 +211,7 @@ class Post extends Component {
             </Button>
           )}
           {answer && (
-            <Card className="m-4">
+            <Card className="m-4 w-100">
               <CardContent>
                 <AddPost id={this.props.id} refresh={this.getDataFromDb} />
               </CardContent>
