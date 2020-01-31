@@ -31,6 +31,7 @@ export default class AddPost extends Component {
           console.log("Probleme de AddPOst");
         } else {
           this.props.refresh();
+          console.log("addpost sE REFRESHHH");
           this.setState({ sent: true, texte: "..." });
         }
       })
