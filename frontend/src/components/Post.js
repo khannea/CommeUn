@@ -212,9 +212,11 @@ class Post extends Component {
                 </Button>
               )}
               {answer && (
-                <div className="border-top">
-                  <AddPost id={this.props.id} refresh={this.getDataFromDb} />
-                </div>
+                <Card className="m-4">
+                  <CardContent>
+                    <AddPost id={this.props.id} refresh={this.getDataFromDb} />
+                  </CardContent>
+                </Card>
               )}
             </div>
           </Row>
