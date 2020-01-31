@@ -195,7 +195,7 @@ class Post extends Component {
           <PostView origin_id={this.props.origin_id} />
 
           <Row>
-            <div classname="repondre_wrapper">
+            <div className="repondre_wrapper">
               {!answer && (
                 <Button
                   color="primary"
