@@ -180,7 +180,7 @@ class PostView extends Component {
           </Button>
         )}
 
-        {!answer && (
+        {!this.state.answeranswer && (
           <Button
             color="primary"
             size="small"
@@ -195,7 +195,7 @@ class PostView extends Component {
             Répondre
           </Button>
         )}
-        {answer && (
+        {this.state.answer && (
           <Card className="m-4 w-100">
             <CardContent>
               <AddPost id={this.props.id} refresh={this.getDataFromDb()} />
