@@ -26,7 +26,7 @@ class PostView extends Component {
   }
 
   componentDidUpdate(nextProps) {
-    if (nextProps.id !== this.props.id) {
+    if (nextProps.origin_id !== this.props.origin_id) {
       this.getAnswerFromDb();
     }
   }
@@ -83,7 +83,7 @@ class PostView extends Component {
   };
 
   render() {
-    let { data, type } = this.state;
+    let { data, answer, type } = this.state;
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
@@ -104,28 +104,6 @@ class PostView extends Component {
             origin_id={data[0].id}
           />
         )}
-        {/* {data && data.length > 0 && !this.state.answer && (
-          <Button
-            color="primary"
-            size="small"
-            onClick={() => {
-              if (this.state.answer === false) {
-                this.setState({ answer: true });
-              } else {
-                this.setState({ answer: false });
-              }
-            }}
-          >
-            Répondre
-          </Button>
-        )}
-        {data && data.length > 0 && this.state.answer && (
-          <Card className="m-4 w-100">
-            <CardContent>
-              <AddPost id={data[0].id} refresh={this.getDataFromDb} />
-            </CardContent>
-          </Card>
-        )} */}
 
         {data &&
           this.state.type === "all" &&
@@ -144,28 +122,6 @@ class PostView extends Component {
                     refresh={this.getDataFromDb}
                     origin_id={id}
                   />
-                  {/* {!this.state.answer && (
-                    <Button
-                      color="primary"
-                      size="small"
-                      onClick={() => {
-                        if (this.state.answer === false) {
-                          this.setState({ answer: true });
-                        } else {
-                          this.setState({ answer: false });
-                        }
-                      }}
-                    >
-                      Répondre
-                    </Button>
-                  )}
-                  {this.state.answer && (
-                    <Card className="m-4 w-100">
-                      <CardContent>
-                        <AddPost id={id} refresh={this.getDataFromDb} />
-                      </CardContent>
-                    </Card>
-                  )} */}
                 </div>
               )
           )}
