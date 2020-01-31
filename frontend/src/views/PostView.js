@@ -122,7 +122,7 @@ class PostView extends Component {
         {this.state.answer && (
           <Card className="m-4 w-100">
             <CardContent>
-              <AddPost id={this.props.id} refresh={this.props.refresh} />
+              <AddPost id={data[0].id} refresh={this.props.refresh} />
             </CardContent>
           </Card>
         )}
@@ -144,6 +144,28 @@ class PostView extends Component {
                     refresh={this.getDataFromDb}
                     origin_id={id}
                   />
+                  {!this.state.answer && (
+                    <Button
+                      color="primary"
+                      size="small"
+                      onClick={() => {
+                        if (this.state.answer === false) {
+                          this.setState({ answer: true });
+                        } else {
+                          this.setState({ answer: false });
+                        }
+                      }}
+                    >
+                      Répondre
+                    </Button>
+                  )}
+                  {this.state.answer && (
+                    <Card className="m-4 w-100">
+                      <CardContent>
+                        <AddPost id={id} refresh={this.props.refresh} />
+                      </CardContent>
+                    </Card>
+                  )}
                 </div>
               )
           )}
