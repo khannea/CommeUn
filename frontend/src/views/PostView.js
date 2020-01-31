@@ -104,7 +104,7 @@ class PostView extends Component {
             origin_id={data[0].id}
           />
         )}
-        {data && data.length > 0 && !this.state.answer && (
+        {/* {data && data.length > 0 && !this.state.answer && (
           <Button
             color="primary"
             size="small"
@@ -125,7 +125,7 @@ class PostView extends Component {
               <AddPost id={data[0].id} refresh={this.getDataFromDb} />
             </CardContent>
           </Card>
-        )}
+        )} */}
 
         {data &&
           this.state.type === "all" &&
@@ -144,7 +144,7 @@ class PostView extends Component {
                     refresh={this.getDataFromDb}
                     origin_id={id}
                   />
-                  {!this.state.answer && (
+                  {/* {!this.state.answer && (
                     <Button
                       color="primary"
                       size="small"
@@ -165,7 +165,7 @@ class PostView extends Component {
                         <AddPost id={id} refresh={this.getDataFromDb} />
                       </CardContent>
                     </Card>
-                  )}
+                  )} */}
                 </div>
               )
           )}
@@ -178,6 +178,29 @@ class PostView extends Component {
           >
             Rétracter
           </Button>
+        )}
+
+        {!answer && (
+          <Button
+            color="primary"
+            size="small"
+            onClick={() => {
+              if (this.state.answer === false) {
+                this.setState({ answer: true });
+              } else {
+                this.setState({ answer: false });
+              }
+            }}
+          >
+            Répondre
+          </Button>
+        )}
+        {answer && (
+          <Card className="m-4 w-100">
+            <CardContent>
+              <AddPost id={this.props.id} refresh={this.getDataFromDb()} />
+            </CardContent>
+          </Card>
         )}
 
         {data && data.length > 1 && this.state.type === "best" && (
