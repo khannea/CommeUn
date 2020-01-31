@@ -54,7 +54,7 @@ class PostView extends Component {
   };
 
   addpost_submit = () => {
-    this.setState({ answer: false });
+    this.setState({ answer: false, type: "all" });
     this.getDataFromDb();
   };
 
