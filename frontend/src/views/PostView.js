@@ -12,7 +12,8 @@ class PostView extends Component {
     this.state = {
       type: "best",
       data: null,
-      answer: false
+      answer: false,
+      sent: false
     };
     this.props = props;
   }
@@ -54,7 +55,7 @@ class PostView extends Component {
   };
 
   addpost_submit = () => {
-    this.setState({ answer: false, type: "all" });
+    this.setState({ answer: false, type: "all", sent: true });
     this.getDataFromDb();
   };
 
@@ -86,7 +87,7 @@ class PostView extends Component {
   };
 
   render() {
-    let { data, answer, type } = this.state;
+    let { data, answer, type, sent } = this.state;
 
     if (data) {
       data.sort(this.compareValues("likes", "desc"));
@@ -139,6 +140,11 @@ class PostView extends Component {
           </Button>
         )}
 
+        {sent && (
+          <div className="alert alert-success m-0" role="alert">
+            Message envoyé.
+          </div>
+        )}
         {!answer && (
           <Button
             color="primary"

@@ -6,8 +6,7 @@ export default class AddPost extends Component {
   constructor(id) {
     super();
     this.state = {
-      texte: "",
-      sent: false
+      texte: ""
     };
   }
 
@@ -31,7 +30,7 @@ export default class AddPost extends Component {
           console.log("Probleme de AddPost");
         } else {
           this.props.addpost_submit();
-          this.setState({ sent: true, texte: "..." });
+          this.setState({ texte: "..." });
         }
       })
       .catch(error => console.error("Error:", error));
@@ -49,19 +48,9 @@ export default class AddPost extends Component {
     return false;
   };
 
-  // handleKeyPress(target) {
-  //   if(target.charCode==13){
-  //     alert('Enter clicked!!!');
-  //   }
-
   render() {
     return (
       <div className="addpost m-4">
-        {this.state.sent && (
-          <div className="alert alert-success m-0" role="alert">
-            Message envoyé.
-          </div>
-        )}
         <Form onSubmit={this.returnFalse}>
           <Form.Group>
             <Form.Label>Message:</Form.Label>
