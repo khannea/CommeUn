@@ -30,7 +30,7 @@ export default class AddPost extends Component {
         if (response.status === 401) {
           console.log("Probleme de AddPost");
         } else {
-          this.props.refresh();
+          this.props.addpost_submit();
           this.setState({ sent: true, texte: "..." });
         }
       })
