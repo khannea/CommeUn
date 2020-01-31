@@ -53,6 +53,11 @@ class PostView extends Component {
       });
   };
 
+  addpost_submit = () => {
+    this.setState({ answer: false });
+    getDataFromDb();
+  };
+
   compareValues = (key, order = "asc") => {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -154,10 +159,7 @@ class PostView extends Component {
             <CardContent>
               <AddPost
                 id={this.props.origin_id}
-                refresh={() => {
-                  this.setState({ answer: false });
-                  this.getDataFromDb();
-                }}
+                addpost_submit={this.addpost_submit}
               />
             </CardContent>
           </Card>
