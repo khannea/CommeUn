@@ -136,29 +136,6 @@ class Post extends Component {
             </Col>
           </Row>
           <PostView origin_id={this.props.origin_id} />
-
-          {/* {!answer && (
-            <Button
-              color="primary"
-              size="small"
-              onClick={() => {
-                if (this.state.answer === false) {
-                  this.setState({ answer: true });
-                } else {
-                  this.setState({ answer: false });
-                }
-              }}
-            >
-              Répondre
-            </Button>
-          )}
-          {answer && (
-            <Card className="m-4 w-100">
-              <CardContent>
-                <AddPost id={this.props.id} refresh={this.props.refresh} />
-              </CardContent>
-            </Card>
-          )} */}
         </CardContent>
       </Card>
     );

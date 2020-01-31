@@ -28,7 +28,7 @@ export default class AddPost extends Component {
     })
       .then(response => {
         if (response.status === 401) {
-          console.log("Probleme de AddPOst");
+          console.log("Probleme de AddPost");
         } else {
           this.props.refresh();
           this.setState({ sent: true, texte: "..." });

@@ -47,7 +47,6 @@ class PostView extends Component {
         }
       })
       .then(data => {
-        console.log(data);
         this.setState({
           data: data
         });
@@ -57,7 +56,6 @@ class PostView extends Component {
   compareValues = (key, order = "asc") => {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-        // property doesn't exist on either object
         return 0;
       }
 
@@ -106,7 +104,7 @@ class PostView extends Component {
         )}
 
         {data &&
-          this.state.type === "all" &&
+          type === "all" &&
           data.map(
             ({ user, texte, date, id, likes, dislikes }, index) =>
               index !== 0 && (
@@ -159,7 +157,7 @@ class PostView extends Component {
           </Card>
         )}
 
-        {data && data.length > 1 && this.state.type === "best" && (
+        {data && data.length > 1 && type === "best" && (
           <div>
             <Button
               variant="reponse"
