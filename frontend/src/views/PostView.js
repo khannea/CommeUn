@@ -27,6 +27,8 @@ class PostView extends Component {
 
   componentDidUpdate(nextProps) {
     if (nextProps.origin_id !== this.props.origin_id) {
+      console.log("iciPV");
+      console.log(this.props.origin_id);
       this.getAnswerFromDb();
     }
   }
