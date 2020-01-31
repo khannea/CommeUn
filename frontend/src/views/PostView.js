@@ -144,7 +144,7 @@ class PostView extends Component {
                     refresh={this.getDataFromDb}
                     origin_id={id}
                   />
-                  {/* {!this.state.answer && (
+                  {!this.state.answer && (
                     <Button
                       color="primary"
                       size="small"
@@ -165,7 +165,7 @@ class PostView extends Component {
                         <AddPost id={id} refresh={this.props.refresh} />
                       </CardContent>
                     </Card>
-                  )} */}
+                  )}
                 </div>
               )
           )}
