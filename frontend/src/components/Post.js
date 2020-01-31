@@ -213,7 +213,7 @@ class Post extends Component {
               )}
               {answer && (
                 <div className="border-top">
-                  <AddPost id={myid} refresh={this.getDataFromDb} />
+                  <AddPost id={this.props.id} refresh={this.getDataFromDb} />
                 </div>
               )}
             </div>
