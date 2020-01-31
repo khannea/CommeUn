@@ -27,8 +27,6 @@ class PostView extends Component {
 
   componentDidUpdate(nextProps) {
     if (nextProps.origin_id !== this.props.origin_id) {
-      console.log("iciPV");
-      console.log(this.props.origin_id);
       this.getAnswerFromDb();
     }
   }
@@ -138,7 +136,7 @@ class PostView extends Component {
           </Button>
         )}
 
-        {!this.state.answeranswer && (
+        {!this.state.answer && (
           <Button
             color="primary"
             size="small"
