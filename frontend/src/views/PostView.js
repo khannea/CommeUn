@@ -55,7 +55,7 @@ class PostView extends Component {
 
   addpost_submit = () => {
     this.setState({ answer: false });
-    getDataFromDb();
+    this.getDataFromDb();
   };
 
   compareValues = (key, order = "asc") => {
