@@ -122,7 +122,7 @@ class PostView extends Component {
         {data && data.length > 0 && this.state.answer && (
           <Card className="m-4 w-100">
             <CardContent>
-              <AddPost id={data[0].id} refresh={this.props.refresh} />
+              <AddPost id={data[0].id} refresh={this..getDataFromDb} />
             </CardContent>
           </Card>
         )}
@@ -162,7 +162,7 @@ class PostView extends Component {
                   {this.state.answer && (
                     <Card className="m-4 w-100">
                       <CardContent>
-                        <AddPost id={id} refresh={this.props.refresh} />
+                        <AddPost id={id} refresh={this.getDataFromDb} />
                       </CardContent>
                     </Card>
                   )}
