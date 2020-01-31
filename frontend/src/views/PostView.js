@@ -43,6 +43,7 @@ class PostView extends Component {
         }
       })
       .then(data => {
+        console.log(data);
         this.setState({
           data: data
         });
