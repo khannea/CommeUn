@@ -95,6 +95,12 @@ class PostView extends Component {
 
     return (
       <div className="post_wrapper">
+        {sent && (
+          <div className="alert alert-success m-0" role="alert">
+            Message envoyé.
+          </div>
+        )}
+
         {data && data.length > 0 && (
           <Post
             user={data[0].user}
@@ -140,11 +146,6 @@ class PostView extends Component {
           </Button>
         )}
 
-        {sent && (
-          <div className="alert alert-success m-0" role="alert">
-            Message envoyé.
-          </div>
-        )}
         {!answer && (
           <Button
             color="primary"
