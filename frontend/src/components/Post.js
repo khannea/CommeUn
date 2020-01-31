@@ -22,61 +22,6 @@ class Post extends Component {
     this.user = cookies.get("user");
   }
 
-  componentDidMount() {
-    // this.getAnswerFromDb();
-  }
-
-  // componentDidUpdate(nextProps) {
-  //   if (nextProps.id !== this.props.id) {
-  //     this.getAnswerFromDb();
-  //   }
-  // }
-
-  // compareValues = (key, order = "asc") => {
-  //   return function innerSort(a, b) {
-  //     if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
-  //       // property doesn't exist on either object
-  //       return 0;
-  //     }
-
-  //     const varA = typeof a[key] === "string" ? a[key].toUpperCase() : a[key];
-  //     const varB = typeof b[key] === "string" ? b[key].toUpperCase() : b[key];
-
-  //     let comparison = 0;
-  //     if (varA > varB) {
-  //       comparison = 1;
-  //     } else if (varA < varB) {
-  //       comparison = -1;
-  //     }
-  //     return order === "desc" ? comparison * -1 : comparison;
-  //   };
-  // };
-
-  // getAnswerFromDb = () => {
-  //   let url = "/api/best_answer/" + this.props.id;
-  //   let req = new Request(url, {
-  //     method: "GET",
-  //     cache: "default",
-  //     credentials: "include"
-  //   });
-  //   fetch(req)
-  //     .then(res => {
-  //       if (res.status === 401) {
-  //         console.log("answer n'a pas recu la meilleur réponse].");
-  //       } else {
-  //         return res.json();
-  //       }
-  //     })
-  //     .then(answer => {
-  //       if (answer.length > 0) {
-  //         answer.sort(this.compareValues("likes", "desc"));
-  //         this.setState({
-  //           answer: answer[0]
-  //         });
-  //       }
-  //     });
-  // };
-
   onClickLike = () => {
     fetch("/api/likepost", {
       method: "POST",
@@ -192,7 +137,7 @@ class Post extends Component {
           </Row>
           <PostView origin_id={this.props.origin_id} />
 
-          {/* {!answer && (
+          {!answer && (
             <Button
               color="primary"
               size="small"
@@ -213,7 +158,7 @@ class Post extends Component {
                 <AddPost id={this.props.id} refresh={this.props.refresh} />
               </CardContent>
             </Card>
-          )} */}
+          )}
         </CardContent>
       </Card>
     );
