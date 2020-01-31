@@ -154,10 +154,7 @@ class PostView extends Component {
         {answer && (
           <Card className="m-4 w-100">
             <CardContent>
-              <AddPost
-                id={this.props.origin_id}
-                refresh={this.getDataFromDb()}
-              />
+              <AddPost id={this.props.origin_id} refresh={this.getDataFromDb} />
             </CardContent>
           </Card>
         )}
