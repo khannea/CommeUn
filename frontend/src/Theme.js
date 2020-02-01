@@ -53,6 +53,7 @@ export default createMuiTheme({
       root: {
         marginBottom: 0,
         paddingBottom: 0,
+        paddingTop: 0,
         "&:last-child": {
           paddingBottom: 0
         }
