@@ -100,17 +100,30 @@ class PostView extends Component {
             Message envoyé.
           </div>
         )}
-        {data && data.length > 1 && type !== "all" && (
-          <div>
-            <Button
-              variant="reponse"
-              onClick={() => {
-                this.switchType();
-              }}
-            >
-              ...{data.length - 1} réponses
-            </Button>
-          </div>
+        {!answer && (
+          <Button
+            color="primary"
+            size="small"
+            onClick={() => {
+              if (answer === false) {
+                this.setState({ answer: true });
+              } else {
+                this.setState({ answer: false });
+              }
+            }}
+          >
+            Répondre
+          </Button>
+        )}
+        {answer && (
+          <Card className="m-4 w-100">
+            <CardContent>
+              <AddPost
+                id={this.props.origin_id}
+                addpost_submit={this.addpost_submit}
+              />
+            </CardContent>
+          </Card>
         )}
         {data && type !== "none" && data.length > 0 && (
           <Post
@@ -157,30 +170,17 @@ class PostView extends Component {
           </Button>
         )}
 
-        {!answer && (
-          <Button
-            color="primary"
-            size="small"
-            onClick={() => {
-              if (answer === false) {
-                this.setState({ answer: true });
-              } else {
-                this.setState({ answer: false });
-              }
-            }}
-          >
-            Répondre
-          </Button>
-        )}
-        {answer && (
-          <Card className="m-4 w-100">
-            <CardContent>
-              <AddPost
-                id={this.props.origin_id}
-                addpost_submit={this.addpost_submit}
-              />
-            </CardContent>
-          </Card>
+        {data && data.length > 1 && type !== "all" && (
+          <div>
+            <Button
+              variant="reponse"
+              onClick={() => {
+                this.switchType();
+              }}
+            >
+              ...{data.length - 1} réponses
+            </Button>
+          </div>
         )}
       </div>
     );
