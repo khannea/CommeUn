@@ -28,7 +28,7 @@ class Post extends Component {
   };
 
   cancelEdit = () => {
-    this.setState({ edit: false });
+    this.setState({ edit: false }, this.props.refresh());
   };
 
   onClickLike = () => {
