@@ -13,7 +13,7 @@ export default class EditPost extends Component {
   };
 
   componentDidMount() {
-    this.loadedit(this.props.editId);
+    this.loadedit();
   }
 
   componentDidUpdate(nextProps) {
@@ -22,10 +22,8 @@ export default class EditPost extends Component {
     }
   }
 
-  loadedit = loadId => {
-    // let url = "http://localhost:4000/post/" + this.id;
-    // let url = "    https://testkhannea.herokuapp.com/post/" + this.id;
-    let url = "/api/post/" + loadId;
+  loadedit = () => {
+    let url = "/api/post/" + this.props.id;
     fetch(url, {
       method: "GET",
       credentials: "include",
@@ -84,39 +82,37 @@ export default class EditPost extends Component {
 
   render() {
     return (
-      <div className="m-4">
-        <Form onSubmit={this.returnFalse}>
-          <Form.Group>
-            <Form.Label>Message:</Form.Label>
-            <Form.Control
-              as="textarea"
-              type="text"
-              name="texte"
-              value={this.state.texte}
-              placeholder={this.state.texte}
-              onChange={this.handleInputChange}
-              onSubmit={this.returnFalse}
-            />
-          </Form.Group>
-          <Form.Group controlId="formBasicChecbox">
-            <Form.Check
-              type="checkbox"
-              label="Vous avez relu votre message et êtes prêt a l'envoyé."
-            />
-          </Form.Group>
-          <Button
-            variant="primary"
-            type="button"
-            className="mr-2"
-            onClick={this.onSubmit}
-          >
-            Editer
-          </Button>
-          <Button variant="primary" type="button" onClick={this.annuler}>
-            Annuler
-          </Button>
-        </Form>
-      </div>
+      <Form onSubmit={this.returnFalse}>
+        <Form.Group>
+          <Form.Label>Message:</Form.Label>
+          <Form.Control
+            as="textarea"
+            type="text"
+            name="texte"
+            value={this.state.texte}
+            placeholder={this.state.texte}
+            onChange={this.handleInputChange}
+            onSubmit={this.returnFalse}
+          />
+        </Form.Group>
+        <Form.Group controlId="formBasicChecbox">
+          <Form.Check
+            type="checkbox"
+            label="Vous avez relu votre message et êtes prêt a l'envoyé."
+          />
+        </Form.Group>
+        <Button
+          variant="primary"
+          type="button"
+          className="mr-2"
+          onClick={this.onSubmit}
+        >
+          Editer
+        </Button>
+        <Button variant="primary" type="button" onClick={this.annuler}>
+          Annuler
+        </Button>
+      </Form>
     );
   }
 }

@@ -8,19 +8,24 @@ import Cookies from "universal-cookie";
 import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
-import AddPost from "./AddPost";
+import EditPost from "./EditPost";
 
 const cookies = new Cookies();
 
 class Post extends Component {
   state = {
-    answer: false
+    answer: false,
+    edit: false
   };
 
   constructor(props) {
     super(props);
     this.user = cookies.get("user");
   }
+
+  editFunction = () => {
+    this.setState({ edit: true });
+  };
 
   onClickLike = () => {
     fetch("/api/likepost", {
@@ -118,17 +123,19 @@ class Post extends Component {
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
               <CardHeader title={this.props.user + " " + this.props.date} />
-              {texte}
-              {this.props.user === localStorage.getItem("pseudo") && (
-                <Col id="delete_wrapper" className="p-2 border-dark delete">
-                  <DeletePost
-                    id={this.props.id}
-                    refresh={this.props.refresh}
-                    editfunction={this.props.editfunction}
-                    width="50%"
-                  />
-                </Col>
-              )}
+              {!this.state.edit && texte}
+              {!this.state.edit &&
+                this.props.user === localStorage.getItem("pseudo") && (
+                  <Col id="delete_wrapper" className="p-2 border-dark delete">
+                    <DeletePost
+                      id={this.props.id}
+                      // refresh={this.props.refresh}
+                      editfunction={this.editfunction}
+                      width="50%"
+                    />
+                  </Col>
+                )}
+              {this.state.edit && <EditPost id={this.props.id} />}
               <PostView origin_id={this.props.origin_id} />
             </Col>
           </Row>
