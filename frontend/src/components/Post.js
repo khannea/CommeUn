@@ -27,6 +27,10 @@ class Post extends Component {
     this.setState({ edit: true });
   };
 
+  cancelEdit = () => {
+    this.setState({ edit: false });
+  };
+
   onClickLike = () => {
     fetch("/api/likepost", {
       method: "POST",
@@ -129,13 +133,15 @@ class Post extends Component {
                   <Col id="delete_wrapper" className="p-2 border-dark delete">
                     <DeletePost
                       id={this.props.id}
-                      // refresh={this.props.refresh}
+                      refresh={this.props.refresh}
                       editfunction={this.editFunction}
                       width="50%"
                     />
                   </Col>
                 )}
-              {this.state.edit && <EditPost id={this.props.id} />}
+              {this.state.edit && (
+                <EditPost id={this.props.id} cancelEdit={this.cancelEdit} />
+              )}
               <PostView origin_id={this.props.origin_id} />
             </Col>
           </Row>

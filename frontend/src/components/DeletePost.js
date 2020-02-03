@@ -35,7 +35,7 @@ export default class DeletePost extends Component {
   };
 
   loadedit = () => {
-    this.props.editfunction();
+    this.props.editFunction();
   };
 
   render() {

@@ -62,8 +62,7 @@ export default class EditPost extends Component {
           console.log("Probleme de EditPOst Submit");
         } else {
           console.log("je refresh dans EditPost");
-          this.props.refresh();
-          this.annuler();
+          this.props.cancelEdit();
         }
       })
       .catch(error => console.error("Error:", error));
@@ -74,10 +73,6 @@ export default class EditPost extends Component {
     this.setState({
       [name]: value
     });
-  };
-
-  annuler = () => {
-    this.props.cancelEdit();
   };
 
   render() {
