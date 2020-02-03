@@ -90,12 +90,12 @@ export default class EditPost extends Component {
             onSubmit={this.returnFalse}
           />
         </Form.Group>
-        <Form.Group controlId="formBasicChecbox">
+        {/* <Form.Group controlId="formBasicChecbox">
           <Form.Check
             type="checkbox"
             label="Vous avez relu votre message et êtes prêt a l'envoyé."
           />
-        </Form.Group>
+        </Form.Group> */}
         <Button
           variant="primary"
           type="button"
