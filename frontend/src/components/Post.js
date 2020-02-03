@@ -109,33 +109,35 @@ class Post extends Component {
     }
 
     return (
-      <CardContent>
-        <Row>
-          <Col id="avatar_wrapper" className="col-auto">
-            <Avatar src="/broken-image.jpg" />
-          </Col>
-          <Col className="border-right col1st  col-auto">
-            <Row className="h-100">
-              <Col id="like_dislike_wrapper">{this.renderLikeDislike()}</Col>
-            </Row>
-          </Col>
-          <Col id="post_content_wrapper" className="border-dark">
-            <CardHeader title={this.props.user + " " + this.props.date} />
-            {texte}
-            {this.props.user === localStorage.getItem("pseudo") && (
-              <Col id="delete_wrapper" className="p-2 border-dark delete">
-                <DeletePost
-                  id={this.props.id}
-                  refresh={this.props.refresh}
-                  editfunction={this.props.editfunction}
-                  width="50%"
-                />
-              </Col>
-            )}
-          </Col>
-        </Row>
-        <PostView origin_id={this.props.origin_id} />
-      </CardContent>
+      <Card className="m-2" raised="false">
+        <CardContent>
+          <Row>
+            <Col id="avatar_wrapper" className="col-auto">
+              <Avatar src="/broken-image.jpg" />
+            </Col>
+            <Col className="border-right col1st  col-auto">
+              <Row className="h-100">
+                <Col id="like_dislike_wrapper">{this.renderLikeDislike()}</Col>
+              </Row>
+            </Col>
+            <Col id="post_content_wrapper" className="border-dark">
+              <CardHeader title={this.props.user + " " + this.props.date} />
+              {texte}
+              {this.props.user === localStorage.getItem("pseudo") && (
+                <Col id="delete_wrapper" className="p-2 border-dark delete">
+                  <DeletePost
+                    id={this.props.id}
+                    refresh={this.props.refresh}
+                    editfunction={this.props.editfunction}
+                    width="50%"
+                  />
+                </Col>
+              )}
+            </Col>
+          </Row>
+          <PostView origin_id={this.props.origin_id} />
+        </CardContent>
+      </Card>
     );
   }
 }
