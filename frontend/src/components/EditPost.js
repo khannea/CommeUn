@@ -17,8 +17,8 @@ export default class EditPost extends Component {
   }
 
   componentDidUpdate(nextProps) {
-    if (nextProps.editId !== this.props.editId) {
-      this.loadedit(this.props.editId);
+    if (nextProps.id !== this.props.id) {
+      this.loadedit();
     }
   }
 
