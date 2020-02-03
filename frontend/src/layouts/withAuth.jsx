@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { authBegin, authSuccess } from "../store/actions";
 
-export default function withAuth(ComponentToProtect) {
+function withAuth(ComponentToProtect) {
   return class extends Component {
     constructor() {
       super();
@@ -22,7 +24,9 @@ export default function withAuth(ComponentToProtect) {
       fetch(req)
         .then(res => {
           if (res.status === 200) {
-            // console.log("React withAuth :Reponse 200");
+            this.props.dispatch(authBegin());
+            this.props.dispatch(authSuccess());
+            // console.log("React withAuth OK:Reponse 200");
             this.setState({ loading: false });
           } else {
             console.log("React withAuth : Faux");
@@ -54,3 +58,5 @@ export default function withAuth(ComponentToProtect) {
     }
   };
 }
+
+export default connect(withAuth);
