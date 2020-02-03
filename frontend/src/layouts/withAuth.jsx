@@ -24,8 +24,6 @@ function withAuth(ComponentToProtect) {
       fetch(req)
         .then(res => {
           if (res.status === 200) {
-            this.props.dispatch(authBegin());
-            this.props.dispatch(authSuccess());
             // console.log("React withAuth OK:Reponse 200");
             this.setState({ loading: false });
           } else {
