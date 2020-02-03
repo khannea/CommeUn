@@ -14,9 +14,8 @@ import Presentation from "../views/Presentation";
 import AccessError from "../views/AccessError";
 import UsersPage from "../views/UsersPage";
 import ForumView from "../views/ForumView";
-import TopicView from "../views/TopicView";
 import PostView from "../views/PostView";
-import MessageView from "../views/MessageView";
+
 const switchRoutes = (
   <Switch>
     <Route path="/Layout/Connexion" component={Connexion} />
@@ -24,10 +23,7 @@ const switchRoutes = (
     <Route path="/Layout/AccessError" component={AccessError} />
     <Route path="/Layout/UsersPage" component={WithAuth(UsersPage)} />
     <Route path="/Layout/ForumView" component={WithAuth(ForumView)} />
-    <Route path="/Layout/MessageView" component={WithAuth(MessageView)} />
     <Route path="/Layout/Topic/:id" component={PostView} />
-    {/* <Route path="/Layout/Topic/:id" component={TopicView} /> */}
-    <Route path="/Layout/Message/:id" component={MessageView} />
     <Redirect to="/Layout/Presentation" />
   </Switch>
 );
