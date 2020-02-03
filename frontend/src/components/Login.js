@@ -18,6 +18,11 @@ class Login extends Component {
     this.checkToken();
   }
 
+  componentDidUpdate() {
+    console.log("update");
+    this.checkToken();
+  }
+
   checkToken = () => {
     // const req = new Request("https://testkhannea.herokuapp.com/checkToken", {
     const req = new Request("/api/checkToken", {
