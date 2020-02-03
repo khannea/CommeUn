@@ -51,7 +51,7 @@ export default class EditPost extends Component {
     // fetch("http://localhost:4000/editpost", {
     fetch("/api/editpost", {
       method: "POST",
-      body: JSON.stringify({ id: this.props.editId, texte: this.state.texte }),
+      body: JSON.stringify({ id: this.props.id, texte: this.state.texte }),
       credentials: "include",
       headers: {
         "Content-Type": "application/json"
