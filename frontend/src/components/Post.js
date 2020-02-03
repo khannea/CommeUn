@@ -134,7 +134,7 @@ class Post extends Component {
                     <DeletePost
                       id={this.props.id}
                       refresh={this.props.refresh}
-                      editfunction={this.editFunction}
+                      editFunction={this.editFunction}
                       width="50%"
                     />
                   </Col>
