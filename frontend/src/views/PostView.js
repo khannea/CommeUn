@@ -21,7 +21,7 @@ class PostView extends Component {
   componentDidMount() {
     if (!this.props.origin_id) {
       this.props.origin_id = this.props.location.pathname.split("/")[3];
-      this.setState({ type: "none" });
+      this.setState({ type: "all" });
     }
     this.getDataFromDb();
   }
@@ -172,7 +172,7 @@ class PostView extends Component {
           </Card>
         )}
 
-        {data && data.length > 1 && type === "best" && (
+        {data && data.length > 1 && type !== "all" && (
           <div>
             <Button
               variant="reponse"
