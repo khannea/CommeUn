@@ -5,10 +5,7 @@ import DeletePost from "./DeletePost";
 import PostView from "../views/PostView";
 import "./Post.css";
 import Cookies from "universal-cookie";
-import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
-
-import AddPost from "./AddPost";
 
 const cookies = new Cookies();
 
