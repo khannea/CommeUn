@@ -109,7 +109,7 @@ class Post extends Component {
     }
 
     return (
-      <Card className="m-2" raised="false">
+      <Card className="m-2" elevation="0">
         <CardContent>
           <Row>
             <Col id="avatar_wrapper" className="col-auto">
