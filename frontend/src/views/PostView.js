@@ -100,7 +100,18 @@ class PostView extends Component {
             Message envoyé.
           </div>
         )}
-
+        {data && data.length > 1 && type !== "all" && (
+          <div>
+            <Button
+              variant="reponse"
+              onClick={() => {
+                this.switchType();
+              }}
+            >
+              ...{data.length - 1} réponses
+            </Button>
+          </div>
+        )}
         {data && type !== "none" && data.length > 0 && (
           <Post
             user={data[0].user}
@@ -170,19 +181,6 @@ class PostView extends Component {
               />
             </CardContent>
           </Card>
-        )}
-
-        {data && data.length > 1 && type !== "all" && (
-          <div>
-            <Button
-              variant="reponse"
-              onClick={() => {
-                this.switchType();
-              }}
-            >
-              ...{data.length - 1} réponses
-            </Button>
-          </div>
         )}
       </div>
     );

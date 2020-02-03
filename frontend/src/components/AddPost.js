@@ -65,10 +65,10 @@ export default class AddPost extends Component {
             />
           </Form.Group>
           <Form.Group controlId="formBasicChecbox">
-            <Form.Check
+            {/* <Form.Check
               type="checkbox"
               label="Vous avez relu votre message et êtes prêt a l'envoyé."
-            />
+            /> */}
           </Form.Group>
           <Button
             variant="primary"
