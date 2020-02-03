@@ -21,7 +21,7 @@ class PostView extends Component {
   componentDidMount() {
     if (!this.props.origin_id) {
       this.props.origin_id = this.props.location.pathname.split("/")[3];
-      this.setState({ type: "all" });
+      this.setState({ type: "none" });
     }
     this.getDataFromDb();
   }
@@ -79,7 +79,7 @@ class PostView extends Component {
   };
 
   switchType = () => {
-    if (this.state.type == "best") {
+    if (this.state.type == "best" || this.state.type == "none") {
       this.setState({ type: "all" });
     } else {
       this.setState({ type: "best" });
