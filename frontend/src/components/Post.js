@@ -112,9 +112,9 @@ class Post extends Component {
       <Card className="m-2" elevation="0">
         <CardContent>
           <Row>
-            <Col id="avatar_wrapper" className="col-auto">
+            {/* <Col id="avatar_wrapper" className="col-auto">
               <Avatar src="/broken-image.jpg" />
-            </Col>
+            </Col> */}
             <Col className="border-right col1st  col-auto">
               <Row className="h-100">
                 <Col id="like_dislike_wrapper">{this.renderLikeDislike()}</Col>
