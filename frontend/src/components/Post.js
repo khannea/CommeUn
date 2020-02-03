@@ -131,11 +131,11 @@ class Post extends Component {
                     editfunction={this.props.editfunction}
                     width="50%"
                   />
+                  <PostView origin_id={this.props.origin_id} />
                 </Col>
               )}
             </Col>
           </Row>
-          <PostView origin_id={this.props.origin_id} />
         </CardContent>
       </Card>
     );
