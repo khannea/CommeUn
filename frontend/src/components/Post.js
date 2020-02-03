@@ -63,36 +63,32 @@ class Post extends Component {
   renderLikeDislike = () => {
     return (
       <div>
-        <div>
-          <Col>
-            <Image
-              className="banniere"
-              src={require("./like.png")}
-              width="20px"
-              height="20px"
-              style={{ cursor: "pointer" }}
-              onClick={this.onClickLike}
-            />
-          </Col>
-          <Col>
-            <b>&nbsp;{this.props.likes}</b>
-          </Col>
-        </div>
-        <div>
-          <Col>
-            <Image
-              className="banniere"
-              src={require("./dislike.png")}
-              width="20px"
-              height="20px"
-              style={{ cursor: "pointer" }}
-              onClick={this.onClickDislike}
-            />
-          </Col>
-          <Col>
-            <b>&nbsp;{this.props.dislikes}</b>
-          </Col>
-        </div>
+        <Col>
+          <Image
+            className="banniere"
+            src={require("./like.png")}
+            width="20px"
+            height="20px"
+            style={{ cursor: "pointer" }}
+            onClick={this.onClickLike}
+          />
+        </Col>
+        <Col>
+          <b>&nbsp;{this.props.likes}</b>
+        </Col>
+        <Col>
+          <Image
+            className="banniere"
+            src={require("./dislike.png")}
+            width="20px"
+            height="20px"
+            style={{ cursor: "pointer" }}
+            onClick={this.onClickDislike}
+          />
+        </Col>
+        <Col>
+          <b>&nbsp;{this.props.dislikes}</b>
+        </Col>
       </div>
     );
   };
