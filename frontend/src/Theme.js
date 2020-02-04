@@ -60,12 +60,12 @@ export default createMuiTheme({
       root: {
         paddingLeft: 0
       }
-    },
-    MuiCard: {
-      topic: {
-        padding: "20px",
-        backgroundColor: "red"
-      }
+    }
+  },
+  MuiCard: {
+    topic: {
+      padding: "20px",
+      backgroundColor: "red"
     }
   }
 });
