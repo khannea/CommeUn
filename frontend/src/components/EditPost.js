@@ -3,11 +3,6 @@ import { Button, Form } from "react-bootstrap";
 // import './EditPost.css'
 
 export default class EditPost extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log(this.props.state.editId);
-  // }
-
   state = {
     texte: ""
   };
@@ -48,7 +43,6 @@ export default class EditPost extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    // fetch("http://localhost:4000/editpost", {
     fetch("/api/editpost", {
       method: "POST",
       body: JSON.stringify({ id: this.props.id, texte: this.state.texte }),
@@ -90,12 +84,6 @@ export default class EditPost extends Component {
             onSubmit={this.returnFalse}
           />
         </Form.Group>
-        {/* <Form.Group controlId="formBasicChecbox">
-          <Form.Check
-            type="checkbox"
-            label="Vous avez relu votre message et êtes prêt a l'envoyé."
-          />
-        </Form.Group> */}
         <Button
           variant="primary"
           type="button"

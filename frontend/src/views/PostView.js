@@ -3,7 +3,7 @@ import "./PostView.css";
 import Post from "../components/Post";
 import Button from "@material-ui/core/Button";
 
-import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
+import { Card, CardContent } from "@material-ui/core";
 import AddPost from "../components/AddPost";
 
 class PostView extends Component {
@@ -116,7 +116,7 @@ class PostView extends Component {
           </Button>
         )}
         {answer && (
-          <Card className="m-4 w-100">
+          <Card className="mx-4 my-2 w-100">
             <CardContent>
               <AddPost
                 id={this.props.origin_id}

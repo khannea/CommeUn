@@ -59,9 +59,7 @@ const text = (props, n) => {
         <p>
           <b>Inscrit toi et viens participer.</b>
         </p>
-        <p>
-          Nous avons besoin de ton avis pour faconner le monde à notre image.
-        </p>
+        <p>Nous avons besoin de ton avis.</p>
         <Box
           component="div"
           className={props.classes.alignItemsAndJustifyContent}
