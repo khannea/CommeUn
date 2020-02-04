@@ -4,11 +4,9 @@ import "./MainTopic.css";
 import { Card, CardHeader, CardContent } from "@material-ui/core";
 
 class MainTopic extends Component {
-  constructor() {
-    this.state = {
-      data: null
-    };
-  }
+  state = {
+    data: null
+  };
 
   componentDidMount() {
     this.getDataFromDb();
