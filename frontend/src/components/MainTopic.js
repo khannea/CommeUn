@@ -117,7 +117,7 @@ class MainTopic extends Component {
 
     return (
       <Card className="mx-4 my-2" elevation="0">
-        {data && data.length > 0 && (
+        {data && (
           <CardContent>
             <Row>
               {/* <Col id="avatar_wrapper" className="col-auto">
@@ -132,7 +132,7 @@ class MainTopic extends Component {
               </Col>
               <Col id="post_content_wrapper" className="border-dark">
                 <CardHeader title={data.user + " " + data.date} />
-                <Typography varian="h2"> {data.titre}</Typography>
+                <Typography variant="h2"> {data.titre}</Typography>
               </Col>
             </Row>
           </CardContent>
