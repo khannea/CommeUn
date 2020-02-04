@@ -10,6 +10,7 @@ class MainTopic extends Component {
   };
 
   componentDidMount() {
+    console.log("yoooo");
     this.setState(
       { id: this.props.location.pathname.split("/")[3] },
       this.getDataFromDb()
@@ -17,7 +18,7 @@ class MainTopic extends Component {
   }
 
   getDataFromDb = () => {
-    let url = "/api/topic/" + this.props.id;
+    let url = "/api/topic/" + this.state.id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",
