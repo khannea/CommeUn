@@ -92,7 +92,7 @@ export default class EditPost extends Component {
         >
           Editer
         </Button>
-        <Button variant="primary" type="button" onClick={this.annuler}>
+        <Button variant="primary" type="button" onClick={this.props.cancelEdit}>
           Annuler
         </Button>
       </Form>
