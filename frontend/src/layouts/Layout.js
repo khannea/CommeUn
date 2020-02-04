@@ -14,7 +14,7 @@ import Presentation from "../views/Presentation";
 import AccessError from "../views/AccessError";
 import UsersPage from "../views/UsersPage";
 import ForumView from "../views/ForumView";
-import TopicView from "../views/PostView";
+import TopicView from "../views/TopicView";
 
 const switchRoutes = (
   <Switch>
