@@ -13,15 +13,15 @@ class MainTopic extends Component {
     this.props = props;
   }
 
-  componentDidMount() {
-    this.setState(
-      { id: this.props.location.pathname.split("/")[3] },
-      this.getDataFromDb()
-    );
-  }
+  // componentDidMount() {
+  //   this.setState(
+  //     { id: this.props.location.pathname.split("/")[3] },
+  //     this.getDataFromDb()
+  //   );
+  // }
 
   getDataFromDb = () => {
-    let url = "/api/topic/" + this.state.id;
+    let url = "/api/topic/" + this.props.id;
     let req = new Request(url, {
       method: "GET",
       cache: "default",

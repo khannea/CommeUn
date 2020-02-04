@@ -20,7 +20,7 @@ class PostView extends Component {
 
   componentDidMount() {
     if (!this.props.origin_id) {
-      this.props.origin_id = this.props.location.pathname.split("/")[3];
+      // this.props.origin_id = this.props.location.pathname.split("/")[3];
       this.setState({ type: "all" });
     }
     this.getDataFromDb();
