@@ -116,7 +116,7 @@ class MainTopic extends Component {
     // .map((item, i) => <p key={i}>{item}</p>);
 
     return (
-      <Card className="mx-4 my-2" elevation="0">
+      <Card className="mx-4 my-2" variant="topic">
         {data && (
           <CardContent>
             <Row>

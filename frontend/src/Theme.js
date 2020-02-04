@@ -37,9 +37,6 @@ export default createMuiTheme({
       },
       contained: {
         margin: "15px"
-      },
-      reponse: {
-        fontSize: "10px"
       }
     },
     MuiCssBaseline: {
@@ -62,6 +59,12 @@ export default createMuiTheme({
     MuiCardHeader: {
       root: {
         paddingLeft: 0
+      }
+    },
+    MuiCard: {
+      topic: {
+        padding: "20px",
+        backgroundColor: "red"
       }
     }
   }
