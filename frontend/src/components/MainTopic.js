@@ -6,12 +6,14 @@ import { Card, CardHeader, CardContent } from "@material-ui/core";
 class MainTopic extends Component {
   constructor(props) {
     super(props);
-    this.props = props;
     this.state = {
       id: null,
       data: null
     };
+    this.props = props;
+  }
 
+  componentDidMount() {
     this.setState(
       { id: this.props.location.pathname.split("/")[3] },
       this.getDataFromDb()
