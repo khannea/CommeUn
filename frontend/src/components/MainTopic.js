@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Row, Col, Image } from "react-bootstrap";
 import "./MainTopic.css";
-import { Card, CardHeader, CardContent } from "@material-ui/core";
+import { Card, CardHeader, CardContent, Typography } from "@material-ui/core";
 
 class MainTopic extends Component {
   state = {
@@ -28,11 +28,11 @@ class MainTopic extends Component {
         }
       })
       .then(data => {
-        console.log("data");
-        console.log(data);
-        this.setState({
-          data: data
-        });
+        if (data.length > 0) {
+          this.setState({
+            data: data[0]
+          });
+        }
       });
   };
 
@@ -130,8 +130,8 @@ class MainTopic extends Component {
                 </Row>
               </Col>
               <Col id="post_content_wrapper" className="border-dark">
-                <CardHeader title={data[0].user + " " + data[0].date} />
-                {data[0].texte}
+                <CardHeader title={data.user + " " + data.date} />
+                <Typography varian="h2"> {data.titre}</Typography>
               </Col>
             </Row>
           </CardContent>
