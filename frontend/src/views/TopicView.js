@@ -8,7 +8,7 @@ class TopicView extends Component {
     return (
       <div id="topic_wrapper">
         <MainTopic />
-        <PostView />
+        {/* <PostView /> */}
       </div>
     );
   }
