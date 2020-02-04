@@ -9,6 +9,11 @@ class MainTopic extends Component {
     data: null
   };
 
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+
   componentDidMount() {
     console.log("yoooo");
     this.setState(
