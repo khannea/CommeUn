@@ -28,6 +28,7 @@ class MainTopic extends Component {
         }
       })
       .then(data => {
+        console.log(data);
         if (data.length > 0) {
           this.setState({
             data: data[0]
