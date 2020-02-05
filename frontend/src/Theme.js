@@ -14,7 +14,7 @@ export default createMuiTheme({
   },
   typography: {
     fontFamily: '"Alegreya", "Helvetica", "Arial", sans-serif',
-    fontSize: "16px",
+    fontSize: 16,
     fontWeightLight: 300,
     fontWeightRegular: 400,
     fontWeightMedium: 500
@@ -60,12 +60,6 @@ export default createMuiTheme({
       root: {
         paddingLeft: 0
       }
-    }
-  },
-  MuiCard: {
-    topic: {
-      padding: "20px",
-      backgroundColor: "red"
     }
   }
 });

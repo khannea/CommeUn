@@ -4,9 +4,6 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
 
-//TEST
-import Post from "../components/Post.js";
-
 import "./Presentation.scss";
 
 import styles from "./presentationStyle";
@@ -79,7 +76,6 @@ function Letter(props) {
   const classes = props.classes;
   return (
     <div id="wrapper_content">
-      {/* <Post texte={"yo \n yo \n sdf;lksdf;lk"} user="1234" /> */}
       <div className="letter"> {text(props, count)}</div>
 
       <div>

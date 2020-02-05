@@ -10,7 +10,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import WithAuth from "./withAuth";
 
 import Connexion from "../views/Connexion";
-import Presentation from "../views/Presentation";
+import Presentation2 from "../views/Presentation2";
 import AccessError from "../views/AccessError";
 import UsersPage from "../views/UsersPage";
 import ForumView from "../views/ForumView";
@@ -19,12 +19,12 @@ import TopicView from "../views/TopicView";
 const switchRoutes = (
   <Switch>
     <Route path="/Layout/Connexion" component={Connexion} />
-    <Route path="/Layout/Presentation" component={Presentation} />
+    <Route path="/Layout/Presentation2" component={Presentation2} />
     <Route path="/Layout/AccessError" component={AccessError} />
     <Route path="/Layout/UsersPage" component={WithAuth(UsersPage)} />
     <Route path="/Layout/ForumView" component={WithAuth(ForumView)} />
     <Route path="/Layout/Topic/:id" component={WithAuth(TopicView)} />
-    <Redirect to="/Layout/Presentation" />
+    <Redirect to="/Layout/Presentation2" />
   </Switch>
 );
 

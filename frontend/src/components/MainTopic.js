@@ -116,9 +116,9 @@ class MainTopic extends Component {
     // .map((item, i) => <p key={i}>{item}</p>);
 
     return (
-      <Card className="mx-4 my-2" variant="topic">
+      <Card className="mx-4 my-2">
         {data && (
-          <CardContent>
+          <CardContent className="main_topic">
             <Row>
               {/* <Col id="avatar_wrapper" className="col-auto">
               <Avatar src="/broken-image.jpg" />
