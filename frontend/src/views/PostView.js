@@ -79,7 +79,7 @@ class PostView extends Component {
   };
 
   switchType = () => {
-    if (this.state.type == "best" || this.state.type == "none") {
+    if (this.state.type === "best" || this.state.type === "none") {
       this.setState({ type: "all" });
     } else {
       this.setState({ type: "best" });

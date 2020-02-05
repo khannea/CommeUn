@@ -132,7 +132,7 @@ class MainTopic extends Component {
               </Col>
               <Col id="post_content_wrapper" className="border-dark">
                 <CardHeader title={data.user + " " + data.date} />
-                <Typography variant="h2"> {data.titre}</Typography>
+                <Typography variant="h4"> {data.titre}</Typography>
               </Col>
             </Row>
           </CardContent>

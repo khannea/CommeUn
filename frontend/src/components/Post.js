@@ -5,7 +5,6 @@ import DeletePost from "./DeletePost";
 import PostView from "../views/PostView";
 import "./Post.css";
 import Cookies from "universal-cookie";
-import Button from "@material-ui/core/Button";
 import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
 
 import EditPost from "./EditPost";
@@ -14,7 +13,6 @@ const cookies = new Cookies();
 
 class Post extends Component {
   state = {
-    answer: false,
     edit: false
   };
 
@@ -106,8 +104,6 @@ class Post extends Component {
     let texte = this.props.texte
       .split("\n")
       .map((item, i) => <p key={i}>{item}</p>);
-    let success = false;
-    let answer = this.state.answer;
 
     if (this.props.likes > this.props.dislikes) {
       success = true;
