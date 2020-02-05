@@ -125,7 +125,10 @@ class Post extends Component {
               </Row>
             </Col>
             <Col id="post_content_wrapper" className="border-dark">
-              <CardHeader title={this.props.user + " " + this.props.date} />
+              <CardHeader
+                titleTypographyProps={{ variant: "h6" }}
+                title={this.props.user + " " + this.props.date}
+              />
               {!this.state.edit && texte}
               {!this.state.edit &&
                 this.props.user === localStorage.getItem("pseudo") && (
