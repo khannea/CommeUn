@@ -13,7 +13,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import { withStyles, useTheme } from "@material-ui/core/styles";
 
-import styles from "./sidebarStyle.js";
+import styles from "./sidebarStyle.jsx";
 
 function Sidebar(props) {
   const classes = props.classes;

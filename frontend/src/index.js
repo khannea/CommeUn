@@ -16,7 +16,7 @@ import theme from "./Theme";
 
 import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 
-import Layout from "./layouts/Layout.js";
+import Layout from "./layouts/Layout.jsx";
 
 import { Provider } from "react-redux";
 import { createStore } from "redux";

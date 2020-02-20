@@ -4,7 +4,7 @@ import "./Login.css";
 import { connect } from "react-redux";
 import { authBegin, authSuccess } from "../store/actions";
 import { withStyles } from "@material-ui/core/styles";
-import styles from "./sidebarStyle.js";
+import styles from "./sidebarStyle.jsx";
 import Button from "@material-ui/core/Button";
 class Login extends Component {
   state = {

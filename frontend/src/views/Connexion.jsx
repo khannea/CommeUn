@@ -2,10 +2,10 @@ import React from "react";
 import "./Connexion.scss";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
-import styles from "../components/sidebarStyle.js";
+import styles from "../components/sidebarStyle.jsx";
 
 import { Link } from "react-router-dom";
-import Login from "../components/Login.js";
+import Login from "../components/Login.jsx";
 
 function Connexion(props) {
   const classes = props.classes;
