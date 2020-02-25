@@ -12,8 +12,6 @@ export default class AddPost extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    // fetch("http://localhost:4000/addPost", {
-    // fetch("https://testkhannea.herokuapp.com/addPost", {
     fetch("/api/addTopic", {
       method: "POST",
       body: JSON.stringify({ titre: this.state.titre }),

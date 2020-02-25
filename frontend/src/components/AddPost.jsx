@@ -12,8 +12,6 @@ export default class AddPost extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    // fetch("http://localhost:4000/addPost", {
-    // fetch("https://testkhannea.herokuapp.com/addPost", {
     fetch("/api/addPost", {
       method: "POST",
       body: JSON.stringify({
@@ -64,12 +62,7 @@ export default class AddPost extends Component {
               onSubmit={this.returnFalse}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicChecbox">
-            {/* <Form.Check
-              type="checkbox"
-              label="Vous avez relu votre message et êtes prêt a l'envoyé."
-            /> */}
-          </Form.Group>
+          <Form.Group controlId="formBasicChecbox"></Form.Group>
           <Button
             variant="primary"
             type="button"

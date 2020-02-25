@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya:400,800|Gelasio&display=swap");
+body {
+    background: url(../img/geometry_background.jpg) no-repeat center fixed !important;
+    background-size: cover !important;
+}
 
 #layout {
-  font-family: "Alegreya", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
-  height: 100vh;
+    font-family: "Alegreya", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    height: 100vh;
 }
 
 @media screen and (min-width: 960px) {
-  #content_wrapper {
-    padding-left: 160px;
-  }
+    #content_wrapper {
+        padding-left: 160px;
+    }
 }
 
 @media screen and (max-width: 960px) {
-  .titre_site {
-    padding-left: 20px;
-  }
+    .titre_site {
+        padding-left: 20px;
+    }
 }

@@ -36,6 +36,8 @@ function Sidebar(props) {
     { text: "Messages postés", url: "/Layout/MyMessages" }
   ];
 
+  const drawer_keys_3 = [{ text: "Réflexions", url: "/Layout/ReflexionView" }];
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
@@ -65,12 +67,17 @@ function Sidebar(props) {
           </ListItem>
         ))}
       </List>
-      {/* <Link to="/Connexion">Connexion</Link>
-      <Link to="/AccueilView">Accueil</Link>
-      <Link to="/UsersPage">Users</Link>
-      <Link to="/PageTest" className="text-dark">
-        Page de Test
-      </Link> */}
+      <Divider />
+      {drawer_keys_3.map((drawer_keys_3, index) => (
+        <ListItem
+          button
+          component={Link}
+          to={drawer_keys_3.url}
+          key={drawer_keys_3.url}
+        >
+          <ListItemText primary={drawer_keys_3.text} />
+        </ListItem>
+      ))}
     </div>
   );
 
