@@ -33,6 +33,7 @@ const switchRoutes = (
 function Layout(props) {
   return (
     <div id="layout">
+      <Sidebar />
       <div id="content_wrapper">
         <div className="titre_site">
           <span className="titre_part1"> Comme </span>
@@ -40,8 +41,6 @@ function Layout(props) {
         </div>
         <div> {switchRoutes} </div>
       </div>
-
-      <Sidebar />
     </div>
   );
 }
