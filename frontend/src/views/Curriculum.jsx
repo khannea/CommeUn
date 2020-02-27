@@ -6,10 +6,10 @@ class Curriculum extends Component {
     super();
   }
   componentDidMount() {
-    anime({
-      targets: ".css-selector-demo .el",
-      translateX: window.innerWidth
-    });
+    // anime({
+    //   targets: ".css-selector-demo .el",
+    //   translateX: window.innerWidth
+    // });
   }
 
   render() {
