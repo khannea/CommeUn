@@ -36,7 +36,10 @@ function Sidebar(props) {
     { text: "Messages postés", url: "/Layout/MyMessages" }
   ];
 
-  const drawer_keys_3 = [{ text: "Réflexions", url: "/Layout/ReflexionView" }];
+  const drawer_keys_3 = [
+    { text: "Réflexions", url: "/Layout/ReflexionView" },
+    { text: "Curriculum Vitae", url: "/Layout/Curriculum" }
+  ];
 
   const drawer = (
     <div>
