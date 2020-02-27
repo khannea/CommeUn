@@ -18,12 +18,12 @@ const sidebarStyle = theme => ({
   },
   burgerButton: {
     background: "white",
-    fontSize: "large",
+    fontSize: "medium",
     position: "absolute",
-    top: "17px",
-    left: "15px",
+    top: "14px",
+    left: "14px",
     marginRight: theme.spacing(2),
-    zIndex: 10
+    zIndex: 1300
     // [theme.breakpoints.up("md")]: {
     //   display: "none"
     // }
