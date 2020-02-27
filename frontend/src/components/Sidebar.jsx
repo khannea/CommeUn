@@ -98,7 +98,7 @@ function Sidebar(props) {
       <CssBaseline />
       <nav className={classes.drawer} aria-label="mailbox folders">
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden mdUp implementation="css">
+        {/* <Hidden mdUp implementation="css">
           <Drawer
             // container={container}
             variant="temporary"
@@ -125,7 +125,17 @@ function Sidebar(props) {
           >
             {drawer}
           </Drawer>
-        </Hidden>
+        </Hidden> */}
+
+        <Drawer
+          classes={{
+            paper: classes.drawerPaper
+          }}
+          variant="permanent"
+          open
+        >
+          {drawer}
+        </Drawer>
       </nav>
     </div>
   );
