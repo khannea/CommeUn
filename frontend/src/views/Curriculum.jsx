@@ -13,7 +13,11 @@ class Curriculum extends Component {
   }
 
   render() {
-    return <div id="wrapper_curriculum">Pensée numéro 1</div>;
+    return (
+      <div id="wrapper_curriculum">
+        <div id="dark_menu"></div>
+      </div>
+    );
   }
 }
 
