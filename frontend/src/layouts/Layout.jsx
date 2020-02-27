@@ -27,7 +27,7 @@ const switchRoutes = (
     <Route path="/Layout/ForumView" component={WithAuth(ForumView)} />
     <Route path="/Layout/Topic/:id" component={WithAuth(TopicView)} />
     <Route path="/Layout/ReflexionView" component={ReflexionView} />
-    <Route path="/Layout/Curriculum" component={Curriculum} />
+    <Route path="/Layout/Curriculum" component={CloseSidebar(Curriculum)} />
     <Redirect to="/Layout/Presentation2" />
   </Switch>
 );

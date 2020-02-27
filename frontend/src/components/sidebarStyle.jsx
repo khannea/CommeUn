@@ -22,10 +22,10 @@ const sidebarStyle = theme => ({
     position: "absolute",
     top: "17px",
     left: "15px",
-    marginRight: theme.spacing(2),
-    [theme.breakpoints.up("md")]: {
-      display: "none"
-    }
+    marginRight: theme.spacing(2)
+    // [theme.breakpoints.up("md")]: {
+    //   display: "none"
+    // }
   },
   // toolbar: theme.mixins.toolbar,
   toolbar: {
