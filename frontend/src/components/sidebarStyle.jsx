@@ -22,7 +22,8 @@ const sidebarStyle = theme => ({
     position: "absolute",
     top: "17px",
     left: "15px",
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    zIndex: 10
     // [theme.breakpoints.up("md")]: {
     //   display: "none"
     // }
