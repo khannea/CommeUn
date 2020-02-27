@@ -121,7 +121,7 @@ function Sidebar(props) {
               paper: classes.drawerPaper
             }}
             variant="permanent"
-            close
+            open
           >
             {drawer}
           </Drawer>
