@@ -128,11 +128,17 @@ function Sidebar(props) {
         </Hidden> */}
 
         <Drawer
+          // container={container}
+          variant="temporary"
+          anchor={theme.direction === "rtl" ? "right" : "left"}
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
           classes={{
             paper: classes.drawerPaper
           }}
-          variant="permanent"
-          open
+          ModalProps={{
+            keepMounted: true // Better open performance on mobile.
+          }}
         >
           {drawer}
         </Drawer>
