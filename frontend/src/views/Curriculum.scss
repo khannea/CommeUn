@@ -1,12 +1,193 @@
+// #wrapper_curriculum {
+//     height: 100%;
+//     width: 100%;
+// }
 #wrapper_curriculum {
-    height: 100%;
     width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+    background-color: white;
 }
 
-#dark_menu {
+.rect1 {
+    position: fixed;
+    width: 40%;
+    min-width: 40%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: #000000;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    scroll-behavior: unset;
+}
+
+.textBox {
     position: absolute;
-    background-color: black;
-    width: 2000px;
-    height: 2000px;
-    z-index: 2000;
+    width: 351px;
+    height: 48px;
+    left: 255px;
+    top: 242px;
+}
+
+.titreCv {
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 350;
+    font-size: 75px;
+    line-height: 50px;
+    /* or 67% */
+    color: #ffffff;
+    z-index: 1;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.titreCv:hover {
+    border: 1px solid white;
+}
+
+.contentCvEcn {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 1000px;
+    left: calc(40%-1000px);
+    width: 60%;
+    height: 100%;
+    background: url(Ecn-promo.jpeg);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contentCv {
+    position: absolute;
+    right: 1000px;
+    left: calc(40%-1000px);
+    width: 60%;
+    height: 100%;
+    z-index: 0;
+    flex-direction: column;
+    justify-content: center;
+    background: url(ecole42.jpg);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.contentCvTeacher {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 1000px;
+    left: calc(40%-1000px);
+    width: 60%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url(teacher_promo.png);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}
+
+.Filtre {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.textInRT {
+    position: relative;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 325;
+    font-size: 30px;
+    line-height: 50px;
+    color: #000000;
+}
+
+.textCard {
+    position: relative;
+    font-family: Gotham;
+    font-style: normal;
+    font-weight: 325;
+    font-size: 30px;
+    line-height: 50px;
+    color: #000000;
+    z-index: 3;
+    margin: auto auto;
+    padding: 25px;
+}
+
+.scroll_down {
+    width: 40px;
+    height: 40px;
+    background: url(scroll_down.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+
+#section1 {
+    height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+#section2 {
+    height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+#section3 {
+    height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+}
+
+.wrapper_rt {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+}
+
+.image_rt {
+    position: absolute;
+    z-index: 5;
+    background: url(RT_castle.jpg);
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
