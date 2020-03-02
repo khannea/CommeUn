@@ -24,27 +24,33 @@ class Curriculum extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.scrollEvent);
+
     scrollSpy.update();
   }
 
-  scrollTo(offset, callback) {
-    const onScroll = function() {
+  scrollTo = (offset, callback) => {
+    // window.removeEventListener("scroll", this.scrollEvent);
+    const onScroll = () => {
       if (window.pageYOffset === offset) {
+        console.log("ici");
         window.removeEventListener("scroll", onScroll);
+        // window.addEventListener("scroll", this.scrollEvent);
         callback();
       }
     };
+
     window.addEventListener("scroll", onScroll);
     onScroll();
     window.scrollTo({
       top: offset,
       behavior: "smooth"
     });
-  }
+  };
 
   scrollEvent = () => {
     newScrollPosition = window.scrollY;
-
+    console.log("WHEEELLL " + (newScrollPosition - oldScrollPosition));
+    //window.removeEventListener("wheel", this.scrollEvent);
     let section = this.state.section;
 
     if (newScrollPosition - oldScrollPosition > 0) {
@@ -55,8 +61,10 @@ class Curriculum extends Component {
         this.scrollTo(
           this["contentRef" + (section + 1)].current.offsetTop,
           () => {
-            oldScrollPosition = window.scrollY;
-            this.setState({ section: section + 1 });
+            this.setState({ section: section + 1 }, () => {
+              oldScrollPosition = window.scrollY;
+              //window.addEventListener("wheel", this.scrollEvent);
+            });
           }
         );
       }
@@ -68,8 +76,10 @@ class Curriculum extends Component {
         this.scrollTo(
           this["contentRef" + (section - 1)].current.offsetTop,
           () => {
-            oldScrollPosition = window.scrollY;
-            this.setState({ section: section - 1 });
+            this.setState({ section: section - 1 }, () => {
+              oldScrollPosition = window.scrollY;
+              //window.addEventListener("wheel", this.scrollEvent);
+            });
           }
         );
       }

@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    scroll-behavior: unset;
+    //scroll-behavior: unset;
 }
 
 .textBox {
@@ -99,7 +99,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url(teacher_promo.png);
+    background: url(teacher_promo.jpg);
     background-size: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -185,7 +185,6 @@
 
 .image_rt {
     position: absolute;
-    z-index: 5;
     background: url(RT_castle.jpg);
     background-size: 100%;
     background-position: 50% 50%;
