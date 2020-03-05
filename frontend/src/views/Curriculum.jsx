@@ -173,7 +173,7 @@ class Curriculum extends Component {
     if (nb == 1) {
       anime({
         targets: "#content1",
-        translateX: [-2000, 0],
+        translateX: [-1000, 0],
         duration: 300,
         width: ["40%", "60%"],
         easing: "spring(1, 100, 100,0)",
@@ -198,7 +198,7 @@ class Curriculum extends Component {
     if (nb == 2) {
       anime({
         targets: "#content2",
-        translateX: [-2000, 0],
+        translateX: [-1000, 0],
         duration: 300,
         width: ["40%", "60%"],
         easing: "spring(1, 100, 100,0)",
