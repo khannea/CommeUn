@@ -18,15 +18,32 @@ class Curriculum extends Component {
   constructor(props) {
     super(props);
     for (let i = 1; i < 4; i++) {
-      this["contentRef" + i] = React.createRef();
+      this["contentRef" + i] = 1;
     }
   }
 
   componentDidMount() {
-    window.addEventListener("scroll", this.scrollEvent);
+    window.addEventListener("wheel", this.scrollEvent);
 
     scrollSpy.update();
   }
+
+  blurAllExept = nb => {
+    let x = (nb + 1) % 3;
+    let y = (nb + 2) % 3;
+    var targetElm0 = document.querySelector("#titre" + nb);
+    var targetElm1 = document.querySelector("#titre" + x);
+    var targetElm2 = document.querySelector("#titre" + y);
+    anime({
+      targets: "#titre" + x + ",#titre" + y,
+      duration: 200,
+      update: function(anim) {
+        targetElm0.style.filter = "blur(0px)";
+        targetElm1.style.filter = "blur(" + (10 * anim.progress) / 100 + "px)";
+        targetElm2.style.filter = "blur(" + (10 * anim.progress) / 100 + "px)";
+      }
+    });
+  };
 
   scrollTo = (offset, callback) => {
     // window.removeEventListener("scroll", this.scrollEvent);
@@ -49,42 +66,89 @@ class Curriculum extends Component {
 
   scrollEvent = () => {
     newScrollPosition = window.scrollY;
-    console.log("WHEEELLL " + (newScrollPosition - oldScrollPosition));
+    console.log(window);
     //window.removeEventListener("wheel", this.scrollEvent);
     let section = this.state.section;
 
-    if (newScrollPosition - oldScrollPosition > 0) {
-      if (
-        this["contentRef" + (section + 1)] != null &&
-        this["contentRef" + (section + 1)].current != null
-      ) {
-        this.scrollTo(
-          this["contentRef" + (section + 1)].current.offsetTop,
-          () => {
-            this.setState({ section: section + 1 }, () => {
-              oldScrollPosition = window.scrollY;
-              //window.addEventListener("wheel", this.scrollEvent);
-            });
-          }
-        );
-      }
-    } else if (newScrollPosition - oldScrollPosition < 0) {
-      if (
-        this["contentRef" + (section - 1)] != null &&
-        this["contentRef" + (section - 1)].current != null
-      ) {
-        this.scrollTo(
-          this["contentRef" + (section - 1)].current.offsetTop,
-          () => {
-            this.setState({ section: section - 1 }, () => {
-              oldScrollPosition = window.scrollY;
-              //window.addEventListener("wheel", this.scrollEvent);
-            });
-          }
-        );
-      }
-    }
+    // if (newScrollPosition - oldScrollPosition > 0) {
+    // if (
+    //   this["contentRef" + (section + 1)] != null &&
+    //   this["contentRef" + (section + 1)].current != null
+    // ) {
+    if (this["contentRef" + (section + 1)])
+      anime({
+        targets: "#section" + (section + 1) + ",#section" + section,
+        translateY: -(window.height / 2),
+        duration: 300,
+        easing: "spring(1, 100, 100,0)"
+      });
+    // this.scrollTo(
+    //   this["contentRef" + (section + 1)].current.offsetTop,
+    //   () => {
+    //     this.setState({ section: section + 1 }, () => {
+    //       oldScrollPosition = window.scrollY;
+    //       //window.addEventListener("wheel", this.scrollEvent);
+    //     });
+    //   }
+    // );
+    // }
   };
+  // } else if (newScrollPosition - oldScrollPosition < 0) {
+  //   if (
+  //     this["contentRef" + (section - 1)] != null &&
+  //     this["contentRef" + (section - 1)].current != null
+  //   ) {
+  //     this.scrollTo(
+  //       this["contentRef" + (section - 1)].current.offsetTop,
+  //       () => {
+  //         this.setState({ section: section - 1 }, () => {
+  //           oldScrollPosition = window.scrollY;
+  //           //window.addEventListener("wheel", this.scrollEvent);
+  //         });
+  //       }
+  //     );
+  //   }
+  // }
+  //};
+
+  // scrollEvent = () => {
+  //   newScrollPosition = window.scrollY;
+  //   console.log("WHEEELLL " + (newScrollPosition - oldScrollPosition));
+  //   //window.removeEventListener("wheel", this.scrollEvent);
+  //   let section = this.state.section;
+
+  //   if (newScrollPosition - oldScrollPosition > 0) {
+  //     if (
+  //       this["contentRef" + (section + 1)] != null &&
+  //       this["contentRef" + (section + 1)].current != null
+  //     ) {
+  //       this.scrollTo(
+  //         this["contentRef" + (section + 1)].current.offsetTop,
+  //         () => {
+  //           this.setState({ section: section + 1 }, () => {
+  //             oldScrollPosition = window.scrollY;
+  //             //window.addEventListener("wheel", this.scrollEvent);
+  //           });
+  //         }
+  //       );
+  //     }
+  //   } else if (newScrollPosition - oldScrollPosition < 0) {
+  //     if (
+  //       this["contentRef" + (section - 1)] != null &&
+  //       this["contentRef" + (section - 1)].current != null
+  //     ) {
+  //       this.scrollTo(
+  //         this["contentRef" + (section - 1)].current.offsetTop,
+  //         () => {
+  //           this.setState({ section: section - 1 }, () => {
+  //             oldScrollPosition = window.scrollY;
+  //             //window.addEventListener("wheel", this.scrollEvent);
+  //           });
+  //         }
+  //       );
+  //     }
+  //   }
+  // };
 
   letScene = nb => {
     if (nb == 1) {
@@ -92,6 +156,7 @@ class Curriculum extends Component {
         targets: "#content1",
         translateX: 1000,
         duration: 300,
+        width: ["30%", "60%"],
         easing: "spring(1, 100, 100,0)",
         begin: function(anim) {
           anime({ targets: "#content1", zIndex: 2 });
@@ -113,6 +178,7 @@ class Curriculum extends Component {
         targets: "#content2",
         translateX: 1000,
         duration: 300,
+        width: ["30%", "60%"],
         easing: "spring(1, 100, 100,0)",
         begin: function(anim) {
           anime({ targets: "#content2", zIndex: 2 });
@@ -134,6 +200,7 @@ class Curriculum extends Component {
         targets: "#content3",
         translateX: 1000,
         duration: 300,
+        width: ["30%", "60%"],
         easing: "spring(1, 100, 100,0)",
         begin: function(anim) {
           anime({ targets: "#content3", zIndex: 2 });
@@ -158,24 +225,30 @@ class Curriculum extends Component {
         <div className="rect1">
           <div
             className="titreCv"
+            id="titre0"
             onMouseEnter={() => {
               this.setState({ scene: 1 }, () => this.letScene(1));
+              this.blurAllExept(0);
             }}
           >
             École 42
           </div>
           <div
             className="titreCv"
+            id="titre1"
             onMouseEnter={() => {
               this.setState({ scene: 2 }, () => this.letScene(2));
+              this.blurAllExept(1);
             }}
           >
             Centrale Nantes
           </div>
           <div
             className="titreCv"
+            id="titre2"
             onMouseEnter={() => {
               this.setState({ scene: 3 }, () => this.letScene(3));
+              this.blurAllExept(2);
             }}
           >
             CAPES mathématiques
