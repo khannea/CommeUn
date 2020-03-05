@@ -21,7 +21,7 @@ import Curriculum from "../views/Curriculum";
 const switchRoutes = (
   <Switch>
     <Route path="/Layout/Connexion" component={Connexion} />
-    <Route path="/Layout/Presentation2" component={Presentation2} />
+    <Route path="/Layout/Presentation" component={Presentation2} />
     <Route path="/Layout/AccessError" component={AccessError} />
     <Route path="/Layout/UsersPage" component={WithAuth(UsersPage)} />
     <Route path="/Layout/ForumView" component={WithAuth(ForumView)} />
