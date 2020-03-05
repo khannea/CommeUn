@@ -175,7 +175,7 @@ class Curriculum extends Component {
         targets: "#content1",
         translateX: [-2000, 0],
         duration: 300,
-        width: ["20%", "60%"],
+        width: ["40%", "60%"],
         easing: "spring(1, 100, 100,0)",
         begin: function(anim) {
           document.querySelector("#content1").style.zIndex = "2";
@@ -200,7 +200,7 @@ class Curriculum extends Component {
         targets: "#content2",
         translateX: [-2000, 0],
         duration: 300,
-        width: ["20%", "60%"],
+        width: ["40%", "60%"],
         easing: "spring(1, 100, 100,0)",
         begin: function(anim) {
           document.querySelector("#content2").style.zIndex = "2";
