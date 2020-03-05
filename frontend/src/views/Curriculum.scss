@@ -8,6 +8,15 @@
     bottom: 0%;
     background-color: white;
     overflow: hidden;
+    display: flex;
+}
+
+.particle {
+    position: absolute;
+    top: 0px;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
 }
 
 .rect1 {
@@ -33,12 +42,12 @@
 }
 
 .titreCv {
+    box-sizing: border-box;
     font-family: Gotham;
     font-style: normal;
     font-weight: 350;
     font-size: 75px;
-    line-height: 50px;
-    /* or 67% */
+    line-height: 60px;
     color: #ffffff;
     z-index: 1;
     padding-left: 100px;
@@ -48,40 +57,6 @@
 
 .titreCv:hover {
     border: 1px solid white;
-}
-
-.contentCvEcn {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 1000px;
-    left: calc(40%-1000px);
-    width: 60%;
-    height: 100vh;
-    background: url(Ecn-promo.jpeg);
-    background-size: auto 100%;
-    background-repeat: no-repeat;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.contentCvTeacher {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 1000px;
-    left: calc(40%-1000px);
-    width: 60%;
-    height: 100%;
-    z-index: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: url(teacher_promo.jpg);
-    background-size: auto 100%;
-    background-repeat: no-repeat;
 }
 
 .Filtre {
@@ -114,6 +89,8 @@
     z-index: 3;
     margin: auto auto;
     padding: 25px;
+    height: 300px;
+    width: 800px;
 }
 
 .scroll_down {
@@ -126,12 +103,40 @@
     margin-top: 20px;
 }
 
+.contentCvEcn {
+    position: absolute;
+    left: 40%;
+    height: 100%;
+    background: url(Ecn-promo.jpeg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contentCvTeacher {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 40%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: url(teacher_promo.jpg);
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}
+
 .contentCv {
     position: absolute;
     right: 1000px;
-    left: calc(40%-1000px);
+    left: 40%;
     width: 60%;
-    height: 100vh;
+    height: 100%;
     z-index: 0;
     display: flex;
     flex-direction: column;
