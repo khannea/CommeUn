@@ -12,7 +12,6 @@ let oldScrollPosition = 0;
 
 class Curriculum extends Component {
   state = {
-    sceneOld: 0,
     scene: 0,
     section: 1
   };
@@ -181,11 +180,6 @@ class Curriculum extends Component {
           document.querySelector("#content1").style.zIndex = "2";
           document.querySelector("#content2").style.zIndex = "0";
           document.querySelector("#content3").style.zIndex = "0";
-          //anime({ targets: "#content1", zIndex: 2 });
-          //anime({ targets: "#content2,#content3", zIndex: 0 });
-        },
-        complete: () => {
-          this.setState({ sceneOld: 1 });
         }
       });
       // anime({
@@ -206,18 +200,8 @@ class Curriculum extends Component {
           document.querySelector("#content2").style.zIndex = "2";
           document.querySelector("#content1").style.zIndex = "0";
           document.querySelector("#content3").style.zIndex = "0";
-          //anime({ targets: "#content2", zIndex: 2 });
-          //anime({ targets: "#content1,#content3", zIndex: 0 });
-        },
-        complete: () => {
-          this.setState({ sceneOld: 2 });
         }
       });
-      // anime({
-      //   targets: ".textInRT",
-      //   fontSize: 30,
-      //   duration: 3000
-      // });
     }
 
     if (nb == 3) {
@@ -231,32 +215,21 @@ class Curriculum extends Component {
           document.querySelector("#content3").style.zIndex = "2";
           document.querySelector("#content1").style.zIndex = "0";
           document.querySelector("#content2").style.zIndex = "0";
-          // anime(
-          //   { targets: "#content3", zIndex: 2 },
-          //   { targets: "#content1,#content2", zIndex: 0 }
-          // );
-        },
-        complete: () => {
-          this.setState({ sceneOld: 3 });
         }
       });
-      // anime({
-      //   targets: ".textInRT",
-      //   fontSize: 30,
-      //   duration: 3000
-      // });
     }
   };
 
   render() {
     let { scene, sceneOld, sceneNew } = this.state;
+    let particleWidth = scene == 0 ? "window.innerWidth" : "100%";
 
     return (
       <div id="wrapper_curriculum">
         <div className="rect1">
           <Particles
             height={window.innerHeight}
-            width="100%"
+            width={particleWidth}
             className="particle"
             params={{
               opacity: {
@@ -345,14 +318,14 @@ class Curriculum extends Component {
             </Card>
           </section>
 
-          <section id="section2" ref={this.contentRef2}>
+          <section id="section2" ref={this.contentRef2} className="invisible">
             <Card className="textCard">
               <div className="textInRT">2eme section</div>
               <div className="scroll_down"></div>
             </Card>
           </section>
 
-          <section id="section3" ref={this.contentRef3}>
+          <section id="section3" ref={this.contentRef3} className="invisible">
             <Card className="textCard">
               <div className="textInRT">3eme section</div>
               <div className="scroll_down"></div>
@@ -378,6 +351,8 @@ class Curriculum extends Component {
             <div className="scroll_down"></div>
           </Card>
         </div>
+
+        <div id="contentDefault" className="contentDefault"></div>
       </div>
     );
   }

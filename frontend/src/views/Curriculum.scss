@@ -8,7 +8,10 @@
     bottom: 0%;
     background-color: white;
     overflow: hidden;
-    display: flex;
+}
+
+.invisible {
+    display: none;
 }
 
 .particle {
@@ -46,17 +49,22 @@
     font-family: Gotham;
     font-style: normal;
     font-weight: 350;
-    font-size: 75px;
+    font-size: 4vw;
+    //font-size: 75px;
     line-height: 60px;
     color: #ffffff;
     z-index: 1;
-    padding-left: 100px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-left: 4vw;
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    // padding-left: 100px;
+    // padding-top: 50px;
+    // padding-bottom: 50px;
 }
 
 .titreCv:hover {
-    border: 1px solid white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 .Filtre {
@@ -65,7 +73,7 @@
     bottom: 0px;
     right: 0px;
     left: 0px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(51, 37, 37, 0.1);
 }
 
 .textInRT {
@@ -79,18 +87,18 @@
 }
 
 .textCard {
-    position: absolute;
+    position: relative;
     font-family: Gotham;
     font-style: normal;
     font-weight: 325;
     font-size: 30px;
     line-height: 50px;
     color: #000000;
-    z-index: 3;
     margin: auto auto;
     padding: 25px;
     height: 300px;
-    width: 800px;
+    width: 50vw;
+    //width: 900px;
 }
 
 .scroll_down {
@@ -107,8 +115,9 @@
     position: absolute;
     left: 40%;
     height: 100%;
-    background: url(Ecn-promo.jpeg);
-    background-size: auto 100%;
+    width: 60%;
+    background: url(CV_ECN.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: 0;
     display: flex;
@@ -118,6 +127,7 @@
 
 .contentCvTeacher {
     position: absolute;
+    width: 60%;
     top: 0px;
     bottom: 0px;
     left: 40%;
@@ -126,25 +136,40 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: url(teacher_promo.jpg);
-    background-size: auto 100%;
+    background: url(CV_Prof.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contentDefault {
+    position: absolute;
+    width: 60%;
+    top: 0px;
+    bottom: 0px;
+    left: 40%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: black;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
 .contentCv {
     position: absolute;
-    right: 1000px;
-    left: 40%;
     width: 60%;
+    top: 0px;
+    bottom: 0px;
+    left: 40%;
     height: 100%;
     z-index: 0;
     display: flex;
     flex-direction: column;
-    vertical-align: middle;
     justify-content: center;
-    background: url(ecole42.jpg);
-    background-size: auto 100%;
-    background-position: 50% 50%;
+    background: url(CV_42.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
 }
 
