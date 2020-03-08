@@ -2,10 +2,9 @@ import React, { Component } from "react";
 import anime from "animejs";
 import "./Curriculum.scss";
 import Card from "@material-ui/core/Card";
-import CardMedia from "@material-ui/core/CardMedia";
-import RT from "./RT_castle.jpg";
+import RT_castle from "./RT_castle.jpg";
+import RT_mix from "./RT_mix.jpg";
 import Particles from "react-particles-js";
-import CardContent from "@material-ui/core/CardContent";
 
 let lastCall = 0;
 
@@ -161,53 +160,66 @@ class Curriculum extends Component {
     }
   };
 
-  render() {
-    let { scene, sceneOld, sceneNew } = this.state;
-    let particleWidth = scene == 0 ? "window.innerWidth" : "100%";
+  mySectionParticle = nb => {
+    let particleWidth = this.state.scene == 0 ? window.innerWidth : "100%";
 
     return (
-      <div id="wrapper_curriculum">
-        <div className="rect1">
-          <Particles
-            height={window.innerHeight}
-            width={particleWidth}
-            className="particle"
-            params={{
-              opacity: {
-                value: 0.9,
-                random: false,
-                anim: {
-                  enable: false,
-                  speed: 1,
-                  opacity_min: 0.1,
-                  sync: false
-                }
+      <Particles
+        height={window.innerHeight}
+        width={particleWidth}
+        className="particle"
+        params={{
+          particles: {
+            number: {
+              density: { enable: true, value_area: 700 }
+            }
+          },
+          opacity: {
+            value: 0.9,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
+          interactivity: {
+            detect_on: "windows",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "repulse"
               },
-              interactivity: {
-                detect_on: "windows",
-                events: {
-                  onhover: {
-                    enable: true,
-                    mode: "repulse"
-                  },
-                  onclick: {
-                    enable: true,
-                    mode: "push"
-                  },
-                  resize: true
-                }
-              }
-            }}
-          />
+              onclick: {
+                enable: true,
+                mode: "push"
+              },
+              resize: true
+            }
+          }
+        }}
+      />
+    );
+  };
 
+  render() {
+    let { scene } = this.state;
+    return (
+      <div id="wrapper_curriculum">
+        {this.mySectionParticle(this.state.section)}
+        <div className="rect1">
+          {this.mySectionParticle(this.state.section)}
           <div
             className="titreCv"
             id="titre0"
-            onMouseEnter={() => {
-              this.blurAllExept(0);
+            onClick={() => {
               if (scene !== 1) {
                 this.setState({ scene: 1 }, () => this.letScene(1));
               }
+            }}
+            onMouseEnter={() => {
+              this.blurAllExept(0);
             }}
           >
             École 42
@@ -215,11 +227,13 @@ class Curriculum extends Component {
           <div
             className="titreCv"
             id="titre1"
-            onMouseEnter={() => {
-              this.blurAllExept(1);
+            onClick={() => {
               if (scene !== 2) {
                 this.setState({ scene: 2 }, () => this.letScene(2));
               }
+            }}
+            onMouseEnter={() => {
+              this.blurAllExept(1);
             }}
           >
             Centrale Nantes
@@ -227,11 +241,13 @@ class Curriculum extends Component {
           <div
             className="titreCv"
             id="titre2"
-            onMouseEnter={() => {
-              this.blurAllExept(2);
+            onClick={() => {
               if (scene !== 3) {
                 this.setState({ scene: 3 }, () => this.letScene(3));
               }
+            }}
+            onMouseEnter={() => {
+              this.blurAllExept(2);
             }}
           >
             <div>CAPES</div>
@@ -252,12 +268,33 @@ class Curriculum extends Component {
               <div className="image_rt"></div>
             </div>
             <Card className="textCard">
-              <div className="textInRT">
+              <div className="textIn">
                 Développement d’un moteur graphique de type raytracing en C.
               </div>
-              RT raytracer images
               <div className="scroll_down"></div>
             </Card>
+
+            <div class="polaroid1">
+              <img
+                src={RT_castle}
+                alt="Castle"
+                style={{ width: "11vw", borderRadius: "8px" }}
+              />
+              <div class="container">
+                <p>Cinque Terre</p>
+              </div>
+            </div>
+            <div class="polaroid2">
+              <img
+                src={RT_mix}
+                alt="RT_mix"
+                style={{ width: "11vw", borderRadius: "8px" }}
+              />
+              <div class="container">
+                <p>Cinque Terre</p>
+              </div>
+            </div>
+
             {/* <CardMedia
               onMouseEnter={() => {}}
               style={{
@@ -273,14 +310,14 @@ class Curriculum extends Component {
 
           <section id="section1" className="section">
             <Card className="textCard">
-              <div className="textInRT">2eme section</div>
+              <div className="textIn">2eme section</div>
               <div className="scroll_down"></div>
             </Card>
           </section>
 
           <section id="section2" className="section">
             <Card className="textCard">
-              <div className="textInRT">3eme section</div>
+              <div className="textIn">3eme section</div>
               <div className="scroll_down"></div>
             </Card>
           </section>

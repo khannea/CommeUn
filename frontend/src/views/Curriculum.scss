@@ -57,6 +57,7 @@
     padding-left: 4vw;
     padding-top: 2vw;
     padding-bottom: 2vw;
+    cursor: pointer;
     // padding-left: 100px;
     // padding-top: 50px;
     // padding-bottom: 50px;
@@ -67,12 +68,12 @@
     border-bottom: 1px solid white;
 }
 
-.textInRT {
+.textIn {
     position: relative;
     font-family: Gotham;
     font-style: normal;
     font-weight: 325;
-    font-size: 30px;
+    font-size: 2vw;
     line-height: 50px;
     color: #000000;
 }
@@ -86,9 +87,9 @@
     line-height: 50px;
     color: #000000;
     margin: auto auto;
-    padding: 25px;
-    height: 300px;
-    width: 50vw;
+    padding: 50px;
+    height: 60%;
+    width: 70%;
     //width: 900px;
 }
 
@@ -98,6 +99,7 @@
     left: 50%;
     width: 40px;
     height: 40px;
+    transform: translateX(-50%) translateY(-50%);
     background: url(scroll_down.png);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -226,4 +228,35 @@
     scale: 0.2;
     height: 300px;
     width: 300px;
+}
+
+.polaroid1 {
+    position: absolute;
+    left: 20%;
+    top: 50%;
+    background-color: white;
+    margin-bottom: 25px;
+    margin: auto auto;
+    text-align: center;
+    padding: 15px;
+    transform: rotate(-11deg);
+    box-shadow: 0px 0px 25px black;
+}
+
+.polaroid2 {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    background-color: white;
+    margin-bottom: 25px;
+    margin: auto auto;
+    text-align: center;
+    padding: 15px;
+    transform: rotate(9deg);
+    box-shadow: 0px 0px 25px black;
+}
+
+v .container {
+    text-align: center;
+    padding: 10px 20px;
 }
