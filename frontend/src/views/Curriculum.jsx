@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import anime from "animejs";
 import "./Curriculum.scss";
 import Card from "@material-ui/core/Card";
+
 import RT_castle from "./RT_castle.jpg";
 import RT_mix from "./RT_mix.jpg";
+import Fdf from "./fdf.jpg";
+import Fdf2 from "./fdf2.jpg";
+import Fractol from "./fractol.jpg";
+
 import Particles from "react-particles-js";
 
 let lastCall = 0;
@@ -278,20 +283,24 @@ class Curriculum extends Component {
               <img
                 src={RT_castle}
                 alt="Castle"
-                style={{ width: "11vw", borderRadius: "8px" }}
+                style={{ width: "13vw", borderRadius: "8px" }}
               />
               <div class="container">
-                <p>Cinque Terre</p>
+                <p>Gestion de la lumiere</p>
+                <p>Aléatoire cohérent: Bruit de Perlin</p>
+                <p>Réflection</p>
               </div>
             </div>
             <div class="polaroid2">
               <img
                 src={RT_mix}
                 alt="RT_mix"
-                style={{ width: "11vw", borderRadius: "8px" }}
+                style={{ width: "13vw", borderRadius: "8px" }}
               />
               <div class="container">
-                <p>Cinque Terre</p>
+                <p>Quadriques</p>
+                <p>Réfraction</p>
+                <p>Brillance</p>
               </div>
             </div>
 
@@ -310,16 +319,52 @@ class Curriculum extends Component {
 
           <section id="section1" className="section">
             <Card className="textCard">
-              <div className="textIn">2eme section</div>
+              <div className="textIn">
+                Développement d'une logiciel de modélisation de carte 3D
+              </div>
               <div className="scroll_down"></div>
             </Card>
+
+            <div class="polaroid2">
+              <img
+                src={Fdf}
+                alt="Castle"
+                style={{ width: "13vw", borderRadius: "8px" }}
+              />
+              <div class="container">
+                <p>Algorithme pour relier les points</p>
+              </div>
+            </div>
+            <div class="polaroid1">
+              <img
+                src={Fdf2}
+                alt="Castle"
+                style={{ width: "13vw", borderRadius: "8px" }}
+              />
+              <div class="container">
+                <p>Représentation de carte lourdes</p>
+              </div>
+            </div>
           </section>
 
           <section id="section2" className="section">
             <Card className="textCard">
-              <div className="textIn">3eme section</div>
+              <div className="textIn">
+                Développement d'un logiciel de représentation de fractal
+              </div>
               <div className="scroll_down"></div>
             </Card>
+
+            <div class="polaroid_mid">
+              <img
+                src={Fractol}
+                alt="Castle"
+                style={{ width: "20vw", borderRadius: "8px" }}
+              />
+              <div class="container">
+                <p>Fractal de Mandelbrot</p>
+              </div>
+            </div>
           </section>
         </div>
 
