@@ -105,8 +105,7 @@ class Login extends Component {
   };
 
   render() {
-    const classes = this.props.classes;
-    const { falsePassword, connected } = this.state;
+    const { falsePassword } = this.state;
     return (
       <div>
         <div className="notification">

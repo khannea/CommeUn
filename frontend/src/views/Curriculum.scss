@@ -10,10 +10,6 @@
     overflow: hidden;
 }
 
-.invisible {
-    display: none;
-}
-
 .particle {
     position: absolute;
     top: 0px;
@@ -40,14 +36,6 @@
     font-size: 4vw;
 }
 
-.textBox {
-    position: absolute;
-    width: 351px;
-    height: 48px;
-    left: 255px;
-    top: 242px;
-}
-
 .titreCv {
     box-sizing: border-box;
     //font-size: 75px;
@@ -66,43 +54,6 @@
 .titreCv:hover {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
-}
-
-.textIn {
-    position: relative;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: 325;
-    font-size: 2vw;
-    line-height: 50px;
-    color: #000000;
-}
-
-.textCard {
-    position: relative;
-    font-family: Gotham;
-    font-style: normal;
-    font-weight: 325;
-    font-size: 30px;
-    line-height: 50px;
-    color: #000000;
-    margin: auto auto;
-    padding: 50px;
-    height: 60%;
-    width: 70%;
-    //width: 900px;
-}
-
-.scroll_down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    transform: translateX(-50%) translateY(-50%);
-    background: url(scroll_down.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
 }
 
 .contentCvEcn {
@@ -166,7 +117,7 @@
     background-repeat: no-repeat;
 }
 
-#section0 {
+#section0_0 {
     position: absolute;
     top: 0;
     height: 100vh;
@@ -177,7 +128,7 @@
     vertical-align: middle;
 }
 
-#section1 {
+#section0_1 {
     position: absolute;
     height: 100vh;
     width: 100%;
@@ -189,7 +140,7 @@
     //background-color: white;
 }
 
-#section2 {
+#section0_2 {
     position: absolute;
     height: 100vh;
     top: 200vh;
@@ -198,6 +149,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+#section1_2 {
+    width: 100%;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#cardEcn {
+    width: fit-content;
+    margin: auto auto;
+    padding: 20px;
 }
 
 .wrapper_rt {
@@ -209,71 +174,6 @@
     height: 100vh;
 }
 
-.image_rt {
-    position: absolute;
-    background: url(RT_castle.jpg);
-    background-size: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    z-index: 10;
-}
-
-.card_castle {
-    position: absolute;
-    // height: 664px;
-    // width: 683px;
-}
-
-.img_castle {
-    scale: 0.2;
-    height: 300px;
-    width: 300px;
-}
-
-.polaroid1 {
-    position: absolute;
-    left: 20%;
-    top: 50%;
-    background-color: white;
-    margin-bottom: 25px;
-    margin: auto auto;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
-    transform: rotate(-11deg);
-    box-shadow: 0px 0px 25px black;
-}
-
-.polaroid2 {
-    position: absolute;
-    right: 20%;
-    top: 50%;
-    background-color: white;
-    margin-bottom: 25px;
-    margin: auto auto;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
-    transform: rotate(9deg);
-    box-shadow: 0px 0px 25px black;
-}
-
-.polaroid_mid {
-    position: absolute;
-    right: 35%;
-    top: 35%;
-    background-color: white;
-    margin-bottom: 25px;
-    margin: auto auto;
-    text-align: center;
-    padding-top: 15px;
-    padding-bottom: 0px;
-    padding-left: 15px;
-    padding-right: 15px;
-    transform: rotate(3deg);
-    box-shadow: 0px 0px 25px black;
+#bgEcn {
+    height: 100%;
 }

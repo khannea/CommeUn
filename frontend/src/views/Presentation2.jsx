@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { withStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
 
 import "./Presentation.scss";
@@ -10,9 +9,7 @@ class Presentation2 extends Component {
   state = {
     count: 0
   };
-  constructor(props) {
-    super(props);
-  }
+
   // componentDidMount() {
   //   window.addEventListener("keyup", this.handleScroll);
   //   window.addEventListener("scroll", this.handleScroll);
@@ -22,7 +19,6 @@ class Presentation2 extends Component {
   // }
 
   handleScroll(event) {
-    console.log("SCROOOOLLL");
     let scrollTop = event.srcElement.body.scrollTop,
       itemTranslate = Math.min(0, scrollTop / 3 - 60);
 

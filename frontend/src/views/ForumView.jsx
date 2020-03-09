@@ -10,10 +10,6 @@ class ForumView extends Component {
     addpost_enable: false
   };
 
-  constructor(props) {
-    super(props);
-  }
-
   goToTopic = id => {
     let path = `/Layout/Topic/` + id;
     this.props.history.push(path);

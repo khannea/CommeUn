@@ -3,13 +3,12 @@ import anime from "animejs";
 import "./Curriculum.scss";
 import Card from "@material-ui/core/Card";
 
-import RT_castle from "./RT_castle.jpg";
-import RT_mix from "./RT_mix.jpg";
-import Fdf from "./fdf.jpg";
-import Fdf2 from "./fdf2.jpg";
-import Fractol from "./fractol.jpg";
-
 import Particles from "react-particles-js";
+
+import Polaroid from "../components/Card/Polaroid";
+import PolaroidVideo from "../components/Card/PolaroidVideo";
+
+import CV_text from "../components/Card/CV_text";
 
 let lastCall = 0;
 
@@ -38,7 +37,7 @@ class Curriculum extends Component {
   };
 
   onClickScreen = () => {
-    if (this.state.screen == "60%") {
+    if (this.state.screen === "60%") {
       this.makeFullScreen();
     } else {
       this.makeNormalScreen();
@@ -85,7 +84,7 @@ class Curriculum extends Component {
     this.setState({ screen: "60%" });
   };
 
-  scrollEvent = event => {
+  scrollEvent0 = event => {
     let timeout = 250;
 
     if (new Date() - lastCall < timeout) {
@@ -93,12 +92,10 @@ class Curriculum extends Component {
     } else {
       lastCall = new Date();
       let section = this.state.section;
-      console.log("0:" + section);
       if (event.deltaY > 0) {
-        if (document.querySelector("#section" + (section + 1))) {
+        if (document.querySelector("#section0_" + (section + 1))) {
           this.setState({ section: section + 1 }, () => {
             let section = this.state.section;
-            console.log("+1:" + section);
             anime({
               targets: ".section",
               translateY: -window.innerHeight * section,
@@ -108,10 +105,9 @@ class Curriculum extends Component {
           });
         }
       } else {
-        if (document.querySelector("#section" + (section - 1))) {
+        if (document.querySelector("#section0_" + (section - 1))) {
           this.setState({ section: section - 1 }, () => {
             let section = this.state.section;
-            console.log("-1:" + section);
             anime({
               targets: ".section",
               translateY: -window.innerHeight * section,
@@ -124,11 +120,70 @@ class Curriculum extends Component {
     }
   };
 
+  scrollEvent1 = () => {
+    let section = this.state.section;
+
+    if (section === 0) {
+      this.setState({ section: section + 1 });
+      anime({
+        targets: "#section1_0",
+        height: "100vh",
+        width: "100%",
+        duration: 300,
+        easing: "spring(1, 100, 100,0)"
+      });
+      anime({
+        targets: "#section1_1",
+        opacity: [0, 1],
+        duration: 300,
+        easing: "spring(10, 100, 100,0)"
+      });
+      anime({
+        targets: ".word1",
+        opacity: [0, 1],
+
+        loop: true,
+        direction: "alternate",
+        easing: "spring(100, 100, 100,0)"
+      });
+      anime({
+        targets: ".word2",
+        opacity: [0, 1],
+
+        loop: true,
+        direction: "alternate",
+        easing: "spring(100, 100, 100,0)"
+      });
+      anime({
+        targets: ".word3",
+        opacity: [0, 1],
+
+        loop: true,
+        direction: "alternate",
+        easing: "spring(100, 100, 100,0)"
+      });
+    } else if (section === 1) {
+    }
+  };
+
   letScene = nb => {
-    if (nb == 1) {
-      document.querySelector("#content1").style.zIndex = "2";
+    if (nb === 1) {
+      document.querySelector("#content0").style.zIndex = "2";
+      document.querySelector("#content1").style.zIndex = "0";
       document.querySelector("#content2").style.zIndex = "0";
-      document.querySelector("#content3").style.zIndex = "0";
+      anime({
+        targets: "#content0",
+        translateX: [-1000, 0],
+        duration: 300,
+        //width: ["40%", "60%"],
+        easing: "spring(1, 100, 100,0)"
+      });
+    }
+
+    if (nb === 2) {
+      document.querySelector("#content1").style.zIndex = "2";
+      document.querySelector("#content0").style.zIndex = "0";
+      document.querySelector("#content2").style.zIndex = "0";
       anime({
         targets: "#content1",
         translateX: [-1000, 0],
@@ -138,25 +193,12 @@ class Curriculum extends Component {
       });
     }
 
-    if (nb == 2) {
+    if (nb === 3) {
       document.querySelector("#content2").style.zIndex = "2";
+      document.querySelector("#content0").style.zIndex = "0";
       document.querySelector("#content1").style.zIndex = "0";
-      document.querySelector("#content3").style.zIndex = "0";
       anime({
         targets: "#content2",
-        translateX: [-1000, 0],
-        duration: 300,
-        //width: ["40%", "60%"],
-        easing: "spring(1, 100, 100,0)"
-      });
-    }
-
-    if (nb == 3) {
-      document.querySelector("#content3").style.zIndex = "2";
-      document.querySelector("#content1").style.zIndex = "0";
-      document.querySelector("#content2").style.zIndex = "0";
-      anime({
-        targets: "#content3",
         translateX: [-1000, 0],
         duration: 300,
         //width: ["40%", "60%"],
@@ -166,7 +208,7 @@ class Curriculum extends Component {
   };
 
   mySectionParticle = nb => {
-    let particleWidth = this.state.scene == 0 ? window.innerWidth : "100%";
+    let particleWidth = this.state.scene === 0 ? window.innerWidth : "100%";
 
     return (
       <Particles
@@ -234,7 +276,7 @@ class Curriculum extends Component {
             id="titre1"
             onClick={() => {
               if (scene !== 2) {
-                this.setState({ scene: 2 }, () => this.letScene(2));
+                this.setState({ scene: 2, section: 0 }, () => this.letScene(2));
               }
             }}
             onMouseEnter={() => {
@@ -261,130 +303,147 @@ class Curriculum extends Component {
         </div>
 
         <div
-          id="content1"
+          id="content0"
           className="contentCv contentCv_wrapper"
           onClick={this.onClickScreen}
-          onWheel={this.scrollEvent}
+          onWheel={this.scrollEvent0}
         >
           <div className="Filtre"></div>
 
-          <section id="section0" className="section">
-            <div className="wrapper_rt">
-              <div className="image_rt"></div>
-            </div>
-            <Card className="textCard">
-              <div className="textIn">
-                Développement d’un moteur graphique de type raytracing en C.
-              </div>
-              <div className="scroll_down"></div>
-            </Card>
-
-            <div class="polaroid1">
-              <img
-                src={RT_castle}
-                alt="Castle"
-                style={{ width: "13vw", borderRadius: "8px" }}
-              />
-              <div class="container">
-                <p>Gestion de la lumiere</p>
-                <p>Aléatoire cohérent: Bruit de Perlin</p>
-                <p>Réflection</p>
-              </div>
-            </div>
-            <div class="polaroid2">
-              <img
-                src={RT_mix}
-                alt="RT_mix"
-                style={{ width: "13vw", borderRadius: "8px" }}
-              />
-              <div class="container">
-                <p>Quadriques</p>
-                <p>Réfraction</p>
-                <p>Brillance</p>
-              </div>
-            </div>
-
-            {/* <CardMedia
-              onMouseEnter={() => {}}
+          <section id="section0_0" className="section">
+            <CV_text
+              texte={
+                "Développement d’un moteur graphique de type raytracing en C."
+              }
+            />
+            <Polaroid
+              texte={[
+                "Gestion de la lumiere",
+                "Aléatoire cohérent: Bruit de Perlin",
+                "Réflection"
+              ]}
+              image={require("./RT_castle.jpg")}
               style={{
-                width: "250px",
-                height: "250px",
-                position: "absolute",
-                top: "50%"
+                transform: "rotate(-9deg)",
+                left: "20%",
+                top: "40%",
+                width: "25%"
               }}
-              image={RT}
-              title="Contemplative Reptile"
+            />
+            <Polaroid
+              texte={["Quadriques", "Réfraction", "Brillance"]}
+              image={require("./RT_mix.jpg")}
+              style={{
+                transform: "rotate(7deg)",
+                right: "20%",
+                top: "40%",
+                width: "25%"
+              }}
+            />
+          </section>
+
+          <section id="section0_1" className="section">
+            <CV_text
+              texte={
+                "Développement d'une logiciel de modélisation de carte 3D."
+              }
+            />
+            <Polaroid
+              texte={["Algorithme de tracé de segment de Bresenham"]}
+              image={require("./fdf.jpg")}
+              style={{
+                transform: "rotate(-5deg)",
+                left: "17%",
+                top: "38%",
+                width: "30%"
+              }}
+            />
+            <Polaroid
+              texte={["Représentation de carte complexes"]}
+              image={require("./fdf2.jpg")}
+              style={{
+                transform: "rotate(-2deg)",
+                right: "16%",
+                top: "40%",
+                width: "30%"
+              }}
+            />
+          </section>
+
+          <section id="section0_2" className="section">
+            <CV_text
+              texte={
+                "Développement d'un logiciel de représentation de fractal."
+              }
+            />
+            {/* <Polaroid
+              texte={["Fractal de Mandelbrot"]}
+              image={require("./fractol.jpg")}
+              style={{
+                left: "32%",
+                top: "35%",
+                width: "35%"
+              }}
             /> */}
+            <PolaroidVideo
+              texte={["Fractal de Mandelbrot"]}
+              image={require("./final.mp4")}
+              style={{
+                left: "32%",
+                top: "35%",
+                width: "35%"
+              }}
+            />
+          </section>
+        </div>
+
+        <div
+          id="content1"
+          className="contentCvEcn contentCv_wrapper"
+          onClick={this.onClickScreen}
+          onWheel={this.scrollEvent1}
+        >
+          <section id="section1_0" className="section1">
+            <Card id="bgEcn">
+              <div className="Filtre"></div>
+              <p>
+                <h1>Ingenieur généraliste</h1>
+              </p>
+              <p>
+                <h3>spécialité Management de Projet et Energétique</h3>
+              </p>
+            </Card>
           </section>
 
-          <section id="section1" className="section">
-            <Card className="textCard">
-              <div className="textIn">
-                Développement d'une logiciel de modélisation de carte 3D
-              </div>
-              <div className="scroll_down"></div>
-            </Card>
-
-            <div class="polaroid2">
-              <img
-                src={Fdf}
-                alt="Castle"
-                style={{ width: "13vw", borderRadius: "8px" }}
-              />
-              <div class="container">
-                <p>Algorithme pour relier les points</p>
-              </div>
+          <section
+            id="section1_1"
+            className="section1"
+            style={{ opacity: "0", width: "100%", position: "absolute" }}
+          >
+            <img
+              src={require("./Ecn_section1.jpg")}
+              style={{ width: "100%" }}
+            />
+            <div
+              className="word1"
+              style={{ position: "absolute", top: "20%", right: "10%" }}
+            >
+              <h1>Une formation de qualité</h1>
             </div>
-            <div class="polaroid1">
-              <img
-                src={Fdf2}
-                alt="Castle"
-                style={{ width: "13vw", borderRadius: "8px" }}
-              />
-              <div class="container">
-                <p>Représentation de carte lourdes</p>
-              </div>
+            <div className="word2" style={{ position: "absolute", top: "40%" }}>
+              <h1>Une sélection difficile</h1>
             </div>
-          </section>
-
-          <section id="section2" className="section">
-            <Card className="textCard">
-              <div className="textIn">
-                Développement d'un logiciel de représentation de fractal
-              </div>
-              <div className="scroll_down"></div>
-            </Card>
-
-            <div class="polaroid_mid">
-              <img
-                src={Fractol}
-                alt="Castle"
-                style={{ width: "20vw", borderRadius: "8px" }}
-              />
-              <div class="container">
-                <p>Fractal de Mandelbrot</p>
-              </div>
+            <div
+              className="word3"
+              style={{ position: "absolute", top: "70%", left: "30%" }}
+            >
+              <h1>Une renomée international</h1>
             </div>
           </section>
         </div>
 
         <div
           id="content2"
-          className="contentCvEcn contentCv_wrapper"
-          onClick={this.onClickScreen}
-        >
-          <div className="Filtre"></div>
-          <Card className="textCard" name="card2" id="card2">
-            <div className="textInRT">Ingenieur généraliste</div>
-            <div className="textInRT">
-              Spécialité Énergie et Management de Projet
-            </div>
-            <div className="scroll_down"></div>
-          </Card>
-        </div>
-
-        <div
-          id="content3"
           className="contentCvTeacher contentCv_wrapper"
           onClick={this.onClickScreen}
         >

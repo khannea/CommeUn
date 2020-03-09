@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Row, Col, Image } from "react-bootstrap";
-import DefaultImg from "./default-user-avatar.png";
+//import DefaultImg from "./default-user-avatar.png";
 import DeletePost from "./DeletePost";
 import PostView from "../views/PostView";
 import "./Post.css";
 import Cookies from "universal-cookie";
-import Button from "@material-ui/core/Button";
-import { Card, CardHeader, CardContent, Avatar, Grid } from "@material-ui/core";
+
+import { Card, CardHeader, CardContent } from "@material-ui/core";
 
 import EditPost from "./EditPost";
 
@@ -106,11 +106,10 @@ class Post extends Component {
     let texte = this.props.texte
       .split("\n")
       .map((item, i) => <p key={i}>{item}</p>);
-    let success = false;
-
-    if (this.props.likes > this.props.dislikes) {
-      success = true;
-    }
+    //let success = false;
+    // if (this.props.likes > this.props.dislikes) {
+    //   success = true;
+    // }
 
     return (
       <Card className="mx-4 my-2" elevation="0">

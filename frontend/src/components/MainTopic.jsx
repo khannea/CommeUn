@@ -111,7 +111,7 @@ class MainTopic extends Component {
   };
 
   render() {
-    let { data, id } = this.state;
+    let { data } = this.state;
     // .split("\n")
     // .map((item, i) => <p key={i}>{item}</p>);
 
