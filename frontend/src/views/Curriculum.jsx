@@ -62,6 +62,12 @@ class Curriculum extends Component {
       width: ["40%", "15%"],
       easing: "spring(2, 100, 100, 1)"
     });
+    anime({
+      targets: ".textCard",
+      duration: 1000,
+      height: ["70%", "90%"],
+      easing: "spring(2, 100, 100, 1)"
+    });
   };
 
   makeNormalScreen = () => {
@@ -79,6 +85,12 @@ class Curriculum extends Component {
       minWidth: ["15%", "40%"],
       fontSize: "4vw",
       width: ["15%", "40%"],
+      easing: "spring(2, 100, 100, 1)"
+    });
+    anime({
+      targets: ".textCard",
+      duration: 1000,
+      height: ["90%", "70%"],
       easing: "spring(2, 100, 100, 1)"
     });
     this.setState({ screen: "60%" });
@@ -120,49 +132,93 @@ class Curriculum extends Component {
     }
   };
 
-  scrollEvent1 = () => {
+  scrollEvent1 = event => {
     let section = this.state.section;
 
-    if (section === 0) {
+    if (event.deltaY > 0) {
       this.setState({ section: section + 1 });
-      anime({
-        targets: "#section1_0",
-        height: "100vh",
-        width: "100%",
-        duration: 300,
-        easing: "spring(1, 100, 100,0)"
-      });
-      anime({
-        targets: "#section1_1",
-        opacity: [0, 1],
-        duration: 300,
-        easing: "spring(10, 100, 100,0)"
-      });
-      anime({
-        targets: ".word1",
-        opacity: [0, 1],
-
-        loop: true,
-        direction: "alternate",
-        easing: "spring(100, 100, 100,0)"
-      });
-      anime({
-        targets: ".word2",
-        opacity: [0, 1],
-
-        loop: true,
-        direction: "alternate",
-        easing: "spring(100, 100, 100,0)"
-      });
-      anime({
-        targets: ".word3",
-        opacity: [0, 1],
-
-        loop: true,
-        direction: "alternate",
-        easing: "spring(100, 100, 100,0)"
-      });
-    } else if (section === 1) {
+      if (section === 0) {
+        anime({
+          targets: "#section1_0",
+          height: "100vh",
+          width: "100%",
+          duration: 300,
+          easing: "spring(1, 100, 100,0)"
+        });
+        anime({
+          targets: "#section1_1",
+          opacity: [0, 1],
+          duration: 300,
+          easing: "spring(10, 100, 100,0)"
+        });
+        anime({
+          targets: ".word1",
+          opacity: [0, 1],
+          easing: "spring(20, 100, 100,0)"
+        });
+        anime({
+          targets: ".word2",
+          opacity: [0, 1],
+          easing: "spring(20, 100, 100,0)"
+        });
+        anime({
+          targets: ".word3",
+          opacity: [0, 1],
+          easing: "spring(20, 100, 100,0)"
+        });
+      } else if (section === 1) {
+        console.log("ici");
+        anime({
+          targets: ".specialite",
+          fontSize: "50px",
+          fontWeight: 900,
+          duration: 500,
+          position: "absolute",
+          top: "40%",
+          easing: "spring(1, 100, 100,0)"
+        });
+      }
+    } else {
+      this.setState({ section: section - 1 });
+      if (section === 1) {
+        anime({
+          targets: "#section1_0",
+          height: "auto",
+          width: "100%",
+          duration: 300,
+          easing: "spring(1, 100, 100,0)"
+        });
+        anime({
+          targets: "#section1_1",
+          opacity: [1, 0],
+          duration: 300,
+          easing: "spring(10, 100, 100,0)"
+        });
+        anime({
+          targets: ".word1",
+          opacity: [1, 0],
+          easing: "spring(100, 100, 100,0)"
+        });
+        anime({
+          targets: ".word2",
+          opacity: [1, 0],
+          easing: "spring(100, 100, 100,0)"
+        });
+        anime({
+          targets: ".word3",
+          opacity: [1, 0],
+          easing: "spring(100, 100, 100,0)"
+        });
+      } else if (section === 2) {
+        console.log("ici");
+        anime({
+          targets: ".specialite",
+          fontSize: "40px",
+          fontWeight: 500,
+          duration: 500,
+          easing: "spring(1, 100, 100,0)"
+        });
+      }
     }
   };
 
@@ -262,7 +318,7 @@ class Curriculum extends Component {
             id="titre0"
             onClick={() => {
               if (scene !== 1) {
-                this.setState({ scene: 1 }, () => this.letScene(1));
+                this.setState({ scene: 1, section: 0 }, () => this.letScene(1));
               }
             }}
             onMouseEnter={() => {
@@ -290,7 +346,7 @@ class Curriculum extends Component {
             id="titre2"
             onClick={() => {
               if (scene !== 3) {
-                this.setState({ scene: 3 }, () => this.letScene(3));
+                this.setState({ scene: 3, section: 0 }, () => this.letScene(3));
               }
             }}
             onMouseEnter={() => {
@@ -390,7 +446,7 @@ class Curriculum extends Component {
               image={require("./final.mp4")}
               style={{
                 left: "32%",
-                top: "35%",
+                top: "33%",
                 width: "35%"
               }}
             />
@@ -409,9 +465,11 @@ class Curriculum extends Component {
               <p>
                 <h1>Ingenieur généraliste</h1>
               </p>
-              <p>
-                <h3>spécialité Management de Projet et Energétique</h3>
-              </p>
+              <div>
+                <h3 className="specialite">
+                  spécialité Management de Projet et Energétique
+                </h3>
+              </div>
             </Card>
           </section>
 
