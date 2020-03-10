@@ -22,18 +22,36 @@ class Curriculum extends Component {
   blurAllExept = nb => {
     let x = (nb + 1) % 3;
     let y = (nb + 2) % 3;
-    var targetElm0 = document.querySelector("#titre" + nb);
-    var targetElm1 = document.querySelector("#titre" + x);
-    var targetElm2 = document.querySelector("#titre" + y);
-    anime({
-      targets: "#titre" + x + ",#titre" + y,
-      duration: 200,
-      update: function(anim) {
-        targetElm0.style.filter = "blur(0px)";
-        targetElm1.style.filter = "blur(" + (10 * anim.progress) / 100 + "px)";
-        targetElm2.style.filter = "blur(" + (10 * anim.progress) / 100 + "px)";
-      }
-    });
+    console.log(nb);
+    if (nb >= 0) {
+      var targetElm0 = document.querySelector("#titre" + nb);
+      var targetElm1 = document.querySelector("#titre" + x);
+      var targetElm2 = document.querySelector("#titre" + y);
+      anime({
+        targets: "#titre" + x + ",#titre" + y,
+        duration: 200,
+        update: function(anim) {
+          targetElm0.style.filter = "blur(0px)";
+          targetElm1.style.filter =
+            "blur(" + (10 * anim.progress) / 100 + "px)";
+          targetElm2.style.filter =
+            "blur(" + (10 * anim.progress) / 100 + "px)";
+        }
+      });
+    } else {
+      var targetElm0 = document.querySelector("#titre0");
+      var targetElm1 = document.querySelector("#titre1");
+      var targetElm2 = document.querySelector("#titre2");
+      anime({
+        targets: "#titre" + x + ",#titre" + y,
+        duration: 200,
+        update: function(anim) {
+          targetElm0.style.filter = "blur(0px)";
+          targetElm1.style.filter = "blur(0px)";
+          targetElm2.style.filter = "blur(0px)";
+        }
+      });
+    }
   };
 
   onClickScreen = () => {
@@ -149,7 +167,7 @@ class Curriculum extends Component {
           targets: "#section1_1",
           opacity: [0, 1],
           duration: 300,
-          easing: "spring(10, 100, 100,0)"
+          easing: "spring(5, 100, 100,0)"
         });
         anime({
           targets: ".word1",
@@ -167,14 +185,17 @@ class Curriculum extends Component {
           easing: "spring(20, 100, 100,0)"
         });
       } else if (section === 1) {
-        console.log("ici");
         anime({
-          targets: ".specialite",
+          targets: ".specialite_texte",
           fontSize: "50px",
           fontWeight: 900,
           duration: 500,
-          position: "absolute",
-          top: "40%",
+          easing: "spring(1, 100, 100,0)"
+        });
+        anime({
+          targets: ".specialite_wrapper",
+          top: "15%",
+          duration: 500,
           easing: "spring(1, 100, 100,0)"
         });
       }
@@ -311,7 +332,12 @@ class Curriculum extends Component {
     return (
       <div id="wrapper_curriculum">
         {this.mySectionParticle(this.state.section)}
-        <div className="rect1">
+        <div
+          className="rect1"
+          onMouseLeave={() => {
+            this.blurAllExept(scene - 1);
+          }}
+        >
           {this.mySectionParticle(this.state.section)}
           <div
             className="titreCv"
@@ -400,9 +426,7 @@ class Curriculum extends Component {
 
           <section id="section0_1" className="section">
             <CV_text
-              texte={
-                "Développement d'une logiciel de modélisation de carte 3D."
-              }
+              texte={"Développement d'un logiciel de modélisation de carte 3D."}
             />
             <Polaroid
               texte={["Algorithme de tracé de segment de Bresenham"]}
@@ -462,11 +486,9 @@ class Curriculum extends Component {
           <section id="section1_0" className="section1">
             <Card id="bgEcn">
               <div className="Filtre"></div>
-              <p>
-                <h1>Ingenieur généraliste</h1>
-              </p>
-              <div>
-                <h3 className="specialite">
+              <h1>Ingenieur généraliste</h1>
+              <div className="specialite_wrapper">
+                <h3 className="specialite_texte">
                   spécialité Management de Projet et Energétique
                 </h3>
               </div>
