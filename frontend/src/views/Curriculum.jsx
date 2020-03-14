@@ -5,12 +5,47 @@ import Card from "@material-ui/core/Card";
 
 import Particles from "react-particles-js";
 
-import Polaroid from "../components/Card/Polaroid";
-import PolaroidVideo from "../components/Card/PolaroidVideo";
-
-import CV_text from "../components/Card/CV_text";
+import Section00 from "./section0/Section00";
+import Section01 from "./section0/Section01";
+import Section02 from "./section0/Section02";
+import Section10 from "./section1/Section10";
 
 let lastCall = 0;
+var playing = false;
+
+function play(id, titles) {
+  console.log(playing);
+  if (playing == false) {
+    playing = true;
+
+    var l = document.getElementById(id);
+    var logoTitle = titles;
+    var logoRandom = "";
+    var possible = '-+*/|}{[]~\\":;?/.><=+-_)(*&^%$#@!)}';
+
+    function generateRandomTitle(k, i, logoRandom, logoTitle) {
+      setTimeout(function() {
+        l.innerText = logoRandom;
+        if (k == logoTitle.length - 1 && i == logoTitle[k].length - 1) {
+          playing = false;
+        }
+      }, k * (50 * logoRandom.length + 1000) + i * 50);
+    }
+
+    for (var k = 0; k < logoTitle.length; k++) {
+      for (var i = 0; i < logoTitle[k].length + 1; i++) {
+        logoRandom = logoTitle[k].substr(0, i);
+        for (var j = i; j < logoTitle[k].length; j++) {
+          logoRandom += possible.charAt(
+            Math.floor(Math.random() * possible.length)
+          );
+        }
+        generateRandomTitle(k, i, logoRandom, logoTitle);
+        logoRandom = "";
+      }
+    }
+  }
+}
 
 class Curriculum extends Component {
   state = {
@@ -22,7 +57,7 @@ class Curriculum extends Component {
   blurAllExept = nb => {
     let x = (nb + 1) % 3;
     let y = (nb + 2) % 3;
-    console.log(nb);
+
     if (nb >= 0) {
       var targetElm0 = document.querySelector("#titre" + nb);
       var targetElm1 = document.querySelector("#titre" + x);
@@ -153,92 +188,86 @@ class Curriculum extends Component {
   scrollEvent1 = event => {
     let section = this.state.section;
 
-    if (event.deltaY > 0) {
+    if (event.deltaY > 0 && section < 2) {
       this.setState({ section: section + 1 });
       if (section === 0) {
-        anime({
+        const timeline = anime.timeline({});
+        timeline.add({
           targets: "#section1_0",
           height: "100vh",
           width: "100%",
-          duration: 300,
-          easing: "spring(1, 100, 100,0)"
+          duration: 1000,
+          easing: "easeInOutSine",
+          complete: function() {
+            document.getElementById("word1").style.opacity = 1;
+          }
         });
         anime({
           targets: "#section1_1",
           opacity: [0, 1],
-          duration: 300,
-          easing: "spring(5, 100, 100,0)"
+          duration: 3000,
+          easing: "easeInOutSine"
         });
-        anime({
-          targets: ".word1",
-          opacity: [0, 1],
-          easing: "spring(20, 100, 100,0)"
-        });
-        anime({
-          targets: ".word2",
-          opacity: [0, 1],
-          easing: "spring(20, 100, 100,0)"
-        });
-        anime({
-          targets: ".word3",
-          opacity: [0, 1],
-          easing: "spring(20, 100, 100,0)"
+        timeline.add({
+          targets: "#word1",
+          duration: 2500,
+          begin: function() {
+            play("word1", [
+              "Une formation de qualité",
+              "Une sélection difficile",
+              "Une renomée internationale"
+            ]);
+          },
+          complete: function() {
+            document.getElementById("word2").style.opacity = 1;
+          }
         });
       } else if (section === 1) {
-        anime({
-          targets: ".specialite_texte",
-          fontSize: "50px",
-          fontWeight: 900,
-          duration: 500,
-          easing: "spring(1, 100, 100,0)"
-        });
-        anime({
-          targets: ".specialite_wrapper",
-          top: "15%",
-          duration: 500,
-          easing: "spring(1, 100, 100,0)"
-        });
+        // anime({
+        //   targets: ".specialite_texte",
+        //   fontSize: "50px",
+        //   fontWeight: 900,
+        //   duration: 500
+        //   //easing: "spring(1, 100, 100,0)"
+        // });
+        // anime({
+        //   targets: ".specialite_wrapper",
+        //   top: "15%",
+        //   duration: 500
+        //   //easing: "spring(1, 100, 100,0)"
+        // });
       }
     } else {
       this.setState({ section: section - 1 });
       if (section === 1) {
         anime({
           targets: "#section1_0",
-          height: "auto",
-          width: "100%",
-          duration: 300,
-          easing: "spring(1, 100, 100,0)"
+          height: "100px"
+
+          // easing: "spring(1, 100, 100,0)"
         });
         anime({
           targets: "#section1_1",
-          opacity: [1, 0],
-          duration: 300,
-          easing: "spring(10, 100, 100,0)"
+          opacity: 0
+
+          //easing: "spring(10, 100, 100,0)"
         });
         anime({
-          targets: ".word1",
-          opacity: [1, 0],
-          easing: "spring(100, 100, 100,0)"
+          targets: "#word1",
+          opacity: 0
+          //easing: "spring(100, 100, 100,0)"
         });
         anime({
-          targets: ".word2",
-          opacity: [1, 0],
-          easing: "spring(100, 100, 100,0)"
+          targets: "#word2",
+          opacity: 0
+          //easing: "spring(100, 100, 100,0)"
         });
         anime({
-          targets: ".word3",
-          opacity: [1, 0],
-          easing: "spring(100, 100, 100,0)"
+          targets: "#word3",
+          opacity: 0
+          // easing: "spring(100, 100, 100,0)"
         });
       } else if (section === 2) {
-        console.log("ici");
-        anime({
-          targets: ".specialite",
-          fontSize: "40px",
-          fontWeight: 500,
-          duration: 500,
-          easing: "spring(1, 100, 100,0)"
-        });
       }
     }
   };
@@ -248,6 +277,13 @@ class Curriculum extends Component {
       document.querySelector("#content0").style.zIndex = "2";
       document.querySelector("#content1").style.zIndex = "0";
       document.querySelector("#content2").style.zIndex = "0";
+
+      anime({
+        targets: ".section",
+        translateY: 0,
+        duration: 0
+      });
+
       anime({
         targets: "#content0",
         translateX: [-1000, 0],
@@ -351,7 +387,7 @@ class Curriculum extends Component {
               this.blurAllExept(0);
             }}
           >
-            École 42
+            <span>École 42</span>
           </div>
           <div
             className="titreCv"
@@ -365,7 +401,7 @@ class Curriculum extends Component {
               this.blurAllExept(1);
             }}
           >
-            Centrale Nantes
+            <div className="titre_texte">Centrale Nantes</div>
           </div>
           <div
             className="titreCv"
@@ -379,8 +415,7 @@ class Curriculum extends Component {
               this.blurAllExept(2);
             }}
           >
-            <div>CAPES</div>
-            <div>mathématiques</div>
+            <div>CAPES mathématiques</div>
           </div>
         </div>
 
@@ -392,89 +427,9 @@ class Curriculum extends Component {
         >
           <div className="Filtre"></div>
 
-          <section id="section0_0" className="section">
-            <CV_text
-              texte={
-                "Développement d’un moteur graphique de type raytracing en C."
-              }
-            />
-            <Polaroid
-              texte={[
-                "Gestion de la lumiere",
-                "Aléatoire cohérent: Bruit de Perlin",
-                "Réflection"
-              ]}
-              image={require("./RT_castle.jpg")}
-              style={{
-                transform: "rotate(-9deg)",
-                left: "20%",
-                top: "40%",
-                width: "25%"
-              }}
-            />
-            <Polaroid
-              texte={["Quadriques", "Réfraction", "Brillance"]}
-              image={require("./RT_mix.jpg")}
-              style={{
-                transform: "rotate(7deg)",
-                right: "20%",
-                top: "40%",
-                width: "25%"
-              }}
-            />
-          </section>
-
-          <section id="section0_1" className="section">
-            <CV_text
-              texte={"Développement d'un logiciel de modélisation de carte 3D."}
-            />
-            <Polaroid
-              texte={["Algorithme de tracé de segment de Bresenham"]}
-              image={require("./fdf.jpg")}
-              style={{
-                transform: "rotate(-5deg)",
-                left: "17%",
-                top: "38%",
-                width: "30%"
-              }}
-            />
-            <Polaroid
-              texte={["Représentation de carte complexes"]}
-              image={require("./fdf2.jpg")}
-              style={{
-                transform: "rotate(-2deg)",
-                right: "16%",
-                top: "40%",
-                width: "30%"
-              }}
-            />
-          </section>
-
-          <section id="section0_2" className="section">
-            <CV_text
-              texte={
-                "Développement d'un logiciel de représentation de fractal."
-              }
-            />
-            {/* <Polaroid
-              texte={["Fractal de Mandelbrot"]}
-              image={require("./fractol.jpg")}
-              style={{
-                left: "32%",
-                top: "35%",
-                width: "35%"
-              }}
-            /> */}
-            <PolaroidVideo
-              texte={["Fractal de Mandelbrot"]}
-              image={require("./final.mp4")}
-              style={{
-                left: "32%",
-                top: "33%",
-                width: "35%"
-              }}
-            />
-          </section>
+          <Section00 />
+          <Section01 />
+          <Section02 />
         </div>
 
         <div
@@ -489,36 +444,56 @@ class Curriculum extends Component {
               <h1>Ingenieur généraliste</h1>
               <div className="specialite_wrapper">
                 <h3 className="specialite_texte">
-                  spécialité Management de Projet et Energétique
+                  Spécialité Management de Projet et Energétique
                 </h3>
               </div>
-            </Card>
-          </section>
 
-          <section
-            id="section1_1"
-            className="section1"
-            style={{ opacity: "0", width: "100%", position: "absolute" }}
-          >
-            <img
-              src={require("./Ecn_section1.jpg")}
-              style={{ width: "100%" }}
-            />
-            <div
-              className="word1"
-              style={{ position: "absolute", top: "20%", right: "10%" }}
-            >
-              <h1>Une formation de qualité</h1>
-            </div>
-            <div className="word2" style={{ position: "absolute", top: "40%" }}>
-              <h1>Une sélection difficile</h1>
-            </div>
-            <div
-              className="word3"
-              style={{ position: "absolute", top: "70%", left: "30%" }}
-            >
-              <h1>Une renomée international</h1>
-            </div>
+              <section
+                id="section1_1"
+                className="section1"
+                style={{
+                  opacity: "0",
+                  width: "100%",
+                  height: "100%"
+                }}
+              >
+                <img
+                  src={require("./Ecn_section1.jpg")}
+                  style={{
+                    position: "absolute",
+                    top: "0%",
+                    width: "auto",
+                    height: "100vh"
+                  }}
+                />
+
+                <div
+                  id="word1"
+                  className="word"
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    transform: "translateY(-50%)"
+                  }}
+                ></div>
+                <div
+                  id="word2"
+                  className="word"
+                  style={{
+                    position: "absolute",
+                    top: "20%"
+                  }}
+                ></div>
+                <div
+                  id="word3"
+                  className="word"
+                  style={{
+                    position: "absolute",
+                    top: "70%"
+                  }}
+                ></div>
+              </section>
+            </Card>
           </section>
         </div>
 
@@ -528,10 +503,11 @@ class Curriculum extends Component {
           onClick={this.onClickScreen}
         >
           <div className="Filtre"></div>
-          <Card className="textCard">
+          <Section10 />
+          {/* <Card className="textCard">
             <div className="textInRT">Enseignant collége et lycée</div>
             <div className="scroll_down"></div>
-          </Card>
+          </Card> */}
         </div>
 
         <div

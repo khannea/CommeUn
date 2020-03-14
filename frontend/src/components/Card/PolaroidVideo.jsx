@@ -2,7 +2,6 @@ import React from "react";
 import "./Polaroid.css";
 
 function PolaroidVideo({ texte, image, style }) {
-  console.log(typeof texte);
   return (
     <div className="polaroid" style={style}>
       <video

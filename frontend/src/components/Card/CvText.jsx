@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
-import "./CV_text.css";
+import "./CvText.css";
 
-function CV_text({ texte }) {
+function CvText({ texte }) {
   return (
     <Card className="textCard">
       <div className="textIn">{texte}</div>
@@ -11,4 +11,4 @@ function CV_text({ texte }) {
   );
 }
 
-export default CV_text;
+export default CvText;
