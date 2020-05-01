@@ -8,7 +8,7 @@ import Particles from "react-particles-js";
 import Section00 from "./section0/Section00";
 import Section01 from "./section0/Section01";
 import Section02 from "./section0/Section02";
-import Section10 from "./section1/Section10";
+import Section20 from "./section2/Section20";
 
 let lastCall = 0;
 var playing = false;
@@ -503,7 +503,7 @@ class Curriculum extends Component {
           onClick={this.onClickScreen}
         >
           <div className="Filtre"></div>
-          <Section10 />
+          <Section20 />
           {/* <Card className="textCard">
             <div className="textInRT">Enseignant collége et lycée</div>
             <div className="scroll_down"></div>
