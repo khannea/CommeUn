@@ -28,7 +28,7 @@ const switchRoutes = (
     <Route path="/Layout/Topic/:id" component={WithAuth(TopicView)} />
     <Route path="/Layout/ReflexionView" component={ReflexionView} />
     <Route path="/Layout/Curriculum" component={Curriculum} />
-    <Redirect to="/Layout/Presentation2" />
+    <Redirect to="/Layout/Presentation" />
     {/* <Redirect to="/Layout/Curriculum" /> */}
   </Switch>
 );
